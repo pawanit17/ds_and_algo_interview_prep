@@ -113,3 +113,8 @@ void printInReverse( Node* head )
   - Time Complexity: O(N)
   - Space Complexity: O(1)
   - This alters the linked list. This is not a practical solution.
+
+## Circulate Linked Lists
+## Reverse Linked Lists
+## Replace adjacent nodes in a Linked List
+
