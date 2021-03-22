@@ -95,5 +95,22 @@ void printInReverse( Node* head )
   }
   ```
 
+## How to check if the Linked List is a Palindrome
 
+- Pointer Increments
+  - Maintain two pointer approach to get Mid of the linked list and the size
+  - Adjust accordingly for odd/even to get to proper Mid
+  - Iterate with increment of one for Head and Mid
+  - Start comparing them
+  - Time Complexity: O(N)
+  - Space Complexity: O(1)
+
+- Using Reversing
+  - Get the middle of the linked list
+  - Reverse the second half of the linked list
+  - Compare the first and second half of the lists
+  - Construct the linked list again after re-reversing
+  - Time Complexity: O(N)
+  - Space Complexity: O(1)
+  - This alters the linked list. This is not a practical solution.
 
