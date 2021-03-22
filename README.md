@@ -15,7 +15,9 @@ Arrays are faster and lets you access a given element at an index. LLs do not ha
 - O(1) space complexity and O(N) time complexity.
 
 ## How to find starting point of the loop?.
+- Continuation to the problem above.
 - Initialize q to head and p to meeting point and increment both by a single step. The node on which they meet is the beginning of the loop.
+
 ## How to find the 'k'th node from the end in a Linked List?.
 - Add an external counter on the number of nodes in the Linked list.
   - Needs update during addition and deletion.
@@ -30,7 +32,17 @@ Arrays are faster and lets you access a given element at an index. LLs do not ha
   - ```ptr->next = temp```
 - Time complexity (N) and space complexiy O(1).
 
+## Print the contents of an Linked List in the reverse manner?.
 
+```
+void printInReverse( Node* head )
+{
+  if( head == NULL ) return;
+  printInReverse( head->next );
+  printf( head->data );
+  return;
+}
+```
 
 
 
