@@ -85,8 +85,10 @@ void printInReverse( Node* head )
   while( true ) {
     prevNode = curNode->npx ^ curNode->next;
 
-    if( prevNode == NULL )
+    if( prevNode == NULL ) {
+    // head = prevNode
     break;
+    }
 
     printf( prevNode->data );
     curNode = prevNode;
