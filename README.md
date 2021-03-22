@@ -46,5 +46,52 @@ void printInReverse( Node* head )
 }
 ```
 
+## How to achieve O(1) access time for Linked Lists?.
+- Maintain a seperate HashTable - < Integer Index to Memory Address or Object >
+- Every addition/removal to the Linked List should be registered in the HashTable
+- Adds extra space complexity of O(N)
+- Adds extra processing of O(N) for maintaining this cache
+
+## Finding the common merging point of two Linked Lists
+
+- Use Two stacks
+  - Time complexity O(M+N)
+  - Space complexity O(M+N)
+  
+- Use a single Hashtable
+  - Time complexity O(M+N)
+  - Space complexity O(M) or O(N)
+
+- Use pointers
+  - Get size of two Linked Lists
+  - Move pointer of the smaller Linked List by |M-N|
+  - Move each of the two pointers one step at the time
+  - Their meeting point is the merge location
+  - Time complexity O(M+N)
+  - Space complexity O(1)
+
+## How to get previous nodes if the HEAD is at Kth node in a Linked List
+- Not possible with conventional linked lists.
+- XOR Linked Lists to be employed
+- Each node maintains an XOR information of the previous and next Node's address
+- They are XORed with the other node ( either the previous or the next node ) to get the other node
+- Time Complexity O(N)
+- Space Complexity O(1)
+- Logic:
+  ```
+  Node *curNode = head;
+  Node *prevNode = NULL;
+
+  while( true ) {
+    prevNode = curNode->npx ^ curNode->next;
+
+    if( prevNode == NULL )
+    break;
+
+    printf( prevNode->data );
+    curNode = prevNode;
+  }
+  ```
+
 
 
