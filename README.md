@@ -34,6 +34,8 @@ Arrays are faster and lets you access a given element at an index. LLs do not ha
 
 ## Print the contents of an Linked List in the reverse manner?.
 
+Time Complexity: O(N)
+Space Complexity: O(N)
 ```
 void printInReverse( Node* head )
 {
