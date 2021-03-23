@@ -156,8 +156,34 @@ struct node {
 
 ## How to reverse the elements in the stack using push and pop?.
 
+# Recursion
+- Check if the content of the array is a palindrome
+
+```
+bool isPalindrome( int arr, int len, int index ) {
+    if( index > len/2 )
+    return true;
+
+    return arr[index] == arr[len-1-index] && isPalindrome( arr, len, index + 1 );
+}
+```
+
+- Check if the Array sum is even
+
+```
+bool isEvenSum( int arr, int len, int index, int sum ) {
+    if( index == len )
+        if( sum % 2 == 0 ) return true;
+        return false;
+    
+    return isEven( arr, len, index + 1, sum + arr[index] );
+}
+```
 
 
+# Sorting
+Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
+Ex: Merge Sort and Insertion Sort
 
 
 
