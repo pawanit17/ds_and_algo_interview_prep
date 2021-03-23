@@ -1,4 +1,5 @@
-# ds_and_algo_interview_prep
+**Complexities**
+- O(N) means that the algorithm needs N in growth. 
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
