@@ -10,6 +10,15 @@ LLs help in storing more amount of data as there is not hard requirement for sto
 Arrays are faster and lets you access a given element at an index. LLs do not have that feasibility.
 
 # Linked Lists
+
+## Representation
+```
+struct node {
+  int data;
+  struct node* next;
+} *list = NULL;
+```
+
 ## How to find if a Linked List has a loop?.
 - Maintain two pointers with unequal increment and make them iterate. If they meet at any point, there is a loop.
 - O(1) space complexity and O(N) time complexity.
@@ -117,4 +126,44 @@ void printInReverse( Node* head )
 ## Circulate Linked Lists
 ## Reverse Linked Lists
 ## Replace adjacent nodes in a Linked List
+
+# Stacks
+## Usecases
+- Code editors for matching braces, XML elements
+- Method calls, recursions
+
+## Representation
+```
+struct node {
+  int data;
+  struct node* link;
+} *stack = NULL;
+```
+
+## How to get the maximum value in a Stack in O(1) time complexity
+- Maintain a secondary stack that will hold the largest value till the same index in the corresponding Stack.
+- Time Complexity - O(N) for building the stack, but once built, getting Max value is O(1).
+- Space Complexity - O(N).
+
+## How to store two stacks in an array
+- Have the first stack grow left and the other grow right.
+
+## How to store k stacks in an array of size m
+- Each m/k section of the array should be a stack
+- Whenever a stack reaches size m/k, then it reached its alloted size
+## How to sort the elements in the Stack using push, pop, peek?.
+
+## How to reverse the elements in the stack using push and pop?.
+
+
+
+
+
+
+
+
+
+
+
+
 
