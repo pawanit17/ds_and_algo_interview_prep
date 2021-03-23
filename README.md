@@ -188,7 +188,7 @@ bool isEvenSum( int arr, int len, int index, int sum ) {
   - So more memory is needed.
   - A hash function is used to transform a key value to an index within the Hash table.
   - Collisions are always possible and can be dealt with one of the approaches below.
-    - Linear probing, Quadratic probing, double hashing - each comes with their problems like clustering, slowness etc.
+  - Linear probing, Quadratic probing, double hashing - each comes with their problems like clustering, slowness etc.
 - Open Hashing
   - In this case, the values are stored in a seperate linked list.
   - When two keys are mapped to the same location, they are writeen to a sorted linked list.
