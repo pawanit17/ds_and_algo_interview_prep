@@ -181,6 +181,16 @@ bool isEvenSum( int arr, int len, int index, int sum ) {
 ```
 
 
+# Still to go
+Sorting
+Searching
+Hashing
+Arrays problems
+String problems
+Trees
+Graphs
+Queues
+
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
 Ex: Merge Sort and Insertion Sort
