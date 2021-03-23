@@ -180,6 +180,20 @@ bool isEvenSum( int arr, int len, int index, int sum ) {
 }
 ```
 
+# Hashing
+- Mapping from key to value.
+- Typically either Open Hashing or Closed Hashing.
+- Closed Hashing
+  - The values are stored in the array itself.
+  - So more memory is needed.
+  - A hash function is used to transform a key value to an index within the Hash table.
+  - Collisions are always possible and can be dealt with one of the approaches below
+
+
+# Sorting
+Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
+Ex: Merge Sort and Insertion Sort
+
 
 # Still to go
 Sorting
@@ -190,13 +204,6 @@ String problems
 Trees
 Graphs
 Queues
-
-# Sorting
-Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
-Ex: Merge Sort and Insertion Sort
-
-
-
 
 
 
