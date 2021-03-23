@@ -187,7 +187,13 @@ bool isEvenSum( int arr, int len, int index, int sum ) {
   - The values are stored in the array itself.
   - So more memory is needed.
   - A hash function is used to transform a key value to an index within the Hash table.
-  - Collisions are always possible and can be dealt with one of the approaches below
+  - Collisions are always possible and can be dealt with one of the approaches below.
+    - Linear probing, Quadratic probing, double hashing - each comes with their problems like clustering, slowness etc.
+- Open Hashing
+  - In this case, the values are stored in a seperate linked list.
+  - When two keys are mapped to the same location, they are writeen to a sorted linked list.
+  - In this case, the HashTable will hold the addresses to linked lists and not the content itself and so need lesser memory.
+ ![image](https://user-images.githubusercontent.com/42272776/112218216-7c3ff680-8c49-11eb-8052-49322108d806.png)
 
 
 # Sorting
