@@ -387,6 +387,19 @@ printf( rChild->data );
 # Threaded Binary Trees
 ![image](https://user-images.githubusercontent.com/42272776/112369128-ddc39c00-8d01-11eb-9264-fee80df693fe.png)
 
+In a Binary Tree, the leaves do not have the use of the rChild and lChild fields. Also, traversal in tree can be improved with quick references.
+These fields of children can be tweaked to point to their inorder predecessor or inoder successor for better performance.
+Such type of trees as shown above are called as Threaded Binary Trees.
+
+```
+struct ThreadedNode {
+  struct ThreadedNode* left;
+  boolean lThread;
+  int info;
+  struct ThreadedNode* right;
+  boolean rThread;
+}
+```
 
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
