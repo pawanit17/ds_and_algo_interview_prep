@@ -12,6 +12,8 @@ Arrays are faster and lets you access a given element at an index. LLs do not ha
 
 # Linked Lists
 
+![image](https://user-images.githubusercontent.com/42272776/112369014-bbca1980-8d01-11eb-948f-d62dfdc61615.png)
+
 ## Representation
 ```
 struct node {
@@ -198,6 +200,9 @@ bool isEvenSum( int arr, int len, int index, int sum ) {
 - Has faster search time compared to Stacks or Queues or Linked Lists
 
 # Binary Trees
+
+![image](https://user-images.githubusercontent.com/42272776/112368937-9dfcb480-8d01-11eb-8a29-59cee97b4df5.png)
+
 If every node in a Tree has atmost two children, it is a binary tree
 - Maximum number of nodes at any level is 2^i
 - Maximum nodes for a binary tree of height h is 2^h - 1
@@ -287,6 +292,8 @@ int maxDepth( struct Node* root ) {
 ## Create Binary Tree from inorder and preorder or inorder and postorder traversals(Open)
 
 # Binary Search Tree
+![image](https://user-images.githubusercontent.com/42272776/112369196-ed42e500-8d01-11eb-94de-f8301b39cf91.png)
+
 BST is a BT where nodes are sorted to facilitate easier searches.
 At each iteration half of the tree can be discarded making the search space smaller.
 
@@ -376,6 +383,10 @@ while( rChild->right != NULL )
 rChild = rChild->right;
 printf( rChild->data );
 ```
+
+# Threaded Binary Trees
+![image](https://user-images.githubusercontent.com/42272776/112369128-ddc39c00-8d01-11eb-9264-fee80df693fe.png)
+
 
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
