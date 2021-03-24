@@ -291,6 +291,24 @@ BST is a BT where nodes are sorted to facilitate easier searches.
 At each iteration half of the tree can be discarded making the search space smaller.
 
 ## Creating a BST from a list of number
+```
+struct TreeNode* buildBST( struct TreeNode* root, int data ) {
+  if( root == NULL ) {
+    root = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    root->info = data;
+    root->lchild = NULL;
+    root->rchild = NULL;
+    return root;
+  }
+  else if( root->info < data ) {
+    root->right = buildBST( root->right, data );
+  }
+  else {
+    root->left = buildBST( root->left, data );
+  }
+  return root;
+}
+```
 
 ## Search in a BST
 ```
@@ -300,6 +318,32 @@ struct Node* searchRecursively( struct Node* root, int data ) {
   return null;
 
   if( root->info == data ) {
+    return root;
+  }
+  else if( root->info < data ) {
+    // Search in Right Sub Tree
+    return searchRecursively( root->rchild );
+  }
+  else {
+    // Search in Left Sub Tree
+    return searchRecursively( root->lchild );
+  }
+}
+```
+
+### Adding in a BST
+```
+struct Node* add( struct Node* root, int data ) {
+
+  if( root == null ) {
+    root = (struct Node*)malloc(sizeof(struct Node));
+    root->info = data;
+    root->lchild = NULL;
+    root->rchild = NULL;
+  }
+
+  if( root->info == data ) {
+    // Duplicate key being inserted case
     return root;
   }
   else if( root->info < data ) {
