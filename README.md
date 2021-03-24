@@ -124,9 +124,9 @@ void printInReverse( Node* head )
   - Space Complexity: O(1)
   - This alters the linked list. This is not a practical solution.
 
-## Circulate Linked Lists
-## Reverse Linked Lists
-## Replace adjacent nodes in a Linked List
+## Circulate Linked Lists(Open)
+## Reverse Linked Lists(Open)
+## Replace adjacent nodes in a Linked List(Open)
 
 # Stacks
 ## Usecases
@@ -152,9 +152,9 @@ struct node {
 ## How to store k stacks in an array of size m
 - Each m/k section of the array should be a stack
 - Whenever a stack reaches size m/k, then it reached its alloted size
-## How to sort the elements in the Stack using push, pop, peek?.
+## How to sort the elements in the Stack using push, pop, peek?.(Open)
 
-## How to reverse the elements in the stack using push and pop?.
+## How to reverse the elements in the stack using push and pop?.(Open)
 
 # Recursion
 ## Check if the content of the array is a palindrome
@@ -280,17 +280,18 @@ int maxDepth( struct Node* root ) {
 }
 ```
 
-## Find the width of a binary tree
+## Find the width of a binary tree(Open)
 
 
 
-## Create Binary Tree from inorder and preorder or inorder and postorder traversals
+## Create Binary Tree from inorder and preorder or inorder and postorder traversals(Open)
 
 # Binary Search Tree
 BST is a BT where nodes are sorted to facilitate easier searches.
 At each iteration half of the tree can be discarded making the search space smaller.
 
 ## Creating a BST from a list of number
+- Call the below method incrementally for each of the elements in the list
 ```
 struct TreeNode* buildBST( struct TreeNode* root, int data ) {
   if( root == NULL ) {
@@ -357,7 +358,7 @@ struct Node* add( struct Node* root, int data ) {
 }
 ```
 
-## Deletion in a BST
+## Deletion in a BST(Open)
 
 ## Finding the largest / smallest element in the BST
 Largest will the right most element in the right subtree and the smallest will be the left most element in the left subtree.
@@ -375,9 +376,6 @@ while( rChild->right != NULL )
 rChild = rChild->right;
 printf( rChild->data );
 ```
-
-
-
 
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
