@@ -157,8 +157,7 @@ struct node {
 ## How to reverse the elements in the stack using push and pop?.
 
 # Recursion
-- Check if the content of the array is a palindrome
-
+## Check if the content of the array is a palindrome
 ```
 bool isPalindrome( int arr, int len, int index ) {
     if( index > len/2 )
@@ -168,8 +167,7 @@ bool isPalindrome( int arr, int len, int index ) {
 }
 ```
 
-- Check if the Array sum is even
-
+## Check if the Array sum is even
 ```
 bool isEvenSum( int arr, int len, int index, int sum ) {
     if( index == len )
@@ -195,6 +193,147 @@ bool isEvenSum( int arr, int len, int index, int sum ) {
   - In this case, the HashTable will hold the addresses to linked lists and not the content itself and so need lesser memory.
  ![image](https://user-images.githubusercontent.com/42272776/112218216-7c3ff680-8c49-11eb-8052-49322108d806.png)
 
+# Trees
+- Non-linear datastructure
+- Has faster search time compared to Stacks or Queues or Linked Lists
+
+# Binary Trees
+If every node in a Tree has atmost two children, it is a binary tree
+- Maximum number of nodes at any level is 2^i
+- Maximum nodes for a binary tree of height h is 2^h - 1
+- Minimum number of nodes possible in a binary tree of height h is equal to h
+- If there are n nodes, you can create a binary tree with minimum height of log(n+1) or a 
+  maximum height of node
+  
+## Extended Binary Trees
+All the leaf nodes have different types of nodes.
+
+## Strictly Binary Tree
+All nodes have either zero children or two children. No node with a single child.
+
+## Complete Binary Tree
+All levels have maximum number of nodes except possibly the last level.
+
+## Full Binary Tree
+A binary tree with maximum number of nodes.
+
+## Implementation
+- Array implementation is not efficient.
+  - Only useful completely if the binary tree is full.
+  - Constrained by memory limit and so not suitable for larger trees.
+  - Dynamic memory representation is better.
+
+```
+struct node {
+  struct node* left;
+  int data;
+  struct node* right;
+} *root = NULL;
+```
+## Printing contents of a Binary Tree
+  - Inorder L, Ro, R
+  ```
+  void printInOrder( struct Node* root ) {
+  
+    if( root == NULL ) return;
+
+    printInOrder( root->left );
+    print( root->data );
+    printInOrder( root->right );
+  }
+  ```
+  
+  - Preorder Ro, L, R
+  ```
+  void printPreOrder( struct Node* root ) {
+  
+    if( root == NULL ) return;
+
+    print( root->data );
+    printPreOrder( root->left );
+    printPreOrder( root->right );
+  }
+  ```
+  
+  - Postorder L, R, Ro
+  ```
+  void printPostOrder( struct Node* root ) {
+  
+    if( root == NULL ) return;
+
+    printPostOrder( root->left );
+    printPostOrder( root->right );
+    print( root->data );
+  }
+  ```
+
+- Print the maximum depth of a binary tree
+```
+int maxDepth( struct Node* root ) {
+
+  if( root == NULL ) return 0;
+  
+  int leftMaxDepth = 1 + maxDepth( root->left );
+  int rightMaxDepth = 1 + maxDepth( root->right );
+  
+  return Max( leftMaxDepth, rightMaxDepth );
+}
+```
+
+## Find the width of a binary tree
+
+
+
+## Create Binary Tree from inorder and preorder or inorder and postorder traversals
+
+# Binary Search Tree
+BST is a BT where nodes are sorted to facilitate easier searches.
+At each iteration half of the tree can be discarded making the search space smaller.
+
+## Creating a BST from a list of number
+
+## Search in a BST
+```
+struct Node* searchRecursively( struct Node* root, int data ) {
+
+  if( root == null )
+  return null;
+
+  if( root->info == data ) {
+    return root;
+  }
+  else if( root->info < data ) {
+    // Search in Right Sub Tree
+    return searchRecursively( root->rchild );
+  }
+  else {
+    // Search in Left Sub Tree
+    return searchRecursively( root->lchild );
+  }
+}
+```
+
+## Deletion in a BST
+
+## Finding the largest / smallest element in the BST
+Largest will the right most element in the right subtree and the smallest will be the left most element in the left subtree.
+Time complexity is O(h), where h is the height of the tree.
+
+- Smallest
+```
+while( lChild->left != NULL )
+lChild = lChild->left;
+printf( lChild->data );
+```
+- Largest
+```
+while( rChild->right != NULL )
+rChild = rChild->right;
+printf( rChild->data );
+```
+
+
+
 
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
@@ -207,7 +346,6 @@ Searching
 Hashing
 Arrays problems
 String problems
-Trees
 Graphs
 Queues
 
