@@ -415,18 +415,18 @@ struct ThreadedNode {
 - A random insertion without maintenance into a BST results in a BST that is never balanced. In the worst case, this causes the search time to slip from O(logN) to O(N).
 ![image](https://user-images.githubusercontent.com/42272776/112682926-c964d800-8e96-11eb-892e-ffcda3e48c13.png)
 
-AVL tree works by balancing the right and left subtrees if the difference between their heights at any level is more than 1.
-This ensures that the BST is balanced.
-After every insert or deletion from an AVL tree, the heights at each node from the new node all the way to the root node has to be calculated.
-If the delta is more than 1, then restructuring has to happen.
-Easiest way to understand this restructing is as follows:
+- AVL tree works by balancing the right and left subtrees if the difference between their heights at any level is more than 1.
+- This ensures that the BST is balanced. This delta is referred to as Balance Factor.
+- After every insert or deletion from an AVL tree, the heights at each node from the new node all the way to the root node has to be calculated.
+- If the delta is more than 1, then restructuring has to happen.
+- Easiest way to understand this restructing is as follows:
   - Identify the node where this delta exceeds 1
   - Pick the median value from that node to the place where the newly added node is. ( This distance will be atmost 3 nodes ).
   - The median value becomes the new root of that subtree and the other two nodes become the left and right subtrees.
   - Adjust their children accordingly.
   - Continue with the next insertion or deletion.
 
-Following snippets are a manual workthrough for these scenario:
+- Following snippets are a manual workthrough for these scenario:
 ## Insertion into an AVL Tree
 - ![AVL Tree Insertion](https://user-images.githubusercontent.com/42272776/112682593-50fe1700-8e96-11eb-9a0f-a5b8f6d62aac.jpeg)
 
