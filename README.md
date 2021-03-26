@@ -409,9 +409,15 @@ struct ThreadedNode {
   boolean rThread;
 }
 ```
-## What do they solve
-If you want to traverse a BT iteratively without a stack, TBT help the process.
 
+
+
+# What do they solve
+
+Data Structure or Algorithm | Problems used for | Comments
+------------ | ------------- | -------------
+Arrays | The need for having more than one variable for a set of inputs |
+Linked Lists | Arrays have to occupy continous memory locations. So there are chances where Array memory allocation can fail |
 
 
 
