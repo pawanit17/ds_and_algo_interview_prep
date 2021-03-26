@@ -365,7 +365,16 @@ struct Node* add( struct Node* root, int data ) {
 }
 ```
 
-## Deletion in a BST(Open)
+## Deletion in a BST
+- Case 1: Node being deleted is leaf
+  - In this case, just set the pointer of parent to NULL.
+  - Delete the node.
+- Case 2: Node being deleted has one child
+  - In this case, replace the node being deleted with its child ( right or left subtree )
+  - Delete the node.
+- Case 3: Node being deleted has two childs
+  - Replace the node being deleted with its inorder successor or inorder predecessor
+  - Delete the node.
 
 ## Finding the largest / smallest element in the BST
 Largest will the right most element in the right subtree and the smallest will be the left most element in the left subtree.
@@ -400,6 +409,11 @@ struct ThreadedNode {
   boolean rThread;
 }
 ```
+## What do they solve
+If you want to traverse a BT iteratively without a stack, TBT help the process.
+
+
+
 
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
