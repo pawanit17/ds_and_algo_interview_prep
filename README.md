@@ -434,6 +434,25 @@ struct ThreadedNode {
 - ![AVL Tree Deletion](https://user-images.githubusercontent.com/42272776/112682595-522f4400-8e96-11eb-99a5-58452cc63043.jpeg)
 
 Time complexity is O(logN).
+# Splay Trees
+https://en.wikipedia.org/wiki/Splay_tree
+
+# Treap
+https://en.wikipedia.org/wiki/Treap
+
+# Trie
+https://en.wikipedia.org/wiki/Trie
+
+# Suffix Trees
+https://en.wikipedia.org/wiki/Suffix_tree
+
+# Tournament Tree
+https://en.wikipedia.org/wiki/K-way_merge_algorithm#Tournament_Tree
+
+# B-Trees
+https://www.youtube.com/watch?v=aZjYr87r1b8
+
+# B+ Trees
 
 # What do they solve
 
