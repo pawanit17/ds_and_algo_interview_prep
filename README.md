@@ -481,14 +481,19 @@ READ: https://stackoverflow.com/questions/1108/how-does-database-indexing-work#:
 
 # B-Trees
 - Every node needs to have CEIL(M/2) nodes.
-- Root can have minimum two children.
+- Root can have minimum two children / minimum one key.
 - All leaves must be at the same level.
 - Creation process is bottom up.
-
-
-https://www.youtube.com/watch?v=aZjYr87r1b8
+- https://www.youtube.com/watch?v=aZjYr87r1b8
 
 # B+ Trees
+- B Tree to begin with
+- Record pointers will only be available in Leaf node only.
+- Keys are duplicated in leaf nodes.
+- Leaf nodes are connected via links like a linked list.
+![B Tree and B+ Trees](https://user-images.githubusercontent.com/42272776/112728821-1c01cb00-8f4f-11eb-954e-aa64948cca6d.jpg)
+
+
 
 # What do they solve
 
@@ -497,6 +502,8 @@ Data Structure or Algorithm | Problems used for | Comments
 Arrays | The need for having more than one variable for a set of inputs |
 Linked Lists | Arrays have to occupy continous memory locations. So there are chances where Array memory allocation can fail |
 AVL Tree | Uncontrolled insertions lead to skewed binary trees which have O(N) search complexity. AVL Trees are self adjusting BST which ensure that the BST performance does not degrade to O(N) by doing restructuring automatically.
+B Tree| Helps in multi Level Indexing for databases. Whem compared with BSTs, B Tree and B+ Trees are better in terms of RAM/cache usage. This is because in a B Tree / B+ Tree, each node would have more than one key and the corresponding pointers that are to be followed. Also the node size is almost always made equal to the cache WORD size. This means that in each READ cycle, after the node is READ, the processing can be done on different keys / follow up path decisions are made. Ex: If the block is loaded onto the memory, then you can compare it with 3-5 keys in the memory itself thereby, reducing time delays. If this were to happen in BSTs, in each READ cycle, only one node is returned and for the same 3-5 key comparisions, we may need 3-5 READs ( disk -> main memory -> caches ) which are slow.   
+B+ Tree | In addition to benefits of B Trees, B+ Trees offer one more advantage. If you have a query that is to sweep the entire table, then the algorithm can follow the linked list referenced in the leaf nodes. If this were to be done on B Tree, the entire tree would have to be checked again.
 
 
 # Sorting
