@@ -450,6 +450,26 @@ https://en.wikipedia.org/wiki/Suffix_tree
 # Tournament Tree
 https://en.wikipedia.org/wiki/K-way_merge_algorithm#Tournament_Tree
 
+# M-way Trees
+Logically a disk looks like this:
+- It is made up of concentric circles and sectors
+- The intersection is called as Block.
+- READ / WRITE to disk is always in Block.
+- Typically each block is 512 bytes
+- Offsets are used to get the address of a particular byte within the Block.
+  - Ex: 17th byte in a block is at ```( block's starting address + 16 )```
+  - Offset varies from 0 to 511.
+- To get to a specific block, we need the cyclinder information, the track information and the sector information.
+- By spinning the sectors are changed and by moving the READ/WRITE Head, the tracks are changed.
+![image](https://user-images.githubusercontent.com/42272776/112713228-3493c600-8efa-11eb-9dfb-d0e894d5a48f.png)
+
+![Multi Level Index](https://user-images.githubusercontent.com/42272776/112715910-3f098c00-8f09-11eb-85d1-d172c3088200.jpg)
+
+
+## Approach 1
+- Do seeks to reach the specific block of interest.
+
+
 # B-Trees
 https://www.youtube.com/watch?v=aZjYr87r1b8
 
