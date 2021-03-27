@@ -434,6 +434,7 @@ struct ThreadedNode {
 - ![AVL Tree Deletion](https://user-images.githubusercontent.com/42272776/112682595-522f4400-8e96-11eb-99a5-58452cc63043.jpeg)
 
 Time complexity is O(logN).
+
 # Splay Trees
 https://en.wikipedia.org/wiki/Splay_tree
 
@@ -460,8 +461,7 @@ Data Structure or Algorithm | Problems used for | Comments
 ------------ | ------------- | -------------
 Arrays | The need for having more than one variable for a set of inputs |
 Linked Lists | Arrays have to occupy continous memory locations. So there are chances where Array memory allocation can fail |
-
-AVL Tree | To ensure that the BST performance does not degrade to O(N) by doing restructuring automatically
+AVL Tree | Uncontrolled insertions lead to skewed binary trees which have O(N) search complexity. AVL Trees are self adjusting BST which ensure that the BST performance does not degrade to O(N) by doing restructuring automatically.
 
 
 # Sorting
