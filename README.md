@@ -450,7 +450,7 @@ https://en.wikipedia.org/wiki/Suffix_tree
 # Tournament Tree
 https://en.wikipedia.org/wiki/K-way_merge_algorithm#Tournament_Tree
 
-# M-way Trees
+# Disk Organization
 Logically a disk looks like this:
 - It is made up of concentric circles and sectors
 - The intersection is called as Block.
@@ -463,12 +463,21 @@ Logically a disk looks like this:
 - By spinning the sectors are changed and by moving the READ/WRITE Head, the tracks are changed.
 ![image](https://user-images.githubusercontent.com/42272776/112713228-3493c600-8efa-11eb-9dfb-d0e894d5a48f.png)
 
+- Having a multi level index drastically reduces the number of look ups / blocks to seek.
 ![Multi Level Index](https://user-images.githubusercontent.com/42272776/112715910-3f098c00-8f09-11eb-85d1-d172c3088200.jpg)
 
+READ: https://stackoverflow.com/questions/1108/how-does-database-indexing-work#:~:text=Indexing%20is%20a%20way%20of,to%20be%20performed%20on%20it.
 
-## Approach 1
-- Do seeks to reach the specific block of interest.
+# Multi-way search trees
+- Multi way search trees are extensions of Binary search trees.
+- Each node can contain more than 1 key. Infact as many as you need, but once defined all nodes contain atmost that amount of keys.
+- An M-way search tree has M-1 keys in a node and M paths from it.
+- So a 2-way search tree is a Binary search tree.
+![image](https://user-images.githubusercontent.com/42272776/112716249-3914aa80-8f0b-11eb-9c5c-1190c697ea34.png)
 
+- Most implementations have an extra pointer field that points to the actual record.
+- Drawback of these trees is that there is no formal definition on whether keys are to be populated first in a node or if the childrent are to be created first in the tree.
+- That is where a formalized Multi way tree, called B-Trees are introduced.
 
 # B-Trees
 https://www.youtube.com/watch?v=aZjYr87r1b8
