@@ -480,6 +480,12 @@ READ: https://stackoverflow.com/questions/1108/how-does-database-indexing-work#:
 - That is where a formalized Multi way tree, called B-Trees are introduced.
 
 # B-Trees
+- Every node needs to have CEIL(M/2) nodes.
+- Root can have minimum two children.
+- All leaves must be at the same level.
+- Creation process is bottom up.
+
+
 https://www.youtube.com/watch?v=aZjYr87r1b8
 
 # B+ Trees
