@@ -506,7 +506,7 @@ READ: https://stackoverflow.com/questions/1108/how-does-database-indexing-work#:
 
 # What do they solve
 
-Data Structure or Algorithm | Problems used for | Comments
+Data Structure or Algorithm | Problems used for | Complexities
 ------------ | ------------- | -------------
 Arrays | The need for having more than one variable for a set of inputs |
 Linked Lists | Arrays have to occupy continous memory locations. So there are chances where Array memory allocation can fail |
