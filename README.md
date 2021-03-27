@@ -435,6 +435,15 @@ struct ThreadedNode {
 
 Time complexity is O(logN).
 
+# Heap
+Heap is a Tree that has two properties:
+1. It is an almost complete binary tree.
+2. Every element in a subtree is smaller - maxheap or larger - minheap than its children.
+
+A heap is never a binary search tree.
+
+
+
 # Splay Trees
 https://en.wikipedia.org/wiki/Splay_tree
 
@@ -504,7 +513,7 @@ Linked Lists | Arrays have to occupy continous memory locations. So there are ch
 AVL Tree | Uncontrolled insertions lead to skewed binary trees which have O(N) search complexity. AVL Trees are self adjusting BST which ensure that the BST performance does not degrade to O(N) by doing restructuring automatically.
 B Tree| Helps in multi Level Indexing for databases. Whem compared with BSTs, B Tree and B+ Trees are better in terms of RAM/cache usage. This is because in a B Tree / B+ Tree, each node would have more than one key and the corresponding pointers that are to be followed. Also the node size is almost always made equal to the cache WORD size. This means that in each READ cycle, after the node is READ, the processing can be done on different keys / follow up path decisions are made. Ex: If the block is loaded onto the memory, then you can compare it with 3-5 keys in the memory itself thereby, reducing time delays. If this were to happen in BSTs, in each READ cycle, only one node is returned and for the same 3-5 key comparisions, we may need 3-5 READs ( disk -> main memory -> caches ) which are slow.| 
 B+ Tree | In addition to benefits of B Trees, B+ Trees offer one more advantage. If you have a query that is to sweep the entire table, then the algorithm can follow the linked list referenced in the leaf nodes. If this were to be done on B Tree, the entire tree would have to be checked again.|
-
+Heap | Selecting Kth largest or smallest element in O(N) / Efficient priority queue implementations / Heap Sorts |
 
 # Sorting
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
