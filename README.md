@@ -442,6 +442,8 @@ Heap is a Tree that has two properties:
 
 A heap is never a binary search tree.
 
+## Implementation
+O(log N) and O(N) approach
 
 
 # Splay Trees
