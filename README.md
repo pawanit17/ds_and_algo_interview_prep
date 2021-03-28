@@ -634,7 +634,7 @@ int numLeaves( struct Tree* root ) {
 # How to check if two Binary Trees are identical?.
 
 ```
-bool areTreesIdentifical( struct TreeNode* root1, struct TreeNode* root2 ) {
+bool areTreesIdentical( struct TreeNode* root1, struct TreeNode* root2 ) {
   if( root1 == NULL && root2 == NULL ) {
     return true;
   }
@@ -643,12 +643,33 @@ bool areTreesIdentifical( struct TreeNode* root1, struct TreeNode* root2 ) {
     return false;
   }
   
-  bool leftTreeIdentical = areTreesIdentifical( root1->lChild, root2->lChild );
-  bool rightTreeIdentical = areTreesIdentifical( root1->rChild, root2->rChild );
+  bool leftTreeIdentical = areTreesIdentical( root1->lChild, root2->lChild );
+  bool rightTreeIdentical = areTreesIdentical( root1->rChild, root2->rChild );
   bool currentNodeIdentical = root1->data == root2->data;
 
   // The LST, the current node and the RST have to be identical.
   return leftTreeIdentical && currentNodeIdentical && rightTreeIdentical;
+}
+```
+
+# How to check if two Binary Trees are mirror to each other?.
+
+```
+bool areTreesMirrors( struct TreeNode* root1, struct TreeNode* root2 ) {
+  if( root1 == NULL && root2 == NULL ) {
+    return true;
+  }
+
+  if( root1 == NULL || root2 == NULL ) {
+    return false;
+  }
+  
+  bool leftTreeIdentical = areTreesMirrors( root1->lChild, root2->rChild );
+  bool rightTreeIdentical = areTreesMirrors( root1->rChild, root2->lChild );
+  bool currentNodeIdentical = root1->data == root2->data;
+
+  // The LST and the RST have to be mirrors while the current node value has to be the same.
+  return areTreesMirror && currentNodeIdentical && rightTreeareTreesMirrorIdentical;
 }
 ```
 
