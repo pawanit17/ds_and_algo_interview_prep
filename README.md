@@ -615,6 +615,8 @@ struct Tree* deleteTree( struct Tree* root ) {
   return root;
 }
 ```
+Time Complexity: O(N)
+Space Complexity: O(N)
 
 ## Number of Leaf nodes, single child nodes and complete nodes
 
@@ -630,6 +632,8 @@ int numLeaves( struct Tree* root ) {
   return numLeaves( root->lChild ) + numLeaves( root->rChild );
 }
 ```
+Time Complexity: O(N)
+Space Complexity: O(N)
 
 # How to check if two Binary Trees are identical?.
 
@@ -651,6 +655,8 @@ bool areTreesIdentical( struct TreeNode* root1, struct TreeNode* root2 ) {
   return leftTreeIdentical && currentNodeIdentical && rightTreeIdentical;
 }
 ```
+Time Complexity: O(N)
+Space Complexity: O(N)
 
 # How to check if two Binary Trees are mirror to each other?.
 
@@ -672,7 +678,8 @@ bool areTreesMirrors( struct TreeNode* root1, struct TreeNode* root2 ) {
   return areTreesMirror && currentNodeIdentical && rightTreeareTreesMirrorIdentical;
 }
 ```
-
+Time Complexity: O(N)
+Space Complexity: O(N)
 
 
 # What do they solve
