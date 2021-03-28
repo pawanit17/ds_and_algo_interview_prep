@@ -599,6 +599,8 @@ Space Complexity: O(N)
 ## Delete Tree
 - Post order traversal is the only traversal that is fit for Tree deletion.
 - Ex:
+
+```
 struct Tree* deleteTree( struct Tree* root ) {
 
   // If this is a LEAF node, then delete it.
@@ -612,8 +614,11 @@ struct Tree* deleteTree( struct Tree* root ) {
   root->rChild = deleteTree( root->rChild );
   return root;
 }
+```
 
 ## Number of Leaf nodes, single child nodes and complete nodes
+
+```
 int numLeaves( struct Tree* root ) {
   // Change this condition according to what you want to find - leaves, half child nodes, complete nodes.
   if( root->lChild == NULL && root->rChild == NULL ) {
@@ -624,6 +629,30 @@ int numLeaves( struct Tree* root ) {
   }
   return numLeaves( root->lChild ) + numLeaves( root->rChild );
 }
+```
+
+# How to check if two Binary Trees are identical?.
+
+```
+bool areTreesIdentifical( struct TreeNode* root1, struct TreeNode* root2 ) {
+  if( root1 == NULL && root2 == NULL ) {
+    return true;
+  }
+
+  if( root1 == NULL || root2 == NULL ) {
+    return false;
+  }
+  
+  bool leftTreeIdentical = areTreesIdentifical( root1->lChild, root2->lChild );
+  bool rightTreeIdentical = areTreesIdentifical( root1->rChild, root2->rChild );
+  bool currentNodeIdentical = root1->data == root2->data;
+
+  // The LST, the current node and the RST have to be identical.
+  return leftTreeIdentical && currentNodeIdentical && rightTreeIdentical;
+}
+```
+
+
 
 # What do they solve
 
