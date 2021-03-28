@@ -22,21 +22,21 @@ struct node {
 } *list = NULL;
 ```
 
-## How to find if a Linked List has a loop?.
+## :dart: How to find if a Linked List has a loop?.
 - Maintain two pointers with unequal increment and make them iterate. If they meet at any point, there is a loop.
 - O(1) space complexity and O(N) time complexity.
 
-## How to find starting point of the loop?.
+## :dart: How to find starting point of the loop?.
 - Continuation to the problem above.
 - Initialize q to head and p to meeting point and increment both by a single step. The node on which they meet is the beginning of the loop.
 
-## How to find the 'k'th node from the end in a Linked List?.
+## :dart: How to find the 'k'th node from the end in a Linked List?.
 - Add an external counter on the number of nodes in the Linked list.
   - Needs update during addition and deletion.
 - Maintain two pointers with an increment of 1 but after a distance of 'k'.
 - O(1) space complexity and O(N) time complexity.
 
-## Adding a node to a sorted linked list
+## :dart: Adding a node to a sorted linked list
 - Initialize ```temp``` to beginning of the list
 - Iterate while the input number is less than that of the current node's data field.
 - Insert adjusting pointers
@@ -44,7 +44,7 @@ struct node {
   - ```ptr->next = temp```
 - Time complexity (N) and space complexiy O(1).
 
-## Print the contents of an Linked List in the reverse manner?.
+## :dart: Print the contents of an Linked List in the reverse manner?.
 
 Time Complexity: O(N)
 Space Complexity: O(N)
@@ -58,13 +58,13 @@ void printInReverse( Node* head )
 }
 ```
 
-## How to achieve O(1) access time for Linked Lists?.
+## :dart: How to achieve O(1) access time for Linked Lists?.
 - Maintain a seperate HashTable - < Integer Index to Memory Address or Object >
 - Every addition/removal to the Linked List should be registered in the HashTable
 - Adds extra space complexity of O(N)
 - Adds extra processing of O(N) for maintaining this cache
 
-## Finding the common merging point of two Linked Lists
+## :dart: Finding the common merging point of two Linked Lists
 
 - Use Two stacks
   - Time complexity O(M+N)
@@ -82,7 +82,7 @@ void printInReverse( Node* head )
   - Time complexity O(M+N)
   - Space complexity O(1)
 
-## How to get previous nodes if the HEAD is at Kth node in a Linked List
+## :dart: How to get previous nodes if the HEAD is at Kth node in a Linked List
 - Not possible with conventional linked lists.
 - XOR Linked Lists to be employed
 - Each node maintains an XOR information of the previous and next Node's address
@@ -107,7 +107,7 @@ void printInReverse( Node* head )
   }
   ```
 
-## How to check if the Linked List is a Palindrome
+## :dart: How to check if the Linked List is a Palindrome
 
 - Pointer Increments
   - Maintain two pointer approach to get Mid of the linked list and the size
@@ -127,8 +127,8 @@ void printInReverse( Node* head )
   - This alters the linked list. This is not a practical solution.
 
 ## Circulate Linked Lists(Open)
-## Reverse Linked Lists(Open)
-## Replace adjacent nodes in a Linked List(Open)
+## :dart: Reverse Linked Lists(Open)
+## :dart: Replace adjacent nodes in a Linked List(Open)
 
 # Stacks
 ## Usecases
@@ -143,23 +143,23 @@ struct node {
 } *stack = NULL;
 ```
 
-## How to get the maximum value in a Stack in O(1) time complexity
+## :dart: How to get the maximum value in a Stack in O(1) time complexity
 - Maintain a secondary stack that will hold the largest value till the same index in the corresponding Stack.
 - Time Complexity - O(N) for building the stack, but once built, getting Max value is O(1).
 - Space Complexity - O(N).
 
-## How to store two stacks in an array
+## :dart: How to store two stacks in an array
 - Have the first stack grow left and the other grow right.
 
-## How to store k stacks in an array of size m
+## :dart: How to store k stacks in an array of size m
 - Each m/k section of the array should be a stack
 - Whenever a stack reaches size m/k, then it reached its alloted size
-## How to sort the elements in the Stack using push, pop, peek?.(Open)
+## :dart: How to sort the elements in the Stack using push, pop, peek?.(Open)
 
-## How to reverse the elements in the stack using push and pop?.(Open)
+## :dart: How to reverse the elements in the stack using push and pop?.(Open)
 
 # Recursion
-## Check if the content of the array is a palindrome
+## :dart: Check if the content of the array is a palindrome
 ```
 bool isPalindrome( int arr, int len, int index ) {
     if( index > len/2 )
@@ -169,7 +169,7 @@ bool isPalindrome( int arr, int len, int index ) {
 }
 ```
 
-## Check if the Array sum is even
+## :dart: Check if the Array sum is even
 ```
 bool isEvenSum( int arr, int len, int index, int sum ) {
     if( index == len )
@@ -235,7 +235,7 @@ struct node {
   struct node* right;
 } *root = NULL;
 ```
-## Printing contents of a Binary Tree
+## :dart: Printing contents of a Binary Tree
   - Inorder L, Ro, R
   ```
   void printInOrder( struct Node* root ) {
@@ -285,7 +285,7 @@ int maxDepth( struct Node* root ) {
 }
 ```
 
-## Find the width of a binary tree(Open)
+## :dart: Find the width of a binary tree(Open)
 
 
 
@@ -297,7 +297,7 @@ int maxDepth( struct Node* root ) {
 BST is a BT where nodes are sorted to facilitate easier searches.
 At each iteration half of the tree can be discarded making the search space smaller.
 
-## Creating a BST from a list of number
+## :dart: Creating a BST from a list of number
 - Call the below method incrementally for each of the elements in the list
 ```
 struct TreeNode* buildBST( struct TreeNode* root, int data ) {
@@ -318,7 +318,7 @@ struct TreeNode* buildBST( struct TreeNode* root, int data ) {
 }
 ```
 
-## Search in a BST
+## :dart: Search in a BST
 ```
 struct Node* searchRecursively( struct Node* root, int data ) {
 
@@ -339,7 +339,7 @@ struct Node* searchRecursively( struct Node* root, int data ) {
 }
 ```
 
-### Adding in a BST
+### :dart: Adding in a BST
 ```
 struct Node* add( struct Node* root, int data ) {
 
@@ -365,7 +365,7 @@ struct Node* add( struct Node* root, int data ) {
 }
 ```
 
-## Deletion in a BST
+## :dart: Deletion in a BST
 - Case 1: Node being deleted is leaf
   - In this case, just set the pointer of parent to NULL.
   - Delete the node.
@@ -376,7 +376,7 @@ struct Node* add( struct Node* root, int data ) {
   - Replace the node being deleted with its inorder successor or inorder predecessor
   - Delete the node.
 
-## Finding the largest / smallest element in the BST
+## :dart: Finding the largest / smallest element in the BST
 Largest will the right most element in the right subtree and the smallest will be the left most element in the left subtree.
 Time complexity is O(h), where h is the height of the tree.
 
