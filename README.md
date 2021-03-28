@@ -505,6 +505,56 @@ READ: https://stackoverflow.com/questions/1108/how-does-database-indexing-work#:
 ![B Tree and B+ Trees](https://user-images.githubusercontent.com/42272776/112728821-1c01cb00-8f4f-11eb-954e-aa64948cca6d.jpg)
 
 
+# :dart: Problems on Trees
+## How to find the largest element in a Binary Tree
+```
+int getLargetInBinaryTree( struct node* root ) {
+    if( root == NULL ) {
+        return IN_MIN;
+    }
+    
+    int lMax = getLargestInBinaryTree( root->left );
+    int nodeValue = root->data;
+    int rMax = getLargestInBinaryTree( root->right );
+    
+    return max( lMax, nodeValue, rMax );
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+## How to find the number of nodes in a Binary Tree
+```
+int getNodeCountInBinaryTree( struct node* root ) {
+    if( root == NULL ) {
+        return 0;
+    }
+    
+    int lMax = getNodeCountInBinaryTree( root->left );
+    int rMax = getNodeCountInBinaryTree( root->right );
+    
+    // 1 is for the current node.
+    return lMax + 1 + rMax;
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+## How to find the sum of all nodes in a Binary Tree
+```
+int getNodeCountInBinaryTree( struct node* root ) {
+    if( root == NULL ) {
+        return 0;
+    }
+    
+    int lMax = getNodeCountInBinaryTree( root->left );
+    int rMax = getNodeCountInBinaryTree( root->right );
+    
+    return lMax + root->data + rMax;
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
 
 # What do they solve
 
