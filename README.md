@@ -435,7 +435,7 @@ struct ThreadedNode {
 
 Time complexity is O(logN).
 
-# Heap
+# Heap (Open Revisit)
 Heap is a Tree that has two properties:
 1. It is an almost complete binary tree.
 2. Every element in a subtree is smaller - maxheap or larger - minheap than its children.
@@ -444,7 +444,6 @@ A heap is never a binary search tree.
 
 ## Implementation
 O(log N) and O(N) approach
-
 
 # Splay Trees
 https://en.wikipedia.org/wiki/Splay_tree
