@@ -555,6 +555,76 @@ int getNodeCountInBinaryTree( struct node* root ) {
 Time Complexity: O(N)
 Space Complexity: O(N)
 
+## How do you search in a Binary Tree
+```
+boolean search( struct node* root, int searchKey ) {
+  if( root == NULL ) {
+    return false;
+  }
+  
+  if( root->data == searchKey ) {
+    return true;
+  }
+  
+  return search( root->left, searchKey ) || search( root->right, searchKey );
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+## How would you achieve level order traversal of a Tree
+- Use a queue
+- Add the root to it
+- While the queue is not empty
+  - Dequeue from Queue
+  - Print the Dequeued element
+  - Get the children of the element
+  - Enqueue them to the queue
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+## Search in a Binary Tree / Add in a Binary Tree
+- Use the level order traversal as discussed above
+- If you want to add, add at the first instance where a node does not have either LST or RST.
+- This can be understood by ptr->lChild being NULL or ptr->rChild being NULL.
+
+## Print the levels in reverse in a Binary Tree
+- Use both a Stack and a Queue
+- Queue is used for level traversal
+- When you pop element from Queue, add it to the stack.
+- Once done, pop all the elements from the Stack.
+
+![Reverse Level Order](https://user-images.githubusercontent.com/42272776/112762505-9b5dd000-901d-11eb-945a-536be9b5493c.jpg)
+
+## Delete Tree
+- Post order traversal is the only traversal that is fit for Tree deletion.
+- Ex:
+struct Tree* deleteTree( struct Tree* root ) {
+
+  // If this is a LEAF node, then delete it.
+  if( root->left == NULL && root->right ==  NULL ) {
+     free( root );
+     root = NULL;
+     return root;
+  }
+  
+  root->lChild = deleteTree( root->lChild );
+  root->rChild = deleteTree( root->rChild );
+  return root;
+}
+
+## Number of Leaf nodes, single child nodes and complete nodes
+int numLeaves( struct Tree* root ) {
+  // Change this condition according to what you want to find - leaves, half child nodes, complete nodes.
+  if( root->lChild == NULL && root->rChild == NULL ) {
+    return 1;  
+  }
+  if( root == NULL ) {
+    return 0;
+  }
+  return numLeaves( root->lChild ) + numLeaves( root->rChild );
+}
+
 # What do they solve
 
 Data Structure or Algorithm | Problems used for | Complexities
