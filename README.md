@@ -738,6 +738,46 @@ Space Complexity: O(logN) - this is because, we store the hierarchy, which is ty
 
 **Approach 2: Using recursion itself**
 
+# Method to create a mirror from a tree
+The below approach can also be used to create a clone of a Tree.
+```
+struct TreeNode* createMirror( struct TreeNode* root )
+{
+  if( root == NULL ) return NULL;
+  
+  struct TreeNode* leftSubTree = createMirror( root->lChild );
+  struct TreeNode* rightSubTree = createMirror( root->rChild );
+  
+  struct TreeNode* temp = (struct TreeNode*)malloc(sizof(struct TreeNode));
+  temp->data = root->data;
+  temp->lChild = rightSubTree;
+  temp->rChild = leftSubTree;
+  return temp;
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+# Method to find a path in the tree amounting to a given sum
+```
+boolean pathFinder( struct TreeNode* root, int sum ) {
+
+  if( root == NULL ) return false;
+  
+  boolean lVerdict = pathFinder( root->lChild, sum - root->data );
+  if( lVerdict ) return true; // This is to skip the unnecessary processing of the other subtree.
+  
+  boolean rVerdict = pathFinder( root->rChild, sum - root->data );
+  if( rVerdict ) return true; // This is to skip the unnecessary processing of the other subtree.
+  
+  if( sum - root->data == 0 ) return true;
+  
+  return false;
+}
+```
+![path finder](https://user-images.githubusercontent.com/42272776/113190229-b75dad80-9279-11eb-9ac9-0dff003d92fe.jpg)
+Time Complexity: O(N)
+Space Complexity: O(N)
 
 # What do they solve
 
