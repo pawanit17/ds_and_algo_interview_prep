@@ -446,6 +446,11 @@ A heap is never a binary search tree.
 O(log N) and O(N) approach
 
 # Splay Trees
+- A BST in which the most frequently queried data is splayed to appear closer to the root.
+- If it happens to be the root, then querying that data the next time is O(1).
+- In general the search complexity is O(log N).
+- But the process of splaying involved left and right rotations to the tree which may even cause the tree to be skewed to one side.
+- In such cases, the search may degrade to O(N).
 https://en.wikipedia.org/wiki/Splay_tree
 
 # Treap
