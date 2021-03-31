@@ -693,6 +693,13 @@ bool areTreesMirrors( struct TreeNode* root1, struct TreeNode* root2 ) {
 Time Complexity: O(N)
 Space Complexity: O(N)
 
+# How to traverse a tree in a Zig Zag order
+
+![Zig Zag Traversal](https://user-images.githubusercontent.com/42272776/113134530-890eac80-923e-11eb-87bb-09cce36ca207.jpg)
+
+Time Complexity: O(N)
+Space Complexity: O(N) + O(N) = O(N) 
+
 
 # What do they solve
 
