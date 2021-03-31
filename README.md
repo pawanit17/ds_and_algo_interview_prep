@@ -700,6 +700,31 @@ Space Complexity: O(N)
 Time Complexity: O(N)
 Space Complexity: O(N) + O(N) = O(N) 
 
+# Print ancestors for a given node
+
+```
+bool printAncestors( struct TreeNode* root, int key ) {
+
+  if( root == NULL )
+    return false;
+  if( root->data == key )
+    return false;
+  // If the LST already identified the node, then the right subtree need not be parsed.
+  // That is why we follow this approach of 'if'.
+  if( printAncestors( root->lChild, key ) ) {
+    printf( root->data );
+    return true;
+  }
+  if( printAncestors( root->rChild, key ) ) {
+    printf( root->data );
+    return true;
+  }
+  return false;
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(logN) - this is because, we store the hierarchy, which is typically log N.
+
 # Common Ancestor for two nodes
 
 **Approach 1: Using two stacks**
