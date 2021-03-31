@@ -447,12 +447,18 @@ O(log N) and O(N) approach
 
 # Splay Trees
 - A BST in which the most frequently queried data is splayed to appear closer to the root.
-- Splaying is moving the data that you searched for to the root of the tree or closer to the root of the tree to reduce search time.
+- Splaying is moving the data that you searched for to the root of the tree to reduce search time.
 - If it happens to be the root, then querying that data the next time is O(1).
 - In general the search complexity is O(log N).
 - But the process of splaying involved left and right rotations to the tree which may even cause the tree to be skewed to one side.
 - In such cases, the search may degrade to O(N).
-https://en.wikipedia.org/wiki/Splay_tree
+- In general, the following cases arise:
+  - Root Element: No splaying needed
+  - Child of Root Element: Either a right rotation or a left rotation
+  - Has a grandparent and current node, its parent and its grand parent are all on the same side: Two left rotations or two right rotations
+  - Has a grandparent and current node, its parent and its grand parent are on diferent sides: Two rotations are needing, in which one is left and the other is right.
+
+![Splay Trees](https://user-images.githubusercontent.com/42272776/113131515-f1f42580-923a-11eb-8717-a78c1012f534.jpg)
 
 # Treap
 https://en.wikipedia.org/wiki/Treap
