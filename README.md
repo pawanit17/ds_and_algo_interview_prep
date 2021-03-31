@@ -779,6 +779,51 @@ boolean pathFinder( struct TreeNode* root, int sum ) {
 Time Complexity: O(N)
 Space Complexity: O(N)
 
+# Method to find a path in the tree amounting to a given sum
+```
+boolean pathFinder( struct TreeNode* root, int sum ) {
+
+  if( root == NULL ) return false;
+  
+  boolean lVerdict = pathFinder( root->lChild, sum - root->data );
+  if( lVerdict ) return true; // This is to skip the unnecessary processing of the other subtree.
+  
+  boolean rVerdict = pathFinder( root->rChild, sum - root->data );
+  if( rVerdict ) return true; // This is to skip the unnecessary processing of the other subtree.
+  
+  if( sum - root->data == 0 ) return true;
+  
+  return false;
+}
+```
+![path finder](https://user-images.githubusercontent.com/42272776/113190229-b75dad80-9279-11eb-9ac9-0dff003d92fe.jpg)
+Time Complexity: O(N)
+Space Complexity: O(N)
+
+# How to find the deepest node and its value
+This algorithm can be reused to find the largest/smallest value in a Binary Tree as well.
+```
+void findDeepestNode( struct TreeNode* root, int* currentLevel, int* maxLevel, int* data )
+{
+  if( root == NULL )
+  {
+    currentLevel = maxLevel = data = -1;
+    return;
+  }
+  
+  findDeepestNode( root->lChild, *currentLevel+1, maxLevel, data );
+  findDeepestNode( root->rChild, *currentLevel+1, maxLevel, data );
+  
+  if( currentLevel > maxLevel )
+  {
+    *maxLevel = *currentLevel;
+    *data = root->data;
+  }
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
 # What do they solve
 
 Data Structure or Algorithm | Problems used for | Complexities
