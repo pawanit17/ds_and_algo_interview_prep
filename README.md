@@ -700,6 +700,19 @@ Space Complexity: O(N)
 Time Complexity: O(N)
 Space Complexity: O(N) + O(N) = O(N) 
 
+# Common Ancestor for two nodes
+
+**Approach 1: Using two stacks**
+- Use a Stack for storing the hierarchy from the node in question to its root.
+- Use the second stack for storing the hierarchy for the second node as well.
+- Now we have two stacks which are to be popped up until their top of stack is equal.
+- This is the common ancestor of the two nodes in question.
+
+Time Complexity: O(N)
+Space Complexity: O(logN) - this is because, we store the hierarchy, which is typically log N.
+
+**Approach 2: Using recursion itself**
+
 
 # What do they solve
 
