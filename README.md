@@ -825,6 +825,45 @@ void findDeepestNode( struct TreeNode* root, int* currentLevel, int* maxLevel, i
 Time Complexity: O(N)
 Space Complexity: O(N)
 
+# Determining the level at which the sum is maximum
+
+- In this algorithm, after pushing the children of a given level, we also push a NULL.
+- This NULL is used to distinguish between the levels.
+```
+int sum = 0;
+int currentMax = INT_MIN;
+q = createQueue();
+q->enqueue( root );
+q->enqueue( NULL );
+
+while( !q->empty() ) {
+
+  tmp = q->dequeue();
+  
+  // Two cases arise, either TMP is NULL or it is not NULL.
+  if( tmp == NULL ) {
+    
+    if( currentMax < sum )
+      currentMax = sum;
+    
+    sum = 0;
+    if( !q->empty() )
+    q->enqueue( NULL );
+  
+  } else {
+  
+    sum = sum + tmp->data;
+    if( tmp->lChild )
+    q->enqueue( tmp->lChild );
+    
+    if( tmp->rChild )
+    q->enqueue( tmp->rChild );
+  }
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
 # What do they solve
 
 Data Structure or Algorithm | Problems used for | Complexities
