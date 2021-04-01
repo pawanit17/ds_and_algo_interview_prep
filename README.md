@@ -908,7 +908,6 @@ Heap | Selecting Kth largest or smallest element in O(N) / Efficient priority qu
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
 Ex: Merge Sort and Insertion Sort
 
-
 # Still to go
 Sorting
 Searching
