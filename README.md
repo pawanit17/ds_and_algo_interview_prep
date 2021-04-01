@@ -864,6 +864,30 @@ while( !q->empty() ) {
 Time Complexity: O(N)
 Space Complexity: O(N)
 
+# Printing all the root to leaf paths
+
+- In this algorithm, after pushing the children of a given level, we also push a NULL.
+- This NULL is used to distinguish between the levels.
+```
+void pathTraversals( struct TreeNode* root, int* array, int* index ) {
+
+  if( root == NULL )
+    return;
+  
+  if( root->lChild == NULL && root->rChild == NULL ) {
+    printArray(array, index);
+    return
+  }
+  
+  array[*index] = root->data;
+  
+  pathTraversals( root->lChild, array, index+1 );
+  pathTraversals( root->rChild, array, index+1 );
+}
+```
+Time Complexity: O(N)
+Space Complexity: O(N)
+
 # What do they solve
 
 Data Structure or Algorithm | Problems used for | Complexities
