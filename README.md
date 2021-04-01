@@ -888,6 +888,10 @@ void pathTraversals( struct TreeNode* root, int* array, int* index ) {
 Time Complexity: O(N)
 Space Complexity: O(N)
 
+# Print the diameter of a tree
+
+# Print the LCA of two nodes in a tree
+
 # What do they solve
 
 Data Structure or Algorithm | Problems used for | Complexities
