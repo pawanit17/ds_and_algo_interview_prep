@@ -889,6 +889,7 @@ Time Complexity: O(N)
 Space Complexity: O(N)
 
 # Print the diameter of a tree
+![Diameter](https://user-images.githubusercontent.com/42272776/113348127-d7fa3600-9353-11eb-9594-eabe742e0e41.jpg)
 
 # Print the LCA of two nodes in a tree
 
