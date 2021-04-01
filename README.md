@@ -865,7 +865,7 @@ Time Complexity: O(N)
 Space Complexity: O(N)
 
 # Printing all the root to leaf paths
-
+This approach could be used to identify the Kth node from the root. 
 - In this algorithm, after pushing the children of a given level, we also push a NULL.
 - This NULL is used to distinguish between the levels.
 ```
