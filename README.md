@@ -1,5 +1,6 @@
 **Complexities**
-- O(N) means that the algorithm needs N in growth. 
+- O(N) means that the algorithm needs N in growth.
+- O(N) determines that it is atleast N in growth.
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
