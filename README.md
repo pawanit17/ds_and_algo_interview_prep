@@ -123,6 +123,8 @@ class Solution {
 - Time Complexity O(N)
 - Space Complexity O(1)
 
+## 
+
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
 - ADT defines what type of operations can be done, what behavior is exhibited by this data type etc.
