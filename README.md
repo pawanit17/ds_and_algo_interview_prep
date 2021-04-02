@@ -2,6 +2,37 @@
 - O(N) means that the algorithm needs N in growth.
 - O(N) determines that it is atleast N in growth.
 
+# Arrays
+
+## Rotating the array to the right k times
+- Get hold of last number
+- Copy from right to left
+- Replace the zeroth index with last number.
+```
+class Solution {
+    public void rotate(int[] nums, int k) {
+        
+        if( nums.length == 0 || nums.length == 1 )
+            return;
+        
+        int count = 0;
+        while( count < k )
+        {
+            count++;
+            
+            int last = nums[nums.length-1];
+            
+            for( int inx = nums.length-1; inx > 0; inx-- )
+            {
+                nums[inx] = nums[inx-1];
+            }
+            nums[0] = last;
+        }        
+    }
+}
+```
+
+
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
 - ADT defines what type of operations can be done, what behavior is exhibited by this data type etc.
