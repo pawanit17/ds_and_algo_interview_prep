@@ -23,12 +23,6 @@
 - Space Complexity: O(1)
 - Two other ways of solving this problem is by using Hashes and by using an extra count field in a BST.
 
-## Find two numbers in an unsorted array whose sum is X
-- Sort the array using in-place heap sort
-- For each element in the array, do a binary search for X-a[i]
-- Time Complexity: O(NlogN)
-- Space Complexity: O(1)
-
 ## There are two arrays, one of size m+n and the other of size n. In the first array, only m elements are used. Devise an algorithm to sort them
 ```
 m+n : 1 4 6 7 9 10 _ _ _ _
@@ -52,6 +46,34 @@ while( k < m+n ) {
 - Space Complexity: O(1)
 ```
 
+## Find two numbers in an unsorted array whose sum is X
+- Sort the array using in-place heap sort
+- For each element in the array, do a binary search for X-a[i]
+- Time Complexity: O(NlogN)
+- Space Complexity: O(1)
+
+## Find two numbers in a sorted array whose sum is X
+- Maintain two pointers - one at the start and the other at the end.
+- If the sum if greater than X, decrement the larger data pointer
+- If the sum is less than X, increment the smaller data pointer
+- If the sum is equal, return the small and large pointers
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
+## Two elements whose sum is closes to 0
+- Sort the elements using heap sort - in-place sort.
+- If the first element and the last element are both positive or both negative, 
+- Maintain two indexes, one for negative numbers and one for positive numbers and gradually increment them.
+- Time Complexity: O(n)
+- Space Complexity: O(1)
+
+## Identify three numbers whose sum is equal to K
+- Brute force solves this in O(N^3)
+
+Another approach:
+- Sort the elements using in-place heap sort
+- For each index, do the two pointer approach on the rest of the array
+- This reduces the complexity O(N^2). 
 
 ## Counting sort
 ## Bucket sort
