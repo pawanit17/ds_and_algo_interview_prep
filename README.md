@@ -4,6 +4,61 @@
 
 # Arrays
 
+## In an Array of numbers, there is one repeating number. What is that repeating number?.
+- Sort using Quick, Merge or Heap sort
+- Then a linear pass
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
+## In an Array of numbers of size N, there is one repeating element. Find it
+- Use the sum of all integers till N to arrive at that number.
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
+## In an array, find the element that has occurred the most
+- Sort the array using in-place heap sort
+- Do a lined pass maintaining two variables - index and value
+- The index for the highest value is the one.
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+- Two other ways of solving this problem is by using Hashes and by using an extra count field in a BST.
+
+## Find two numbers in an unsorted array whose sum is X
+- Sort the array using in-place heap sort
+- For each element in the array, do a binary search for X-a[i]
+- Time Complexity: O(NlogN)
+- Space Complexity: O(1)
+
+## There are two arrays, one of size m+n and the other of size n. In the first array, only m elements are used. Devise an algorithm to sort them
+```
+m+n : 1 4 6 7 9 10 _ _ _ _
+n: 2 3 5 11
+
+i = m-1;
+j = n-1;
+k = 0;
+while( k < m+n ) {
+  if( a[i] >= a[j] ) {
+    a[m+n-1-k] = a[i];
+    i--;
+  }
+  else {
+    a[m+n-1-k] = a[j];
+    j--;  
+  }
+  k++;
+}
+- Time Complexity: O(m+n)
+- Space Complexity: O(1)
+```
+
+
+## Counting sort
+## Bucket sort
+## Radix sort
+
+
+
 ## Rotating the array to the right k times
 - Get hold of last number
 - Copy from right to left
