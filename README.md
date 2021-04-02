@@ -109,6 +109,17 @@ class Solution {
 }
 ```
 
+## Find the number that is occurring odd number of times
+- XOR all the elements. The one that remains is the element that occurred odd number of times.
+- Time Complexity O(N)
+- Space Complexity O(1)
+
+## If Array has n-1 elements from 1 to n then find the number that is missing
+- XOR all the elements - X.
+- XOR all the numbers from 1 to n - Y.
+- XOR of X and Y gives the missing element.
+- Time Complexity O(N)
+- Space Complexity O(1)
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
