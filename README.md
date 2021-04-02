@@ -375,6 +375,30 @@ int maxDepth( struct Node* root ) {
 ## :dart: Find the width of a binary tree(Open)
 
 
+## Why cant a tree be created from pre/post/inorders?
+The following three Trees have the same PRE ORDER - abc.
+
+     (a)
+    /  \
+   (b) (c)
+
+   (a)
+   /
+ (b)
+ /
+(c)
+
+(a)
+  \
+  (b)
+    \
+    (c)
+
+The POST ORDERs are bca, cba, cba
+
+- So if PreOrder abc and PostOrder cba are given, then the Tree cannot be uniquely constructed.
+- This is because there is no clear demarkation on where the LST ends and the RST starts.
+
 
 ## Create Binary Tree from inorder and preorder or inorder and postorder traversals(Open)
 
