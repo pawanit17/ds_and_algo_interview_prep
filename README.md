@@ -2,6 +2,13 @@
 - O(N) means that the algorithm needs N in growth.
 - O(N) determines that it is atleast N in growth.
 
+## Amortized Analysis
+Suppose there is an unsorted array of size 'n' from which you need to be able to get the kth smallest element. And you will be making say, 'n' retrievals.
+- If you sort the array - O(nlogn)
+- But this lets access of kth smallest or largest element in O(1) time.
+- So on average, the cost of retrieval of one element is nlogn/n = logn.
+- This is called as Amortized analysis.
+
 # Arrays
 
 ## In an Array of numbers, there is one repeating number. What is that repeating number?.
@@ -1041,6 +1048,7 @@ Space Complexity: O(N)
 # Print the LCA of two nodes in a tree
 
 # What are TRIE
+
 
 # Ternary Search Trees
 
