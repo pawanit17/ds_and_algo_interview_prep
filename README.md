@@ -1040,6 +1040,19 @@ Space Complexity: O(N)
 
 # Print the LCA of two nodes in a tree
 
+# What are TRIE
+
+# Ternary Search Trees
+
+# Suffix Trees
+
+# How are symbol tables implemented
+Symbol tables need quick retrieval times. So the following approaches are OK
+- Binary Search Tree
+- Binary Search Tree with self balancing
+- Ternary Search Trees
+- Hashing
+
 # What do they solve
 
 Data Structure or Algorithm | Problems used for | Complexities
