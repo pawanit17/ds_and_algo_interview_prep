@@ -130,7 +130,22 @@ class Solution {
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-## 
+## Dutch National Flag Algorithm
+```
+i = 0;
+j = 0;
+k = a.length-1;
+
+while( j <= k )
+{
+    switch(j):
+    case 0: swap( a[i], a[j] ); i++; j++; break;
+    case 1: j++; break;
+    case 2: swap( a[k], a[j] ); j++; break;
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
