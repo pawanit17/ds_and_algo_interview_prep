@@ -147,6 +147,19 @@ while( j <= k )
 - Time Complexity O(N)
 - Space Complexity O(1)
 
+## Fisher-Yates Shuffle
+Pick a random number between 0 and n-1 and replace the n-1th value with that index. After this, decrement the index.
+This helps in ensuring that in the worst case, the algorithm does not reset the shuffle.
+Also, if the index is 0, no need to in shuffling it.
+```
+To shuffle an array a of n elements (indices 0..n-1):
+  for i from n - 1 downto 1 do
+       j = random integer with 0 <= j <= i
+       exchange a[j] and a[i]
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
+
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
 - ADT defines what type of operations can be done, what behavior is exhibited by this data type etc.
