@@ -245,7 +245,7 @@ To shuffle an array a of n elements (indices 0..n-1):
 ```
 - Time Complexity O(N)
 - Space Complexity O(1)
-
+`
 ## Kth largest element in the array ( with no extra space )
 - One approach is to sort the array and return kth element
 - Approach two:
@@ -256,6 +256,10 @@ To shuffle an array a of n elements (indices 0..n-1):
 
 ## Kth largest element in the array ( with constrain that only adjacent elements can be interchanged )
 - Bubble sort
+
+## Array in which odd and even values are sorted
+- { 3, 9, 2, 4, 15, 10, 19 }
+- Create two arrays a[] and b[] and apply merge sort algorithm.
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
