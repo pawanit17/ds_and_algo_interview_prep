@@ -431,7 +431,26 @@ void printInReverse( Node* head )
   - This alters the linked list. This is not a practical solution.
 
 ## Circulate Linked Lists(Open)
-## :dart: Reverse Linked Lists(Open)
+## :dart: Reverse Linked Lists
+```
+struct Node* reverseList( structNode* node ) {
+  if( node == NULL )
+    return NULL;
+  
+  if( node->next == NULL ) {
+    head = node;
+    return node;  
+  }
+  
+  struct Node* ptr = reverseList( node->next );
+  ptr->next = NULL;
+  node->next = NULL;
+  return node;
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ## :dart: Replace adjacent nodes in a Linked List(Open)
 
 # Stacks
