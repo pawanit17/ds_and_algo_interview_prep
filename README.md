@@ -223,6 +223,39 @@ To shuffle an array a of n elements (indices 0..n-1):
 
 ### Heap sort
 
+# Scalar Academy Session
+## Second largest element in the array
+- Maintain two variables and solve it
+- large = a[0]
+- if( a[1] > a[0] ) large = a[1] and secondLarge = a[0];
+- Now iterate forward anre whenever you encounter a value greater than large, swap it and copy largest to secondLargest.
+```
+ for( i = 2; i < n; i++ ) {
+   if( a[i] > largest ) {
+     secondLarge = large;
+     large = a[i];
+   }
+   else if ( a[i] > secondLarge ){
+     secondLarge = a[i];
+   }
+   else {
+   }
+   return secondLarge;
+   }
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
+
+## Kth largest element in the array ( with no extra space )
+- One approach is to sort the array and return kth element
+- Approach two:
+  - Find the largest element in 0..n-1 and swap it with last index
+  - Find the largest element in 0..n-2 and swap it with last but one index
+  - In K iterations, this would yield the third largest element
+  - This is selection sort.
+
+## Kth largest element in the array ( with constrain that only adjacent elements can be interchanged )
+- Bubble sort
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
