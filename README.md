@@ -215,6 +215,15 @@ To shuffle an array a of n elements (indices 0..n-1):
 - Time Complexity O(N^2)
 - Space Complexity O(1)
 
+### Insertion sort
+
+### Quick sort
+
+### Merge sort
+
+### Heap sort
+
+
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
 - ADT defines what type of operations can be done, what behavior is exhibited by this data type etc.
