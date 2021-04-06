@@ -158,7 +158,9 @@ To shuffle an array a of n elements (indices 0..n-1):
 
 ## Sorting Algorithms
 
-At each pass, the smallest element in the array will be moved to the first index.
+### Selection sort
+- At each pass, the smallest element in the array will be moved to the first index.
+- At each pass, only the first element is considered for swap.
 ```
   private static void selectionSort(int[] numbers) 
 	{	
@@ -178,6 +180,36 @@ At each pass, the smallest element in the array will be moved to the first index
 			}
 			printArray(numbers);
 		}
+	}
+```
+- Time Complexity O(N^2)
+- Space Complexity O(1)
+
+### Bubble Sort
+- While the selection sort and bubble sort may appear similar at first glance, they are not.
+- Bubble sort focusses on bringing the heaviest element or the lighter element to the end of the array.
+- Also, in selection sort, the values are indices inx and jnx are considered.
+- In bubble sort, the values are jnx and jnx+1 are considered. In selection sort, we consider inx, jnx.
+```
+	private static void bubbleSort(int[] numbers) 
+	{
+		int len = numbers.length;
+
+		// 90 10 20 61 100 40
+		for( int inx = 0; inx < len; inx++ )
+		{
+			for(int jnx = 0; jnx < len-1-inx; jnx++)
+			{
+				if(numbers[jnx] > numbers[jnx+1])
+				{
+					int temp = numbers[jnx];
+					numbers[jnx] = numbers[jnx+1];
+					numbers[jnx+1] = temp;
+				}
+				printArray(numbers);
+			}
+			printArray(numbers);
+		}		
 	}
 ```
 - Time Complexity O(N^2)
