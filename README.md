@@ -82,13 +82,9 @@ Another approach:
 - For each index, do the two pointer approach on the rest of the array
 - This reduces the complexity O(N^2). 
 
-
-
 ## Counting sort
 ## Bucket sort
 ## Radix sort
-
-
 
 ## Rotating the array to the right k times
 - Get hold of last number
@@ -158,6 +154,33 @@ To shuffle an array a of n elements (indices 0..n-1):
        exchange a[j] and a[i]
 ```
 - Time Complexity O(N)
+- Space Complexity O(1)
+
+## Sorting Algorithms
+
+At each pass, the smallest element in the array will be moved to the first index.
+```
+  private static void selectionSort(int[] numbers) 
+	{	
+		int len = numbers.length;
+
+		for(int inx = 0; inx < len-1; inx++)
+		{
+			for(int jnx = inx + 1; jnx < len; jnx++)
+			{
+				if(numbers[inx] > numbers[jnx])
+				{
+					int temp = numbers[jnx];
+					numbers[jnx] = numbers[inx];
+					numbers[inx] = temp;
+				}
+				printArray(numbers);
+			}
+			printArray(numbers);
+		}
+	}
+```
+- Time Complexity O(N^2)
 - Space Complexity O(1)
 
 **Abstract Data Type**
