@@ -432,6 +432,7 @@ void printInReverse( Node* head )
 
 ## Circulate Linked Lists(Open)
 ## :dart: Reverse Linked Lists
+![Reverse Linked List](https://user-images.githubusercontent.com/42272776/113765741-4b2bef80-973a-11eb-84d9-a34c837b8f17.jpg)
 ```
 struct Node* reverseList( structNode* node ) {
   if( node == NULL )
