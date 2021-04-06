@@ -260,6 +260,21 @@ To shuffle an array a of n elements (indices 0..n-1):
 ## Array in which odd and even values are sorted
 - { 3, 9, 2, 4, 15, 10, 19 }
 - Create two arrays a[] and b[] and apply merge sort algorithm.
+- Merge Sort
+  - Time Complexity of merge:
+    - At each step we do O(N) computations and the height of the binary tree is O(log N ).
+    - The reason why we do equal partition is to ensure that the height of the binary tree is balanced which will result in logN height.
+    - What if the array is divided into three parts - height will be O(logn with base 3).
+    - This will be smaller than O(logn with base 2). But the number of comparisions will increase.
+    - Ex: [7,8,9] [3,4,6] [1,5]
+    -      i       j       k
+    -      [...............]
+    -      This increases the time it takes to identify which index to be added.
+    - Dividing the array into n parts will result into selection sort
+    - 9 | 8 | 7 | 3 | 6 | 4 | 1 | 10
+    - Merge step complexity increases heavily.
+
+
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
