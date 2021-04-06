@@ -113,6 +113,13 @@ class Solution {
     }
 }
 ```
+- Another implementation that can be done is this:
+- Assume that the number is 123456789
+- And that we want to rotate after 6th character. So we do this:
+  - Break the array into a[0...5] and a[6..8] and name them as X and Y.
+  - Invert Y - 123456 987
+  - Invert X - 654321 987
+  - Invert the entire thing - 789123456
 
 ## Find the number that is occurring odd number of times
 - XOR all the elements. The one that remains is the element that occurred odd number of times.
