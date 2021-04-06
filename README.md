@@ -1,5 +1,5 @@
 **Complexities**
-- O(N) means that the algorithm needs N in growth.
+- O(N) means that the rate of growth of complexity of the algorithm as a function of the input size.
 - O(N) determines that it is atleast N in growth.
 
 ## Amortized Analysis
