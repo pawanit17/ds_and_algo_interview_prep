@@ -274,6 +274,28 @@ To shuffle an array a of n elements (indices 0..n-1):
     - 9 | 8 | 7 | 3 | 6 | 4 | 1 | 10
     - Merge step complexity increases heavily.
 
+## Count inversions in an array
+- If i < j, a[i] > a[j] and i<j
+- Brute force is two for loop approach
+- Another option is to use the merge approach
+  - During merge phase, if there is a number in the left set which is greater than the ones in right set, then we have inversions.
+  - Complexity is O(nlogn).
+
+## With less number of weighing find the heaviest one ball in 100 no of same colored balls. All balls looking same , but one is heavier than the rest, we are provided with a balance scale on which we can balance balls on both side
+- Binary search approach can be used.
+- 33 + 33 + 33 + 1
+- You just have to identify which bucket to look at.
+
+## Given N nuts of different sizes and N bolts of different size and there is exactly 1:1 match b/w nuts and bolts.
+- Brute force is one option O(N2)
+- Quick sort
+
+## Stable Sort
+If a == b and a comes before b in the unsorted array, then after sorting, a should still be before b.
+- Bubble sort: Swap a[i] and a[i+1] only if they are not equal
+- Selection sort: Select the last occurrence of the largest element to swap with last element.
+- Merge sort: Prefer the element from the left sub array if the current value is same at both left and right side parts.
+
 
 
 **Abstract Data Type**
