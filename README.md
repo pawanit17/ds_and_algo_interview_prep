@@ -228,6 +228,9 @@ To shuffle an array a of n elements (indices 0..n-1):
 
 ### Merge sort
 Base condition should be low>=high. This is simple because if low == high, the array is just one element size and every array of size 1 is sorted by itself.
+
+![MergeSort](https://user-images.githubusercontent.com/42272776/113928531-931b4700-980c-11eb-9a29-bcf2fae30db3.jpg)
+
 ```
 private static void mergeSort(int[] numbers, int low, int high)
 {
