@@ -227,6 +227,68 @@ To shuffle an array a of n elements (indices 0..n-1):
 ### Quick sort
 
 ### Merge sort
+Base condition should be low>=high. This is simple because if low == high, the array is just one element size and every array of size 1 is sorted by itself.
+```
+private static void mergeSort(int[] numbers, int low, int high)
+{
+	if( low >= high )
+	{
+		return;
+	}
+
+	int temp[] = new int[9];
+	int mid = ( low + high )/2;
+	mergeSort( numbers, low, mid);
+	mergeSort( numbers, mid+1, high);
+	merge(numbers, temp, low, mid, mid+1, high);
+	copy(numbers, temp, low, high);
+	printArray(numbers);
+}
+
+private static void merge(int[] numbers, int[] temp, int low1, int high1, int low2, int high2)
+{
+	int i = low1;
+	int j = low2;
+	int k = low1;
+	while( i <= high1 && j <= high2 )
+	{
+		if( numbers[i] < numbers[j])
+		{
+			temp[k] = numbers[i];
+			k++;
+			i++;
+		}
+		else
+		{
+			temp[k] = numbers[j];
+			j++;
+			k++;
+		}
+	}
+	while( i <= high1 )
+	{
+		temp[k] = numbers[i];
+		k++;
+		i++;
+	}
+	while( j <= high2 )
+	{
+		temp[k] = numbers[j];
+		k++;
+		j++;
+	}
+}
+
+private static void copy(int[] numbers, int[] temp, int low, int high) 
+{
+	for(int inx = low; inx <= high; inx++)
+	{
+		numbers[inx] = temp[inx];
+	}
+}
+```
+- Time Complexity O(NlogN) the merge process happens logN time in best/average case. In worst case, this becomes O(N^2).
+- Space Complexity O(N) for the array.
 
 ### Heap sort
 
