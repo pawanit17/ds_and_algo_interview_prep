@@ -394,7 +394,38 @@ If a == b and a comes before b in the unsorted array, then after sorting, a shou
 - Selection sort: Select the last occurrence of the largest element to swap with last element.
 - Merge sort: Prefer the element from the left sub array if the current value is same at both left and right side parts.
 
+## Binary Search & its variants
 
+### Basic binary search
+```
+public static int binarySearch(int[] array, int target) {
+    
+		int low = 0;
+		int high = array.length-1;
+				
+		while( low <= high )
+		{
+			int mid = low + ( high - low )/2;
+			if( target < array[mid] )
+			{
+				high = mid-1;
+			}
+			else if( target > array[mid])
+			{
+				low = mid+1;
+			}
+			else
+			{
+				return mid;
+			}			
+		}
+		
+		
+    return -1;
+  }
+```
+- Time Complexity O(logN)
+- Space Complexity O(1)
 
 **Abstract Data Type**
 - Representing a user defined data type in layman terms is ADT.
