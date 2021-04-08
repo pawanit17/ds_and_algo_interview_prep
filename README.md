@@ -295,6 +295,32 @@ private static void copy(int[] numbers, int[] temp, int low, int high)
 
 ### Heap sort
 
+### Find first non-repeating character
+
+Conventional i=0 and j=i+1 wont work in this case because of strings like this:
+*faadabcbbebdf*
+If the question had been finding the first repeating character, that i=0 and j=i+1 scheme would have worked out.
+```
+public int firstNonRepeatingCharacter(String str) 
+{
+    for( int inx = 0; inx < str.length(); ++inx)
+    {
+	boolean found = true;
+	for( int jnx = 0; jnx < str.length(); ++jnx)
+	{
+		if(inx==jnx) continue;
+		if(str.charAt(inx) == str.charAt(jnx))
+		    found = false;
+	}
+	if(found)
+	{
+		return inx;
+	}
+    }
+    return -1;
+}
+```
+
 # Scalar Academy Session
 ## Second largest element in the array
 - Maintain two variables and solve it
