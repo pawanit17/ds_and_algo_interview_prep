@@ -295,6 +295,7 @@ private static void copy(int[] numbers, int[] temp, int low, int high)
 
 ### Heap sort
 
+## :gear: AlgoExpert
 ### Find first non-repeating character
 
 Conventional i=0 and j=i+1 wont work in this case because of strings like this:
@@ -320,8 +321,99 @@ public int firstNonRepeatingCharacter(String str)
     return -1;
 }
 ```
+- Time Complexity O(N)
+- Space Complexity O(1)
 
-# Scalar Academy Session
+### Given two arrays, find if the second array is a subsequence of the first array. Ex: a = [1,2,3,4] s = [1,3,4].
+```
+public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) 
+{
+    for(int inx = 0; inx < array.size(); inx++ )
+    {
+	int jnx = 0;
+	int count = 0;
+	for( int knx = inx; knx < array.size(); ++knx)
+	{
+	    if(array.get(knx) == sequence.get(jnx))
+	    {
+    		jnx++;
+	  	count++;
+	    }
+	    if( count == sequence.size())
+		return true;
+	    }			
+	}
+    return false;
+}
+```
+- Time Complexity O(MN)
+- Space Complexity O(1)
+
+### Check if a string is a palindrome
+
+`inx < jnx` is needed because in case of an odd length string, inx and jnx will technically reach same location at one time if the string is a palindrome.
+```
+public static boolean isPalindrome(String str) {
+    
+	if( str.length() == 0 || str.length() == 1 )
+		return true;
+
+	int inx = 0;
+	int jnx = str.length()-1;
+
+	int comparisions = 0;
+	while(str.charAt(inx) == str.charAt(jnx) && inx < jnx)
+	{
+		comparisions++;
+		inx++;
+		jnx--;
+	}
+
+	if( comparisions == str.length()/2 )
+    		return true;
+		
+	return false;
+  }
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
+
+### Find the three largest elements in the array
+Main thing to note here is that the last ELSE clause should have a condition. Otherwise, a swap with thirdLargest element happens always.
+```
+public static int[] findThreeLargestNumbers(int[] array) {
+
+	int larger = Integer.MIN_VALUE;
+	int secondLarger = Integer.MIN_VALUE;
+	int thirdLarger = Integer.MIN_VALUE;
+
+	for( int inx = 0; inx < array.length; inx++)
+	{
+		if( array[inx] > larger )
+		{
+			thirdLarger = secondLarger;
+			secondLarger = larger;
+			larger = array[inx];
+		}
+	        else if( array[inx] > secondLarger )
+		{
+			thirdLarger = secondLarger;
+			secondLarger = array[inx];
+		}
+		else if( array[inx] > thirdLarger )
+		{
+			thirdLarger = array[inx];
+		}
+	}
+
+	return new int[] { thirdLarger, secondLarger, larger };
+  }
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
+---------------------------------------------------------------------------------------------------------------------------------------
+
+## :gear: Scalar Academy Session
 ## Second largest element in the array
 - Maintain two variables and solve it
 - large = a[0]
@@ -1392,14 +1484,16 @@ Stable sort are algorithms where the order of two array elements at indexes is p
 Ex: Merge Sort and Insertion Sort
 
 # Still to go
-Sorting
 Searching
 Hashing
-Arrays problems
 String problems
 Graphs
 Queues
 
+
+# Mistakes to avoid
+- Avoid multiple paths in which a variable is incremented or decremented ( inx++ ). This leads to unpredictable results for edge cases.
+- More stress on edge cases while writing program.
 
 
 
