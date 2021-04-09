@@ -1543,7 +1543,7 @@ Queues
 - Avoid multiple paths in which a variable is incremented or decremented ( inx++ ). This leads to unpredictable results for edge cases.
 - More stress on edge cases while writing program.
 - In most cases, identifying the largest in a scenario, can be done with out any extra pass by hacking a simple variable that maintains the highest value.
-
+- For array problems, if you do not have any solution or optimal solution, try sorting the array and see if there is any lead.
 
 
 
