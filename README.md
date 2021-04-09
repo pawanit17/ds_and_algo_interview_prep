@@ -412,9 +412,7 @@ public static int[] findThreeLargestNumbers(int[] array) {
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-
 ### Given a competitions array ( hostteam, awayteam ) and the results ( 0/1 ), write an algorithm to identify who the winner is of the whole tournament, given that there are no ties
-
 
 ```
 	public static String tournamentWinner( ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) 
@@ -459,6 +457,8 @@ public static int[] findThreeLargestNumbers(int[] array) {
 		}
 	}
 ```
+- Time Complexity O(N) the number of matches.
+- Space Complexity O(K) the number of teams.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
