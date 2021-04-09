@@ -411,6 +411,54 @@ public static int[] findThreeLargestNumbers(int[] array) {
 ```
 - Time Complexity O(N)
 - Space Complexity O(1)
+
+
+### Given a competitions array ( hostteam, awayteam ) and the results ( 0/1 ), write an algorithm to identify who the winner is of the whole tournament, given that there are no ties
+
+
+```
+	public static String tournamentWinner( ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) 
+	{
+		Map<String, Integer> teamToWinsMap = new HashMap<String, Integer>();
+		int winnerWins = Integer.MIN_VALUE;
+		String winnerName = "";
+		for(int inx = 0; inx < competitions.size(); ++inx)
+		{
+			boolean homeTeamWon = results.get(inx) == 1;
+			String winningTeam = "";
+			if( homeTeamWon )
+			{
+				winningTeam = competitions.get(inx).get(0);								
+			}
+			else
+			{
+				winningTeam = competitions.get(inx).get(1);				
+			}			
+
+			addToMap( teamToWinsMap, winningTeam );
+			if( winnerWins < teamToWinsMap.get(winningTeam) )
+			{
+				winnerWins = teamToWinsMap.get(winningTeam);
+				winnerName = winningTeam;
+			}		
+		}
+		
+		// Get the highest value from the Map
+		return winnerName;
+	}
+	
+	public static void addToMap(Map<String, Integer> teamToWinsMap, String team)
+	{
+		if( teamToWinsMap.containsKey(team) )
+		{
+			teamToWinsMap.put(team, teamToWinsMap.get(team) + 1 );
+		}
+		else
+		{
+			teamToWinsMap.put(team, 1 );
+		}
+	}
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
