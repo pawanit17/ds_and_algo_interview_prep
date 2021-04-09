@@ -459,6 +459,40 @@ public static int[] findThreeLargestNumbers(int[] array) {
 ```
 - Time Complexity O(N) the number of matches.
 - Space Complexity O(K) the number of teams.
+
+### A sorted integer array is given, we have to construct its squared array in sorted manner and return it.
+Catch here is if it has negative numbers, then the square of negative number will be positive. So we take a new array and use two pointer approach and fill it from the rear.
+```
+public int[] sortedSquaredArray(int[] a) 
+{
+	int n = a.length;
+	int largestIndex = n-1;
+	int smallestIndex = 0;
+
+	int finalArray[] = new int[n];
+	int inx = n-1;
+
+	while( smallestIndex <= largestIndex )
+	{
+			 if( Math.abs( a[smallestIndex]) > Math.abs( a[largestIndex]) )
+			 {
+			     finalArray[inx] = (int)Math.pow( a[smallestIndex], 2);
+					 smallestIndex++;
+			 }
+			 else
+			 {
+					 finalArray[inx] = (int)Math.pow( a[largestIndex], 2);
+					 largestIndex--;
+			 }
+
+			 inx--;
+	}
+
+        return finalArray;
+}
+```
+- Time Complexity O(N).
+- Space Complexity O(N).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
