@@ -493,6 +493,37 @@ public int[] sortedSquaredArray(int[] a)
 ```
 - Time Complexity O(N).
 - Space Complexity O(N).
+
+### Branch Sums in a Binary tree
+```
+public static List<Integer> branchSums(BinaryTree root) {
+
+	List<Integer> allPathSums = new ArrayList<Integer>();
+	getPathSumToLeaves( root, 0, allPathSums );
+	
+	return allPathSums;
+}
+
+public static void getPathSumToLeaves( BinaryTree root, int sum, List<Integer> allPathSums)
+{
+	if( root == null)
+	{
+			return;
+	}
+	if( root.left == null && root.right == null )
+	{
+			allPathSums.add(sum + root.value);
+			return;
+	}
+
+	getPathSumToLeaves( root.left, sum + root.value, allPathSums);
+	getPathSumToLeaves( root.right, sum + root.value, allPathSums);
+
+	return;
+}
+```
+- Time Complexity O(N).
+- Space Complexity O(N).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
@@ -1578,6 +1609,9 @@ Queues
 - More stress on edge cases while writing program.
 - In most cases, identifying the largest in a scenario, can be done with out any extra pass by hacking a simple variable that maintains the highest value.
 - For array problems, if you do not have any solution or optimal solution, try sorting the array and see if there is any lead.
+- Be careful in tree recursion.
+  - Always include root == null case. It will come up if the tree has no children in any program/question.
+  - When counting in BT, if special processing is needed for leaf cases, like path sums etc, be careful to rethink about leaf case properly.
 
 
 
