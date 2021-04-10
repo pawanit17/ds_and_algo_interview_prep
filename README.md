@@ -524,6 +524,42 @@ public static void getPathSumToLeaves( BinaryTree root, int sum, List<Integer> a
 ```
 - Time Complexity O(N).
 - Space Complexity O(N).
+
+### You are given an array of integers and an integer. Write a function that moves all instances of that integer in the array to the end of the array and returns the array
+- Use two pointer approach
+```
+public static List<Integer> moveElementToEnd(List<Integer> array, int toMove) 
+{
+	int low = 0;
+	int high = array.size()-1;
+	
+	while( low < high )
+	{
+		if(array.get(high) == toMove)
+		{
+				high--;
+		}
+		else if(array.get(low) == toMove)
+		{
+			  // swap
+				int temp = array.get(low);
+				array.set(low, array.get(high));
+				array.set(high, temp);
+
+				low++;
+				high--;
+		}
+		else
+		{
+				low++;
+		}
+	}
+	// Write your code here.
+	return array;
+}
+```
+- Time Complexity O(N).
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
