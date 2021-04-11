@@ -599,6 +599,28 @@ return true;
 ```
 - Time Complexity O(NlogN) + O(NlogN) + O(N) = O(NlogN).
 - Space Complexity O(1).
+
+### Return the first duplicate value in an array given that all the numbers are between 1-n.
+- Approach here is to negate the value present at each a[i].
+- The index i that has the negative value is the value that we need to return.
+- Note that we need to return the absolute value.
+```
+public static int firstDuplicateValue(int[] array) 
+	{
+		for(int inx=0; inx<array.length; ++inx)
+		{
+				if(array[Math.abs(array[inx])-1] < 0)
+				{
+						// This element has already come earlier
+					  return Math.abs(array[inx]);
+				}
+		    array[Math.abs(array[inx])-1] = -1 * array[Math.abs(array[inx])-1]; 
+		}
+	  		return -1;
+	}
+```
+- Time Complexity O(N)
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
