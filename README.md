@@ -560,6 +560,44 @@ public static List<Integer> moveElementToEnd(List<Integer> array, int toMove)
 ```
 - Time Complexity O(N).
 - Space Complexity O(1).
+
+### Two arrays are given - redshirt and blueshirts. They are to be arranged in front and back rows such that the items in the back row are strictly greater than that of the first row. Red and Blue arrays cannot be mixed
+- We sort in descending order both the arrays
+- Then we see if the corresponding columns in the two rows are greater/less and return a true or false accordingly.
+```
+public boolean classPhotos(
+ArrayList<Integer> redShirtHeights, ArrayList<Integer> blueShirtHeights) {
+
+	Collections.sort( redShirtHeights, Collections.reverseOrder() );
+	Collections.sort( blueShirtHeights, Collections.reverseOrder() );
+
+	String backRow = redShirtHeights.get(0) > blueShirtHeights.get(0) ? "RED" : "BLUE";
+
+	if( backRow.equals("RED"))
+	{
+		return compareRows( blueShirtHeights, redShirtHeights );
+	}
+	else
+	{
+		return compareRows( redShirtHeights, blueShirtHeights );			
+	}
+}
+
+private boolean compareRows(ArrayList<Integer> frontRow, ArrayList<Integer> backRow) 
+{
+	for( int inx = 0; inx < frontRow.size(); ++inx )
+	{
+		if(frontRow.get(inx) >= backRow.get(inx))
+		{
+			return false;
+		}
+	}
+
+return true;
+}
+```
+- Time Complexity O(NlogN) + O(NlogN) + O(N) = O(NlogN).
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
