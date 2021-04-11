@@ -562,7 +562,8 @@ public static List<Integer> moveElementToEnd(List<Integer> array, int toMove)
 - Space Complexity O(1).
 
 ### Two arrays are given - redshirt and blueshirts. They are to be arranged in front and back rows such that the items in the back row are strictly greater than that of the first row. Red and Blue arrays cannot be mixed
-- We sort in descending order both the arrays
+- We sort both the arrays in descending order
+- We then identify which of the two arrays has the highest value. Because that array has to be the back bencher.
 - Then we see if the corresponding columns in the two rows are greater/less and return a true or false accordingly.
 ```
 public boolean classPhotos(
