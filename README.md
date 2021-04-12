@@ -134,17 +134,22 @@ class Solution {
 - Space Complexity O(1)
 
 ## Dutch National Flag Algorithm
+- low always points to the last '1' so that if mid encounters a '0', a swap can be made to fix 0s
+- mid always skips '1' to fix 1s.
+- high always fixes 2s.
 ```
-i = 0;
-j = 0;
-k = a.length-1;
+low = 0;
+mid = 0;
+high = a.length-1;
 
-while( j <= k )
+while( mid <= high )
 {
-    switch(j):
-    case 0: swap( a[i], a[j] ); i++; j++; break;
-    case 1: j++; break;
-    case 2: swap( a[k], a[j] ); j++; break;
+    switch(mid)
+    {
+        case 0: swap( a[low], a[mid] ); low++; mid++; break;
+        case 1: mid++; break;
+        case 2: swap( a[high], a[mid] ); high--; break;
+    }
 }
 ```
 - Time Complexity O(N)
