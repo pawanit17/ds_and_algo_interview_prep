@@ -1761,6 +1761,25 @@ Queues
   - When counting in BT, if special processing is needed for leaf cases, like path sums etc, be careful to rethink about leaf case properly.
 
 
+# Additional resources to explore
+- https://github.com/coding-parrot/projects/tree/master/system%20design%20contest
+- https://medium.com/refraction-tech-everything/how-netflix-works-the-hugely-simplified-complex-stuff-that-happens-every-time-you-hit-play-3a40c9be254b
+- https://www.techhive.com/article/2158040/how-netflix-streams-movies-to-your-tv.html
+- What to do first? https://t.me/system_design_interviews/14311
+- Grokking design book: https://t.me/system_design_interviews/49
+- DDIA book: https://t.me/system_design_interviews/1173
+- Design primer: https://github.com/donnemartin/system-design-primer
+- Leveling guide - interview: 
+- https://t.me/system_design_interviews/3372 
+- https://t.me/system_design_interviews/14545
+- DDIA notes: https://t.me/system_design_interviews/7133
+- DDIA summary: https://t.me/system_design_interviews/6423
+- Database internals book: https://t.me/system_design_interviews/5407
+- Grokking coding: https://t.me/system_design_interviews/6118
+- Offer negotiation: https://t.me/system_design_interviews/9930
+- Behavioral / manager interview book: https://t.me/system_design_interviews/13440
+- Resource for LLD - https://github.com/prasadgujar/low-level-design-primer/blob/master/solutions.md
+- System Design Interview Guide book: https://t.me/system_design_interviews/14132
 
 
 
