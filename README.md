@@ -676,6 +676,38 @@ TreeNode* leastCommonAncestor( struct TreeNode* root, int p, int q )
 ```
 - Time Complexity O(N)
 - Space Complexity O(1).
+
+### Three Number Sort - Similar to Dutch National Flag algorithm, except the sort order is dictated by a second array.
+```
+import java.util.*;
+
+class Program {
+  public int[] threeNumberSort(int[] a, int[] order) {
+    
+		int low = 0;
+		int mid = 0;
+		int high = a.length-1;
+		
+		while( mid <= high )
+		{
+		    if(a[mid] == order[0] )
+				{
+						int temp1 = a[mid]; a[mid] = a[low]; a[low] = temp1; low++; mid++;
+				}
+				else if(a[mid] == order[1] )
+				{
+						mid++;
+				}
+				else
+				{
+						int temp2 = a[mid]; a[mid] = a[high]; a[high] = temp2; high--;
+				}
+		}
+		
+    return a;
+  }
+}
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
