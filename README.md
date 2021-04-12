@@ -684,31 +684,77 @@ import java.util.*;
 class Program {
   public int[] threeNumberSort(int[] a, int[] order) {
     
-		int low = 0;
-		int mid = 0;
-		int high = a.length-1;
+	int low = 0;
+	int mid = 0;
+	int high = a.length-1;
+
+	while( mid <= high )
+	{
+	    if(a[mid] == order[0] )
+			{
+					int temp1 = a[mid]; a[mid] = a[low]; a[low] = temp1; low++; mid++;
+			}
+			else if(a[mid] == order[1] )
+			{
+					mid++;
+			}
+			else
+			{
+					int temp2 = a[mid]; a[mid] = a[high]; a[high] = temp2; high--;
+			}
+	}
 		
-		while( mid <= high )
-		{
-		    if(a[mid] == order[0] )
-				{
-						int temp1 = a[mid]; a[mid] = a[low]; a[low] = temp1; low++; mid++;
-				}
-				else if(a[mid] == order[1] )
-				{
-						mid++;
-				}
-				else
-				{
-						int temp2 = a[mid]; a[mid] = a[high]; a[high] = temp2; high--;
-				}
-		}
-		
-    return a;
-  }
+   	return a;
+    }
 }
 ```
 - Time Complexity O(N)
+- Space Complexity O(1).
+
+### Find two elements from two different arrays of different sizes that have the least difference
+- Brute force O(N^2) is possible, but we can do better.
+- We can use two pointer approach and solve it. But usually, two pointer approach needs arrays to be sorted.
+```
+import java.util.*;
+
+class Program {
+  public static int[] smallestDifference(int[] arrayOne, int[] arrayTwo) 
+  {
+  	// Sort both the arrays
+	Arrays.sort( arrayOne );
+	Arrays.sort( arrayTwo );
+
+	int low1 = 0;
+	int low2 = 0;
+	int difference = Integer.MAX_VALUE;
+	int num1 = 0;
+	int num2 = 0;
+
+	while( low1 < arrayOne.length && low2 < arrayTwo.length )
+	{
+			int currDiff = Math.abs( arrayOne[low1] - arrayTwo[low2] );
+			if( currDiff < difference )
+			{
+					difference = currDiff;
+				  num1 = arrayOne[low1];
+				  num2 = arrayTwo[low2];
+			}
+
+		  if( arrayOne[low1] > arrayTwo[low2] )
+			{
+				low2++;
+			}
+			else
+			{
+				low1++;
+			}
+	}
+
+	return new int[]{ num1, num2 };
+  }
+}
+```
+- Time Complexity O(NlogN) + O(MlogM)
 - Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1795,6 +1841,7 @@ Queues
 - More stress on edge cases while writing program.
 - In most cases, identifying the largest in a scenario, can be done with out any extra pass by hacking a simple variable that maintains the highest value.
 - For array problems, if you do not have any solution or optimal solution, try sorting the array and see if there is any lead.
+  - You can use two pointer approach for sorted arrays.
 - Be careful in tree recursion.
   - Always include root == null case. It will come up if the tree has no children in any program/question.
   - When counting in BT, if special processing is needed for leaf cases, like path sums etc, be careful to rethink about leaf case properly.
