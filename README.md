@@ -621,6 +621,27 @@ public static int firstDuplicateValue(int[] array)
 ```
 - Time Complexity O(N)
 - Space Complexity O(1).
+
+### Identify the LCA for a BST
+- LCA calculation for a BST is easier than that of a normal BST.
+- We rely on the BST principle or node ordering to traverse either left or right.
+- Note that the LCA of two nodes is either one of them or the node that splits them into two different nodes.
+
+```
+public static TreeNode* getLCAInBST( struct TreeNode* root, struct TreeNode* p, struct TreeNode* q )
+{
+    if( root ==  NULL ) return NULL;
+    
+    if( root->value > p->value && root-value > q->value )
+    	return getLCAInBST( root->left, p, q );
+    else if( root->value < p->value && root-value < q->value )
+    	return getLCAInBST( root->right, p, q );
+    else
+    	return root;
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
