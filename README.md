@@ -642,6 +642,35 @@ public static TreeNode* getLCAInBST( struct TreeNode* root, struct TreeNode* p, 
 ```
 - Time Complexity O(N)
 - Space Complexity O(1).
+
+### Identify the LCA for a BT
+- At each node, we have to return an identifier ( NULL or Node itself ) if the subtree holds one or both of the input information.
+- This will be rolled back to the root where we see the LST and RST return data and act accrordinly.
+- If the return is a NULL from a sub tree, then that sub tree does not have either of the two variables.
+```
+TreeNode* leastCommonAncestor( struct TreeNode* root, int p, int q )
+{
+    if( root == NULL )
+        return NULL;
+
+    if( root->data == p || root->data == q )
+        return root;
+
+    TreeNode* lAncestor = leastCommonAncestor( root->lChild, p, q );
+    TreeNode* rAncestor = leastCommonAncestor( root->rChild, p, q );
+
+    if( lAncestor != NULL && rAncestor != NULL ) // This is the ancestor node.
+        return root;
+    else if( lAncestor == NULL && rAncestor == NULL ) // This is the leaf node.
+        return NULL;
+    else if( lAncestor != NULL)
+    	return lAncestor;
+    else
+	return rAncestor;
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
