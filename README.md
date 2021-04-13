@@ -757,13 +757,65 @@ class Program {
 - Time Complexity O(NlogN) + O(MlogM)
 - Space Complexity O(1).
 
-## Validate if a tree is a BST
+### Validate if a tree is a BST
 - Checking if each LST and RST are BSTs has a flaw.
 - It does not cover cases like these below.
 ![image](https://user-images.githubusercontent.com/42272776/114563641-3648e200-9c8d-11eb-8583-d98c5edac0f9.png)
 - Basically, this approach does not really guarantee that the root BST is actually a BST.
 - Correct approach is actually ensuring that the maximum value at LST is < root and minimum value in RST is > root.
 - TBD 
+
+
+### Three Number Sum
+- Use two pointer approach for solving this.
+- In this case, the array contents are distinct. So incrementing low and high when there is a match does not make a difference. Otherwise, it is better to increment only one of them.
+```
+import java.util.*;
+
+class Program 
+{
+  public static List<Integer[]> threeNumberSum(int[] a, int targetSum) 
+  {
+  	List<Integer[]> response = new ArrayList<Integer[]>();
+		
+  	Arrays.sort(a);
+	for(int inx=0; inx<a.length-1;++inx)
+	{
+		int low = inx+1;
+		int high = a.length-1;
+
+		while( low < high ) // To prevent counting of the same index twice.
+		{
+			if( a[inx] + a[low] + a[high] == targetSum )
+			{
+				Integer integers[] = new Integer[3];
+				integers[0] = a[inx];
+				integers[1] = a[low];
+				integers[2] = a[high];
+
+			  response.add( integers );
+
+				low++;
+				high--;
+			}
+		  	else if(a[inx] + a[low] + a[high] < targetSum)
+			{
+				low++;	
+			}
+			else
+			{
+				high--;
+			}						
+		}				
+	}
+
+    return response;
+    }
+}
+```
+
+- Time Complexity O(N^2)
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
@@ -1850,6 +1902,7 @@ Queues
 - In most cases, identifying the largest in a scenario, can be done with out any extra pass by hacking a simple variable that maintains the highest value.
 - For array problems, if you do not have any solution or optimal solution, try sorting the array and see if there is any lead.
   - You can use two pointer approach for sorted arrays.
+  - In two pointer approach, always ensure that you are adjusting pointers in all cases, example, Three Sum Problem, when there is a match.
 - Be careful in tree recursion.
   - Always include root == null case. It will come up if the tree has no children in any program/question.
   - When counting in BT, if special processing is needed for leaf cases, like path sums etc, be careful to rethink about leaf case properly.
