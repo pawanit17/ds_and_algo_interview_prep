@@ -813,8 +813,81 @@ class Program
     }
 }
 ```
-
 - Time Complexity O(N^2)
+- Space Complexity O(1).
+
+### Sum of linked lists which have their head pointers pointing to least significant digit of an array - 3479 and 945 should return 29201.
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  public static class LinkedList {
+    public int value;
+    public LinkedList next;
+
+    public LinkedList(int value) {
+      this.value = value;
+      this.next = null;
+    }
+  }
+
+  public LinkedList sumOfLinkedLists(LinkedList linkedListOne, LinkedList linkedListTwo) 
+  {
+ 	LinkedList headNode = null;
+	LinkedList lastNode = null;
+	int carry = 0;
+
+	while( linkedListOne != null || linkedListTwo != null)
+	{
+	    int digit = 0;
+	    int digitSum = ( linkedListOne != null ? linkedListOne.value : 0 ) 
+			 + ( linkedListTwo != null ? linkedListTwo.value : 0 )
+		         + carry;
+	    if( digitSum > 9 )
+	    {
+	        // Ex: 14
+		digit = digitSum % 10;
+		carry = 1;
+	    }
+	    else
+	    {
+	        // Ex: 8
+		carry = 0;
+		digit = digitSum;
+	    }
+
+            LinkedList node = new LinkedList(digit);
+	    if( headNode == null )
+	    {
+		headNode = node;
+		lastNode = node;
+	    }
+	    else
+	    { 
+		lastNode.next = node;
+		lastNode = node;
+	    }
+
+	    if( linkedListOne != null)
+	    linkedListOne = linkedListOne.next;
+
+            if(linkedListTwo != null)
+	    linkedListTwo = linkedListTwo.next;
+	}
+
+	if( carry > 0 )
+	{
+	    LinkedList node = new LinkedList(carry);
+	    lastNode.next = node;
+	    lastNode = node;
+	}
+
+	return headNode;
+  }
+}
+```
+- Time Complexity O(M+N)
 - Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
