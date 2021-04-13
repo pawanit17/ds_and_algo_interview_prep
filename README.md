@@ -1874,6 +1874,7 @@ Queues
 - Behavioral / manager interview book: https://t.me/system_design_interviews/13440
 - Resource for LLD - https://github.com/prasadgujar/low-level-design-primer/blob/master/solutions.md
 - System Design Interview Guide book: https://t.me/system_design_interviews/14132
+- Java Interview Questions https://www.interviewbit.com/java-interview-questions/
 
 
 
