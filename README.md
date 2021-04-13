@@ -228,6 +228,33 @@ To shuffle an array a of n elements (indices 0..n-1):
 - Space Complexity O(1)
 
 ### Insertion sort
+- Best understood using an example where you insert an element into a sorted array.
+- Ex: 1 3 7 9 and you need to add 6 and 4 ( original array is 1 3 7 9 6 4 ).
+```
+public static int[] insertionSort(int[] a) 
+{
+	for(int inx=1; inx < a.length; ++inx)
+	{
+		int key = a[inx];
+
+		// 1 3 7 9 6 4
+		int jnx = inx - 1;
+
+		while(jnx >= 0 && a[jnx] > key)
+		{
+		    a[jnx+1] = a[jnx];
+		    jnx--;
+		}
+
+		// 1 3 7 7 9 4
+		a[jnx+1] = key; 
+	}
+
+	return a;
+}
+```
+- Time Complexity O(N^2)
+- Space Complexity O(1)
 
 ### Quick sort
 
