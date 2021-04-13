@@ -756,6 +756,14 @@ class Program {
 ```
 - Time Complexity O(NlogN) + O(MlogM)
 - Space Complexity O(1).
+
+## Validate if a tree is a BST
+- Checking if each LST and RST are BSTs has a flaw.
+- It does not cover cases like these below.
+![image](https://user-images.githubusercontent.com/42272776/114563641-3648e200-9c8d-11eb-8583-d98c5edac0f9.png)
+- Basically, this approach does not really guarantee that the root BST is actually a BST.
+- Correct approach is actually ensuring that the maximum value at LST is < root and minimum value in RST is > root.
+- TBD 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
