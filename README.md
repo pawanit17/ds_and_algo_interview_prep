@@ -932,6 +932,81 @@ public static int getNthFib(int n) {
 
 - Time Complexity O(N)
 - Space Complexity O(1).
+
+### Merge two sorted Linked List
+Be careful with incrementing the pointer and setting the front and rear of the new list.
+```
+public static LinkedList mergeLinkedLists(LinkedList headOne, LinkedList headTwo) {
+    
+		LinkedList mergedListHead = null;
+		LinkedList mergedListLast = null;
+		while( headOne != null && headTwo != null)
+		{
+				LinkedList temp = null;
+				if( headOne.value > headTwo.value )
+				{
+						temp = new LinkedList( headTwo.value );
+						headTwo = headTwo.next;
+				}
+				else
+				{
+						temp = new LinkedList( headOne.value );
+						headOne = headOne.next;
+				}
+			
+				if( mergedListHead == null )
+				{
+						mergedListHead = temp;
+						mergedListLast = temp;
+				}
+				else
+				{
+						mergedListLast.next = temp;
+						mergedListLast = temp;
+				}
+		}
+		
+		while( headOne != null )
+		{
+				LinkedList temp = new LinkedList( headOne.value );
+			
+				if( mergedListHead == null )
+				{
+						mergedListHead = temp;
+						mergedListLast = temp;
+				}
+				else
+				{
+						mergedListLast.next = temp;
+						mergedListLast = temp;
+				}
+			
+				headOne = headOne.next;
+		}
+					
+		while( headTwo != null )
+		{
+				LinkedList temp = new LinkedList( headTwo.value );
+			
+				if( mergedListHead == null )
+				{
+						mergedListHead = temp;
+						mergedListLast = temp;
+				}
+				else
+				{
+						mergedListLast.next = temp;
+						mergedListLast = temp;
+				}
+			
+				headTwo = headTwo.next;
+		}
+		
+    return mergedListHead;
+  }
+```
+- Time Complexity O(M+N)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
