@@ -938,75 +938,130 @@ Be careful with incrementing the pointer and setting the front and rear of the n
 ```
 public static LinkedList mergeLinkedLists(LinkedList headOne, LinkedList headTwo) {
     
-		LinkedList mergedListHead = null;
-		LinkedList mergedListLast = null;
-		while( headOne != null && headTwo != null)
+	LinkedList mergedListHead = null;
+	LinkedList mergedListLast = null;
+	while( headOne != null && headTwo != null)
+	{
+		LinkedList temp = null;
+		if( headOne.value > headTwo.value )
 		{
-				LinkedList temp = null;
-				if( headOne.value > headTwo.value )
-				{
-						temp = new LinkedList( headTwo.value );
-						headTwo = headTwo.next;
-				}
-				else
-				{
-						temp = new LinkedList( headOne.value );
-						headOne = headOne.next;
-				}
-			
-				if( mergedListHead == null )
-				{
-						mergedListHead = temp;
-						mergedListLast = temp;
-				}
-				else
-				{
-						mergedListLast.next = temp;
-						mergedListLast = temp;
-				}
+			temp = new LinkedList( headTwo.value );
+			headTwo = headTwo.next;
 		}
-		
-		while( headOne != null )
+		else
 		{
-				LinkedList temp = new LinkedList( headOne.value );
-			
-				if( mergedListHead == null )
-				{
-						mergedListHead = temp;
-						mergedListLast = temp;
-				}
-				else
-				{
-						mergedListLast.next = temp;
-						mergedListLast = temp;
-				}
-			
-				headOne = headOne.next;
+			temp = new LinkedList( headOne.value );
+			headOne = headOne.next;
 		}
-					
-		while( headTwo != null )
+
+		if( mergedListHead == null )
 		{
-				LinkedList temp = new LinkedList( headTwo.value );
-			
-				if( mergedListHead == null )
-				{
-						mergedListHead = temp;
-						mergedListLast = temp;
-				}
-				else
-				{
-						mergedListLast.next = temp;
-						mergedListLast = temp;
-				}
-			
-				headTwo = headTwo.next;
+			mergedListHead = temp;
+			mergedListLast = temp;
 		}
-		
+		else
+		{
+			mergedListLast.next = temp;
+			mergedListLast = temp;
+		}
+	}
+
+	while( headOne != null )
+	{
+		LinkedList temp = new LinkedList( headOne.value );
+
+		if( mergedListHead == null )
+		{
+			mergedListHead = temp;
+			mergedListLast = temp;
+		}
+		else
+		{
+			mergedListLast.next = temp;
+			mergedListLast = temp;
+		}
+
+		headOne = headOne.next;
+	}
+
+	while( headTwo != null )
+	{
+		LinkedList temp = new LinkedList( headTwo.value );
+
+		if( mergedListHead == null )
+		{
+			mergedListHead = temp;
+			mergedListLast = temp;
+		}
+		else
+		{
+			mergedListLast.next = temp;
+			mergedListLast = temp;
+		}
+
+		headTwo = headTwo.next;
+	}
+
     return mergedListHead;
   }
 ```
 - Time Complexity O(M+N)
 - Space Complexity O(1)
+
+###  Find closest value in BST
+Use Binary Search algorithm to find the node that has the least difference.
+```
+import java.util.*;
+
+class Program {
+  public static int findClosestValueInBst(BST tree, int target) {
+    // Write your code here.
+    return closestValue( tree, target, Integer.MAX_VALUE, Integer.MAX_VALUE);
+  }
+
+public static int closestValue( BST root, int target, int lastLeastDiff, int lastLeastValue)
+{
+	if( root == null )
+	{
+			return lastLeastValue;
+	}
+
+	if( root.value == target )
+	{
+			return root.value;
+	}
+
+	int currDifference = Math.abs( target-(root.value) );
+	if( currDifference < lastLeastDiff )
+	{
+			lastLeastDiff = currDifference;
+			lastLeastValue = root.value;
+	}
+
+	if( root.value < target )
+	{
+			return closestValue( root.right, target, lastLeastDiff, lastLeastValue);
+	}
+	else
+	{
+			return closestValue( root.left, target, lastLeastDiff, lastLeastValue);
+	}
+}
+
+
+  static class BST {
+    public int value;
+    public BST left;
+    public BST right;
+
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+}
+```
+- Time Complexity O(logN)
+- Space Complexity O(logN)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
