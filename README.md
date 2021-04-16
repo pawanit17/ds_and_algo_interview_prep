@@ -916,6 +916,22 @@ class Program {
 ```
 - Time Complexity O(M+N)
 - Space Complexity O(1).
+
+### Nth Fibonacci Number
+
+public static int getNthFib(int n) {
+	if( n == 1 )
+		return 0;
+	else if( n == 2 )
+		return 1;
+	else
+	{
+		return getNthFib( n - 1 ) + getNthFib( n - 2 );
+	}
+}
+
+- Time Complexity O(N)
+- Space Complexity O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
