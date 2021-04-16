@@ -1062,6 +1062,36 @@ public static int closestValue( BST root, int target, int lastLeastDiff, int las
 ```
 - Time Complexity O(logN)
 - Space Complexity O(logN)
+
+### Remove duplicates in a Linked List
+Be careful with the pointer increments.
+```
+public LinkedList removeDuplicatesFromLinkedList(LinkedList head)
+{
+	LinkedList curr = head.next;
+	LinkedList prev = head;
+
+	while( curr != null )
+	{
+		if( prev.value == curr.value)
+		{
+		        // Do not increment the PREV pointer to next of CURR when CURR is to be removed.
+			prev.next = curr.next;
+			curr = curr.next;
+		}
+		else
+		{
+		        // Increment PREV and CURR as normal
+			prev = curr;
+			curr = curr.next;
+		}
+	}
+
+	return head;		
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(logN)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
