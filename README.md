@@ -1091,7 +1091,7 @@ public LinkedList removeDuplicatesFromLinkedList(LinkedList head)
 }
 ```
 - Time Complexity O(N)
-- Space Complexity O(logN)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
