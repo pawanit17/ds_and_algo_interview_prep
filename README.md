@@ -1094,6 +1094,7 @@ public LinkedList removeDuplicatesFromLinkedList(LinkedList head)
 - Space Complexity O(1)
 
 ### Invert a Binary Tree
+- Capture the updated LST and RST into variables instead of directly assigning them.
 ```
 public static BinaryTree invertTree( BinaryTree tree)
 {
