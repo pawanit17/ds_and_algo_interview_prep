@@ -1168,6 +1168,61 @@ public int height( BinaryTree root )
 - Time Complexity O(N^2)
 - Space Complexity O(N)
 
+Approach 2
+
+```
+using namespace std;
+
+// This is an input class. Do not edit.
+class BinaryTree {
+public:
+  int value;
+  BinaryTree *left;
+  BinaryTree *right;
+
+  BinaryTree(int value) {
+    this->value = value;
+    left = nullptr;
+    right = nullptr;
+  }
+};
+
+int diameterOpt(BinaryTree* root, int* height)
+{
+    // lh --> Height of left subtree
+    // rh --> Height of right subtree
+    int lh = 0, rh = 0;
+ 
+    // ldiameter  --> diameter of left subtree
+    // rdiameter  --> Diameter of right subtree
+    int ldiameter = 0, rdiameter = 0;
+ 
+    if (root == NULL) {
+        *height = 0;
+        return 0; // diameter is also 0
+    }
+ 
+    // Get the heights of left and right subtrees in lh and
+    // rh And store the returned values in ldiameter and
+    // ldiameter
+    ldiameter = diameterOpt(root->left, &lh);
+    rdiameter = diameterOpt(root->right, &rh);
+ 
+    // Height of current node is max of heights of left and
+    // right subtrees plus 1
+    *height = max(lh, rh) + 1;
+ 
+    return max(lh + rh + 1, max(ldiameter, rdiameter));
+}
+
+int binaryTreeDiameter(BinaryTree *tree) {
+  // Write your code here.
+	int height = 0;
+  return diameterOpt(tree, &height) - 1;
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
