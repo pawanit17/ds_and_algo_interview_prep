@@ -1115,6 +1115,59 @@ public static BinaryTree invertTree( BinaryTree tree)
 - Time Complexity O(N)
 - Space Complexity O(N)
 
+### Diameter of a BT
+```
+import java.util.*;
+
+class Program 
+{
+	  // This is an input class. Do not edit.
+	  static class BinaryTree {
+	    public int value;
+	    public BinaryTree left = null;
+	    public BinaryTree right = null;
+
+	    public BinaryTree(int value) 
+	    {
+	      this.value = value;
+	    }
+}
+
+public int binaryTreeDiameter(BinaryTree root) 
+{
+	return diameter( root ) - 1;
+}
+
+public int diameter(BinaryTree root)
+{
+	if( root == null )
+		return 0;
+
+	// get the diameter of left and right sub-trees
+	int ldiameter = diameter(root.left);
+	int rdiameter = diameter(root.right);
+
+	int lheight = height(root.left);
+	int rheight = height(root.right);
+
+	return Math.max( lheight + rheight + 1, Math.max( ldiameter,  rdiameter ));
+}
+
+public int height( BinaryTree root )
+{
+	if( root == null )
+		return 0;
+
+	int lheight = height(root.left);
+	int rheight = height(root.right);
+	return ( 1 + Math.max( lheight, rheight ) );
+}
+}
+
+```
+- Time Complexity O(N^2)
+- Space Complexity O(N)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
