@@ -1092,6 +1092,28 @@ public LinkedList removeDuplicatesFromLinkedList(LinkedList head)
 ```
 - Time Complexity O(N)
 - Space Complexity O(1)
+
+### Invert a Binary Tree
+```
+public static BinaryTree invertTree( BinaryTree tree)
+{
+	if( tree == null )
+	{
+		return null;
+	}
+
+	BinaryTree leftSubTree = invertTree( tree.left );
+	BinaryTree rightSubTree = invertTree( tree.right );
+
+	tree.right = leftSubTree;
+	tree.left = rightSubTree;
+
+	return tree;
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(N)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
