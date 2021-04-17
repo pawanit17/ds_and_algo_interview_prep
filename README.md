@@ -1223,6 +1223,57 @@ int binaryTreeDiameter(BinaryTree *tree) {
 ```
 - Time Complexity O(N)
 - Space Complexity O(1)
+
+### Kth largest element in a BST
+- Note that we have to maintain a variable that is outside of the recursion stack.
+- We employ a reverse inorder traversal - Right, Root, Left.
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+	int found_value = 0;
+	int master_count = 0;
+
+  static class BST {
+    public int value;
+    public BST left = null;
+    public BST right = null;
+
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+
+  public int findKthLargestValueInBst(BST tree, int k) {
+    // Write your code here.
+		kthHighestNode( tree, k);
+    return found_value;
+  }
+	
+public void kthHighestNode( Program.BST root, int k )
+{
+	if( root == null)
+		return;
+
+	if( master_count < k)
+	kthHighestNode( root.right, k );
+
+	master_count++;
+	if( master_count == k )
+	{
+		found_value = root.value;
+		return;
+	}
+
+	if( master_count < k)
+	kthHighestNode( root.left, k );
+}
+}
+```
+- Time Complexity O(h+k) where h is height of the tree and k is the input parameter
+- Space Complexity O(h)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
