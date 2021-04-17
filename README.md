@@ -1274,6 +1274,64 @@ public void kthHighestNode( Program.BST root, int k )
 - Time Complexity O(h+k) where h is height of the tree and k is the input parameter
 - Space Complexity O(h)
 
+### Write an API to return a boolean indicating whether the binary tree is height balanced
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left = null;
+    public BinaryTree right = null;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+  }
+
+static class Violations 
+{
+	public boolean found;
+
+	public Violations() {
+		found = false;
+	}
+}
+
+public int heightBalancedBinaryTree(BinaryTree root, Violations violations) 
+{
+	if( root == null )
+		return 0;
+
+	if( violations.found )
+	{
+		return Integer.MIN_VALUE;
+	}
+
+	int leftHeight = 1 + heightBalancedBinaryTree( root.left, violations );
+	int rightHeight = 1 + heightBalancedBinaryTree( root.right, violations );
+
+	if( Math.abs( leftHeight - rightHeight ) > 1 )
+	{
+		violations.found = true;
+		return Integer.MIN_VALUE;
+	}
+
+	return Math.max( leftHeight, rightHeight );
+}
+
+public boolean heightBalancedBinaryTree(BinaryTree root)
+{
+	Violations violations = new Violations();
+	heightBalancedBinaryTree(root, violations );
+
+	return !violations.found;
+}
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
