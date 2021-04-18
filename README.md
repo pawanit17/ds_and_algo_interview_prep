@@ -1373,6 +1373,63 @@ int nodeDepths(BinaryTree *root)
 ```
 - Time Complexity O(N)
 - Space Complexity O(1)
+
+### Get the inorder successor for a given node in a Binary Tree
+- Things to consider
+  - If the node has right sub tree, the left most node in that sub tree will be the inorder successor
+  - If the node does not have right sub tree, then one of the ancestors of the node will be the inorder successor
+    - If the node that we are searching for is the right most node, then the above case needs to be handled carefully to avoid NULL dereference.
+    - In this case, it will traverse back to the root of the tree and its parent is NULL. Hence the condition temp != NULL.
+```
+using namespace std;
+
+// This is an input class. Do not edit.
+class BinaryTree {
+public:
+  int value;
+  BinaryTree *left = nullptr;
+  BinaryTree *right = nullptr;
+  BinaryTree *parent = nullptr;
+
+  BinaryTree(int value) { this->value = value; }
+};
+
+BinaryTree* findSuccessor(BinaryTree *root, BinaryTree *node) 
+{
+	// If the node has right sub tree, the left most node in that sub tree will be the inorder successor
+	// If the node does not have right sub tree, then one of the ancestors of the node will be the inorder successor.
+
+	// Case 1
+	if( node == NULL )
+	return NULL;
+
+	else if( node->right != NULL )
+	{
+		BinaryTree* temp = node->right;
+
+		while( temp->left != NULL )
+		{
+			temp = temp->left;
+		}
+
+		return temp;
+	}
+	else
+	{
+		BinaryTree* temp = node->parent;
+
+		while( temp != NULL && node != temp->left )
+		{
+			node = temp;
+			temp = temp->parent;
+		}
+
+		return temp;
+	}
+}
+```
+- Time Complexity O(h) where h is the height of the tree
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
