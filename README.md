@@ -1430,6 +1430,61 @@ BinaryTree* findSuccessor(BinaryTree *root, BinaryTree *node)
 ```
 - Time Complexity O(h) where h is the height of the tree
 - Space Complexity O(1)
+
+### You are given a sorted array. You have to build a BST that shall have the smallest height possible. This function should minimize the height.
+```
+import java.util.*;
+
+class Program {
+  public static BST minHeightBst(List<Integer> array) 
+	{
+			return buildBST( array, 0, array.size()-1 );
+  }
+	
+	public static BST buildBST( List<Integer> array, int low, int high )
+	{
+			if( low > high )
+			{
+					return null;
+			}
+		
+			int mid = (low + high) / 2;
+			BST root = new BST(array.get(mid));
+			root.left = buildBST(array, low, mid-1);
+			root.right = buildBST(array, mid+1, high);
+
+			return root;		
+	}
+	
+  static class BST {
+    public int value;
+    public BST left;
+    public BST right;
+
+    public BST(int value) {
+      this.value = value;
+      left = null;
+      right = null;
+    }
+
+    public void insert(int value) {
+      if (value < this.value) {
+        if (left == null) {
+          left = new BST(value);
+        } else {
+          left.insert(value);
+        }
+      } else {
+        if (right == null) {
+          right = new BST(value);
+        } else {
+          right.insert(value);
+        }
+      }
+    }
+  }
+}
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
