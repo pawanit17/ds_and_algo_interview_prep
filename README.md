@@ -1332,6 +1332,47 @@ public boolean heightBalancedBinaryTree(BinaryTree root)
 ```
 - Time Complexity O(N)
 - Space Complexity O(N)
+
+### Find the sum of the depths of all the nodes in a Binary Tree.
+- Traverse all the nodes with a counter that maintains the levels as well.
+```
+using namespace std;
+
+class BinaryTree {
+public:
+  int value;
+  BinaryTree *left;
+  BinaryTree *right;
+
+  BinaryTree(int value) {
+    this->value = value;
+    left = nullptr;
+    right = nullptr;
+  }
+};
+
+
+// depth = 0
+int nodeDepths(BinaryTree *root, int depth) 
+{
+		if( root == NULL )
+		{
+				return 0;
+		}
+	
+		int lDepth = nodeDepths( root->left, depth+1 );
+		int rDepth = nodeDepths( root->right, depth+1 );
+
+		return lDepth + rDepth + depth;
+}
+
+int nodeDepths(BinaryTree *root)
+{
+		return nodeDepths(root, 0);
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
