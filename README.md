@@ -1510,6 +1510,29 @@ public int[] arrayOfProducts(int[] array)
 ```
 - Time Complexity O(N^2)
 - Space Complexity O(1)
+
+### Given an array of positive integers, find the least sum that you cannot make
+- This works because the sequence is positive.
+- And because if change+1 is less than coins[inx], then we cannot make change+1.
+
+public int nonConstructibleChange(int[] coins) 
+{
+	Arrays.sort(coins);
+
+	int change = 0;
+
+	for(int inx = 0; inx < coins.length; ++inx )
+	{
+		if( change + 1 < coins[inx])
+			return change + 1;
+
+		change = change + coins[inx];
+	}
+
+	return change + 1;
+}
+- Time Complexity O(N)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
