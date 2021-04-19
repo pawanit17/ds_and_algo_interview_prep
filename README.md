@@ -1439,7 +1439,7 @@ class Program {
   public static BST minHeightBst(List<Integer> array) 
 	{
 			return buildBST( array, 0, array.size()-1 );
-  }
+  	}
 	
 	public static BST buildBST( List<Integer> array, int low, int high )
 	{
@@ -1485,6 +1485,31 @@ class Program {
   }
 }
 ```
+- Time Complexity O(N)
+- Space Complexity O(N)
+
+### You are given two arrays. Build a new array, which has the product of all the numbers excepting 'inx'.
+```
+public int[] arrayOfProducts(int[] array) 
+{		
+	int[] returnArray = new int[array.length];
+	for( int inx = 0; inx < array.length; ++inx )
+	{
+		int product = 1;
+		for( int jnx = 0; jnx < array.length; ++jnx )
+		{
+			if( inx != jnx )
+			{
+				product = product * array[jnx];
+			}
+		}					
+		returnArray[inx] = product;
+	}
+	return returnArray;
+}
+```
+- Time Complexity O(N^2)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
