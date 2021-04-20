@@ -1533,6 +1533,32 @@ public int nonConstructibleChange(int[] coins)
 }
 - Time Complexity O(N)
 - Space Complexity O(1)
+
+### You are given an array of query execution times. Return the minimum waiting time for the execution of all the queries.
+Ex: 3, 2, 1, 2, 6.
+
+import java.util.*;
+
+class Program {
+
+  public int minimumWaitingTime(int[] queries) {
+
+		Arrays.sort(queries);
+		
+		int waitingTime = 0;
+		int totalWaitingTime = 0;
+
+		for(int inx = 1; inx < queries.length; inx++)
+		{
+			waitingTime += queries[inx-1];
+			totalWaitingTime += waitingTime;
+		}
+
+		return totalWaitingTime;
+  }
+}
+- Time Complexity O(NLogN)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
