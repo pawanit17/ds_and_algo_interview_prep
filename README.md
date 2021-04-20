@@ -1539,22 +1539,47 @@ Ex: 3, 2, 1, 2, 6.
 
 import java.util.*;
 
+class Program 
+{
+  public int minimumWaitingTime(int[] queries)
+  {
+	Arrays.sort(queries);
+
+	int waitingTime = 0;
+	int totalWaitingTime = 0;
+
+	for(int inx = 1; inx < queries.length; inx++)
+	{
+		waitingTime += queries[inx-1];
+		totalWaitingTime += waitingTime;
+	}
+
+	return totalWaitingTime;
+  }
+}
+- Time Complexity O(NLogN)
+- Space Complexity O(1)
+
+### You are given two different arrays of same size that are not sorted. These represent the velocity of bikers on a tandem bike. Based on an input boolean variable determine the maximum and minimum velocity possible.
+import java.util.*;
+
 class Program {
 
-  public int minimumWaitingTime(int[] queries) {
+  public int tandemBicycle(int[] red, int[] blue, boolean fastest) 
+  {    
+	Arrays.sort( red );
+	Arrays.sort( blue );
 
-		Arrays.sort(queries);
-		
-		int waitingTime = 0;
-		int totalWaitingTime = 0;
+	int speed = 0;
+	for(int inx = 0; inx < red.length; inx++)
+	{
+		if(fastest)
+			speed += Math.max( red[inx], blue[blue.length-1-inx]);
+		else
+			speed += Math.max( red[inx], blue[inx]);
+	}
 
-		for(int inx = 1; inx < queries.length; inx++)
-		{
-			waitingTime += queries[inx-1];
-			totalWaitingTime += waitingTime;
-		}
-
-		return totalWaitingTime;
+	return speed;
   }
 }
 - Time Complexity O(NLogN)
