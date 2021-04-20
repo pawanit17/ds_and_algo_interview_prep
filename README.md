@@ -1584,6 +1584,77 @@ class Program {
 }
 - Time Complexity O(NLogN)
 - Space Complexity O(1)
+
+### Delete Kth node of a Linked List from the back.
+- Always count the head as 1 during this problem.
+```
+import java.util.*;
+
+class Program 
+{
+	public static void removeKthNodeFromEnd(LinkedList head, int k) 
+	{
+		if( head == null)
+			return;
+
+		LinkedList ptr = head;
+
+		// k = 2
+		// a  b  c  d  e  f
+		int count = 1;
+		while(count < k)
+		{
+				ptr = ptr.next;
+
+				if(ptr == null)
+						return;
+
+				count++;
+		}
+
+		LinkedList slowPtr = null;
+		LinkedList prevPtr = null;
+
+		while( ptr != null )
+		{
+				ptr = ptr.next;
+
+				if(slowPtr == null)
+				{
+						slowPtr = head;
+				}
+				else
+				{
+						prevPtr = slowPtr;
+						slowPtr = slowPtr.next;
+				}
+		}
+
+		if(slowPtr == head)
+		{
+				LinkedList tmp = head.next;
+				head.value = tmp.value;
+				head.next = tmp.next;
+		}
+		else
+		{
+				prevPtr.next = slowPtr.next;
+		}
+		return;
+	}
+
+  static class LinkedList {
+    int value;
+    LinkedList next = null;
+
+    public LinkedList(int value) {
+      this.value = value;
+    }
+  }
+}
+```
+- Time Complexity O(N)
+- Space Complexity O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
