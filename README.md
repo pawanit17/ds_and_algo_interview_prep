@@ -1933,6 +1933,83 @@ class Program {
 ```
 - Time Complexity: O(v+e)
 - Space Complexity: O(v) where v is the number of vertices and e is the number of edges in the graph.
+
+### Validating a string for brackets ({[]})
+- There are three possible cases here
+  - More left braces, in which case, the stack will not be empty at the end of the processing.
+  - More right braces, in which case, we will hit stack underflow.
+  - Equal number of left and right braces.
+
+```
+import java.util.*;
+
+class Program 
+{
+	static List<Character> stack = new ArrayList<Character>();
+
+	public static int pop()
+	{
+		if( stack.size() == 0 )
+				return -1;
+
+		char ch = stack.get(stack.size()-1);
+		stack.remove(stack.size()-1);
+
+		return (int)ch;
+	}
+
+	public static void push( char ch )
+	{
+		stack.add( ch );							
+	}
+	// ([{]}])
+	public static boolean balancedBrackets(String str) 
+	{
+		boolean bracketsBalanced = true;
+
+		for(int inx = 0; inx < str.length(); ++inx )
+		{
+			char currChar = str.charAt(inx);
+
+			switch( currChar )
+			{
+				case '(':
+				case '{':
+				case '[': push( currChar );
+								  break;
+
+				case ')':	
+				case '}':
+				case ']':	int tosCharInt = pop();
+						if( tosCharInt == -1)
+						{
+								bracketsBalanced = false;
+								break;
+						}
+
+						if(( (char)tosCharInt == '(' && currChar == ')') || 
+							 ( (char)tosCharInt == '{' && currChar == '}') || 
+							 ( (char)tosCharInt == '[' && currChar == ']') )
+							break;
+						else
+						{
+								bracketsBalanced = false;
+								break;
+						}
+				default: break; // ignore
+			}
+		}
+
+		if( !stack.isEmpty())
+		{
+			bracketsBalanced = false;
+		}
+
+		stack.clear();
+		return bracketsBalanced;
+	}
+}
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
