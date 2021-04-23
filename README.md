@@ -1878,6 +1878,61 @@ class Program
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Breadth First Search in a Graph with no cycles ( Generic tree )
+```
+import java.util.*;
+
+class Program {
+  // Do not edit the class below except
+  // for the breadthFirstSearch method.
+  // Feel free to add new properties
+  // and methods to the class.
+  static class Node {
+    String name;
+    List<Node> children = new ArrayList<Node>();
+
+    public Node(String name) {
+      this.name = name;
+    }
+
+    	public List<String> breadthFirstSearch(List<String> array) 
+	{
+		// Add the current node to the queue
+		List<Node> queue = new ArrayList<Node>();
+		queue.add(this);
+		bfs( array, queue );
+  	    	return array;
+    	}
+		
+	public void bfs( List<String> bfs, List<Node> queue )
+	{
+		// Remove content from queue until its empty and visit them
+		while( !queue.isEmpty() )
+		{
+			Node currNode = queue.get(0);
+			bfs.add(currNode.name);
+			queue.remove(0);
+
+			// Once you visit a node, add its children to the queue.
+			// queue.add( null );
+			for( int inx = 0; currNode.children != null && inx < currNode.children.size(); ++inx )
+			{
+				queue.add( currNode.children.get(inx) );
+			}
+		}
+	}
+
+    public Node addChild(String name) {
+      Node child = new Node(name);
+      children.add(child);
+      return this;
+    }
+  }
+}
+```
+- Time Complexity: O(v+e)
+- Space Complexity: O(v) where v is the number of vertices and e is the number of edges in the graph.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
