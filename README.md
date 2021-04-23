@@ -1773,6 +1773,45 @@ class Program {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Caesar Cipher Encryption - xyz with two rotations becomes zab
+- Important thing to note here is to do a modulo operation to reduce traversals.
+- And logically making the additions to fall within a-z range.
+```
+import java.util.*;
+
+class Program {
+
+	public static String caesarCypherEncryptor(String str, int key) 
+	{
+			StringBuilder sBuilder = new StringBuilder(str);
+			key = key % 26;
+		
+			int zCharLocation = (int) 'z';
+			int aCharLocation = (int) 'a';
+			for(int inx = 0; inx < sBuilder.length(); ++inx)
+			{
+					int currChar = (int) sBuilder.charAt(inx);
+					int newChar = currChar + key;
+
+					if( newChar > zCharLocation )
+					{
+							int spillOver = newChar - zCharLocation;
+						
+							newChar = aCharLocation - 1 + spillOver;
+					}					
+				
+					sBuilder.setCharAt(inx, (char)newChar);
+			}
+		
+			return sBuilder.toString();
+  }
+	
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
