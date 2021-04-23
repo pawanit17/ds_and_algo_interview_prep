@@ -1784,34 +1784,100 @@ class Program {
 
 	public static String caesarCypherEncryptor(String str, int key) 
 	{
-			StringBuilder sBuilder = new StringBuilder(str);
-			key = key % 26;
-		
-			int zCharLocation = (int) 'z';
-			int aCharLocation = (int) 'a';
-			for(int inx = 0; inx < sBuilder.length(); ++inx)
-			{
-					int currChar = (int) sBuilder.charAt(inx);
-					int newChar = currChar + key;
+		StringBuilder sBuilder = new StringBuilder(str);
+		key = key % 26;
 
-					if( newChar > zCharLocation )
-					{
-							int spillOver = newChar - zCharLocation;
-						
-							newChar = aCharLocation - 1 + spillOver;
-					}					
-				
-					sBuilder.setCharAt(inx, (char)newChar);
+		int zCharLocation = (int) 'z';
+		int aCharLocation = (int) 'a';
+		for(int inx = 0; inx < sBuilder.length(); ++inx)
+		{
+			int currChar = (int) sBuilder.charAt(inx);
+			int newChar = currChar + key;
+
+			if( newChar > zCharLocation )
+			{
+				int spillOver = newChar - zCharLocation;
+
+				newChar = aCharLocation - 1 + spillOver;
 			}
-		
-			return sBuilder.toString();
-  }
-	
+
+			sBuilder.setCharAt(inx, (char)newChar);
+		}
+
+		return sBuilder.toString();
+  	}	
 }
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
+### You are given an array and a value. From the array, you need to build combination of two integers whose sum is smallest.
+- Ex: k = 3 and tasks[] = { 1, 3, 5, 3, 1, 4 } 
+- The trick here is you cant sort.
+- You cant also remove elements from the array list as it would invalidate other entries down the line.
+- So the ones that you have visited, mark with -1 as this array is always positive.
+- Also, if you start from array index 0 for finding both the numbers for a given iteration, equal elements which may lie at the end will miss.
+- Ex: for the above array, you would get { {0,2}, {4,5}, {1,1} }. Notice the last pair which should have been {1,3}.
+```
+import java.util.*;
+
+class Program 
+{
+  	public static ArrayList<ArrayList<Integer>> taskAssignment(int k, ArrayList<Integer> tasks) 
+	{  	
+		ArrayList<ArrayList<Integer>> assignments = new ArrayList<ArrayList<Integer>>();
+
+		while(assignments.size() < k)
+		{
+			int min = Integer.MAX_VALUE;
+			int smallIndex = -1;
+			int max = Integer.MIN_VALUE;
+			int largeIndex = -1;
+
+			for( int inx = 0, jnx = tasks.size()-1; inx < tasks.size() && jnx >= 0; )
+			{
+				if( tasks.get(inx) == -1)
+				{
+					inx++;
+					continue;
+				}
+				
+				if( tasks.get(jnx) == -1)
+				{
+					jnx--;
+					continue;
+				}
+				
+				if( min > tasks.get(inx))
+				{
+					min = tasks.get(inx);
+					smallIndex = inx;
+				}
+				if( max < tasks.get(inx))
+				{
+					max = tasks.get(inx);
+					largeIndex = inx;
+				}
+				
+				inx++;
+				jnx--;
+			}
+
+			tasks.set(smallIndex, -1);
+			tasks.set(largeIndex, -1);
+		
+			ArrayList<Integer> assignment = new ArrayList<Integer>();
+			assignment.add( smallIndex );
+			assignment.add( largeIndex );	
+			assignments.add(assignment);
+		}
+
+    		return assignments;
+  	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
@@ -2899,9 +2965,11 @@ Queues
 - For array problems, if you do not have any solution or optimal solution, try sorting the array and see if there is any lead.
   - You can use two pointer approach for sorted arrays.
   - In two pointer approach, always ensure that you are adjusting pointers in all cases, example, Three Sum Problem, when there is a match.
+  - In few cases, it may be sensible to start the two pointers from the different ends instead of from the same end.
 - Be careful in tree recursion.
   - Always include root == null case. It will come up if the tree has no children in any program/question.
   - When counting in BT, if special processing is needed for leaf cases, like path sums etc, be careful to rethink about leaf case properly.
+ 
 
 
 # Additional resources to explore
