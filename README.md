@@ -2012,6 +2012,83 @@ class Program
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Run length encoding
+- Ex ************^^^^^^^$$$$$$%%%%%%%!!!!!!AAAAAAAAAAAAAAAAAAAA
+- Ex AAAAAAAAAAAAAAAAABBBBB should be 9A8A5B
+- Better alternative at the end of the for loop can be done, but this is the general code.
+```
+
+import java.util.*;
+
+class Program {
+  public String runLengthEncoding(String string) {
+
+		StringBuilder sb = new StringBuilder();
+		
+		int count = 1;
+		char currChar = string.charAt(0);
+		for(int inx = 1; inx < string.length(); inx++)
+		{
+				// AAA
+				// AAB
+				// AAAAAAAAAAAABBCCC
+				if( currChar == string.charAt(inx) )
+				{
+						count++;
+				}
+				else
+				{
+						if( count > 9 )
+						{
+									// Ex 1: 18 - 9A9A
+									// Ex 2: 23 - 9A9A5A
+									int rem = count % 9;
+									count = count / 9;
+
+									for( int jnx = 0; jnx < count; jnx++ )
+									{
+											sb.append( "9" + 	currChar );						
+									}
+
+									if( rem> 0 )
+											sb.append( rem + "" + currChar );								
+						}
+						else
+						{
+								sb.append( count + "" + currChar );
+						}
+
+						count = 1;
+						currChar = string.charAt(inx);
+				}
+		}
+		
+		if( count > 9 )
+		{
+			// Ex 1: 18 - 9A9A
+			// Ex 2: 23 - 9A9A5A
+			int rem = count % 9;
+			int multiple = count / 9;
+
+			for( int jnx = 0; jnx < multiple; jnx++ )
+			{
+					sb.append( "9" + 	currChar );						
+			}
+
+			sb.append( rem + "" + currChar );
+		}
+		else
+		{
+				sb.append( count + "" + currChar );
+		}
+  
+		return sb.toString();
+	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
