@@ -1704,6 +1704,75 @@ class Program {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Implement a MinMax Stac
+import java.util.*;
+```
+class Program {
+  // Feel free to add new properties and methods to the class.
+  static class MinMaxStack 
+  {
+
+	class StackElement
+	{
+		int minTillNow;
+		int maxTillNow;
+		int value;
+
+		StackElement(int value, int min, int max )
+		{
+			this.value = value;
+			this.minTillNow = min;
+			this.maxTillNow = max;
+		}
+	}
+		
+	List<StackElement> stackContent = new ArrayList<StackElement>();
+
+    	public int peek() 
+	{
+		return stackContent.get(stackContent.size()-1).value;
+    	}
+
+    	public int pop() 
+	{
+		StackElement element = stackContent.get(stackContent.size()-1);
+		stackContent.remove(stackContent.size()-1);
+  	    	return element.value;
+    	}
+
+    	public void push(Integer number)
+	{
+		int min, max;
+		if( stackContent.size() == 0 )
+		{
+			min = number;
+			max = number;
+		}
+		else
+		{
+			min = stackContent.get(stackContent.size()-1).minTillNow < number ? stackContent.get(stackContent.size()-1).minTillNow : number;
+			max = stackContent.get(stackContent.size()-1).maxTillNow > number ? stackContent.get(stackContent.size()-1).maxTillNow : number;
+		}
+			
+    	  	stackContent.add( new StackElement( number, min, max ) );
+  	    	return;
+    	}
+
+    	public int getMin()
+	{
+    	  	return stackContent.get(stackContent.size()-1).minTillNow;
+    	}
+
+    	public int getMax()
+	{
+      		return stackContent.get(stackContent.size()-1).maxTillNow;
+    	}
+  }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
