@@ -2089,6 +2089,65 @@ class Program {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Generate Document - Check if the String 'document' can be formed from the String 'characters'
+```
+import java.util.*;
+
+class Program {
+
+  public boolean generateDocument(String characters, String document) 
+  {
+	if( document.length() == 0 )
+		return true;
+
+	if( characters.length() < document.length() )
+		return false;
+
+	Map<Character, Integer> characterDictionary = new HashMap<Character, Integer>();
+
+	// Cache population
+	for( int inx = 0; inx < characters.length(); ++inx )
+	{
+			char _char = characters.charAt(inx);
+
+			if( !characterDictionary.containsKey( _char ))
+			{
+				// Add with value 1
+				characterDictionary.put( _char, 1 );
+			}
+			else
+			{
+				// Increment the value
+				characterDictionary.put( _char, characterDictionary.get( _char ) + 1 );
+			}
+	}
+
+	// Cache look up
+	for( int inx = 0; inx < document.length(); ++inx )
+	{
+		char _char = document.charAt(inx);
+		System.out.println( _char + " " + characterDictionary.containsKey( _char ) );
+		if( !characterDictionary.containsKey( _char ))
+		{
+			return false;
+		}
+		else
+		{
+			int frequency = characterDictionary.get( _char );
+			if( frequency == 0 )
+				return false;
+
+			characterDictionary.put( _char, characterDictionary.get( _char ) - 1 );
+		}
+	}
+
+	return true;
+  }
+}
+```
+- Time Complexity: O(M+N)
+- Space Complexity: O(c) where M is Characters length, N is Document length, and c is the number of unique characters in Characters string.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
