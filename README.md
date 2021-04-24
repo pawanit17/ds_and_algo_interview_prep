@@ -2148,6 +2148,54 @@ class Program {
 ```
 - Time Complexity: O(M+N)
 - Space Complexity: O(c) where M is Characters length, N is Document length, and c is the number of unique characters in Characters string.
+
+### Find the least index in an array, where a[index] = index. If no such index is available, return -1.
+- Basically, even if we find an index where a[index] == index, there is every chance for a smaller index where the same can hold true.
+- So we need to check the previous index location in case of a match to not miss it.
+```
+import java.util.*;
+
+class Program {
+  public int indexEqualsValue(int[] array) {
+    // Write your code here.
+    return search( array, 0, array.length-1);
+  }
+
+public int search( int a[], int low, int high )
+{
+	if( low > high )
+	{
+		return -1;
+	}
+
+	int mid = ( low + high ) / 2;
+
+	if( a[mid] > mid)
+		return search( a, low, mid-1);
+	else if( a[mid] < mid)
+		return search( a, mid+1, high);
+	else
+	{
+		if( mid > 0)
+		{
+			if( a[mid-1] == mid-1 )
+				return search( a, low, mid-1 );
+		}
+		return mid;
+	}
+   }
+}
+/*
+-5  -3  0  1  4  5  9
+ 0   1  2  3  4  5  6
+low  =  0   5
+mid  =  3   4
+high =  6   6
+	*/
+	
+```
+- Time Complexity: O(logN)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
