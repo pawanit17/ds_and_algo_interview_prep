@@ -257,6 +257,68 @@ public static int[] insertionSort(int[] a)
 - Space Complexity O(1)
 
 ### Quick sort
+```
+import java.util.*;
+
+class Program {
+  public static int[] quickSort(int[] array) 
+	{
+		quickSort( array, 0, array.length - 1 );
+    return array;
+  }
+	
+	public static void quickSort( int a[], int low, int high )
+	{
+		// 8 1 4 9 2 7 6 3
+		if( low >= high )
+		{
+			// TODO: What if low == high
+			return;
+		}
+		
+		int pivot = partition( a, low, high );
+		quickSort( a, low, pivot-1 );
+		quickSort( a, pivot+1, high );
+	}
+
+	public static int partition( int a[], int low, int high )
+	{
+		// 8 1 4 9 2 7 6 3
+		int pivot = a[low];
+		int i = low + 1;
+		int j = high;
+
+		while( i <= j ) // This is needed if there are only two elements to work with  say, 2,7
+		{
+			while( pivot > a[i] && i < high ) // i < high because we want to ensure that i does not spill over
+				i++;
+
+			while( pivot < a[j] )
+				j--;
+
+			if( i < j )
+			{
+				int temp = a[i];
+				a[i] = a[j];
+				a[j] = temp;
+				i++;
+				j--;
+			}
+			else
+			{
+				i++; // This is to ensure that if pivot is the largest element, i and j dont remain standstill
+			}			
+		}
+
+		a[low] = a[j];
+		a[j] = pivot;
+		
+		return j;		
+	}
+}
+```
+- Time Complexity O(NLogN)
+- Space Complexity O(1)
 
 ### Merge sort
 Base condition should be low>=high. This is simple because if low == high, the array is just one element size and every array of size 1 is sorted by itself.
