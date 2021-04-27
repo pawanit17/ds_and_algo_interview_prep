@@ -2261,17 +2261,17 @@ high =  6   6
 
 ### Kadane's algorithm
 ```
-	  public static int kadanesAlgorithm(int[] array) 
-	  {
-			int maxSumTillNow = array[0];
-			int cummulativeSum = array[0];
-			for( int inx = 1; inx < array.length; ++inx )
-			{
-				cummulativeSum = Math.max( array[inx], cummulativeSum + array[inx] );
-				maxSumTillNow = Math.max( maxSumTillNow, cummulativeSum );				
-			}		
-			return maxSumTillNow;
-	  }
+public static int kadanesAlgorithm(int[] array) 
+{
+    int maxSumTillNow = array[0];
+    int cummulativeSum = array[0];
+    for( int inx = 1; inx < array.length; ++inx )
+    {
+	cummulativeSum = Math.max( array[inx], cummulativeSum + array[inx] );
+	maxSumTillNow = Math.max( maxSumTillNow, cummulativeSum );				
+    }		
+    return maxSumTillNow;
+}
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(1)
