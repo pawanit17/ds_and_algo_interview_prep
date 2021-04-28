@@ -2401,7 +2401,7 @@ class Program
 - Time Complexity: O(N) to O(N2)
 - Space Complexity: O(1)
 
-### Build BST from an Order
+### Build BST from a Pre-Order array using iteration
 ```
 import java.util.*;
 
@@ -2475,6 +2475,53 @@ class Program
 ```
 - Time Complexity: O(NlogN)
 - Space Complexity: O(1)
+
+### Build BST from a Pre-Order array using recursion
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  static class BST {
+    public int value;
+    public BST left = null;
+    public BST right = null;
+
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+
+  public BST reconstructBst(ArrayList<Integer> preOrderTraversalValues) 
+	{
+  		if( preOrderTraversalValues.size() == 0 )
+				return null;
+		
+			BST node = new BST( preOrderTraversalValues.get(0) );
+		
+			ArrayList<Integer> leftChildContent = new ArrayList<Integer>();
+			ArrayList<Integer> rightChildContent = new ArrayList<Integer>();
+		
+			for( int inx = 1; inx < preOrderTraversalValues.size(); ++inx )
+			{				
+					if( preOrderTraversalValues.get(0) <= preOrderTraversalValues.get(inx))
+					{
+							rightChildContent.add( preOrderTraversalValues.get(inx) );
+					}
+					else
+					{
+							leftChildContent.add( preOrderTraversalValues.get(inx) );
+					}
+			}
+		
+			node.left = reconstructBst( leftChildContent );
+			node.right = reconstructBst( rightChildContent );
+			return node;
+  }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
