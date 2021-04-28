@@ -2492,36 +2492,74 @@ class Program {
     }
   }
 
-  public BST reconstructBst(ArrayList<Integer> preOrderTraversalValues) 
+	public BST reconstructBst(ArrayList<Integer> preOrderTraversalValues) 
 	{
-  		if( preOrderTraversalValues.size() == 0 )
-				return null;
-		
-			BST node = new BST( preOrderTraversalValues.get(0) );
-		
-			ArrayList<Integer> leftChildContent = new ArrayList<Integer>();
-			ArrayList<Integer> rightChildContent = new ArrayList<Integer>();
-		
-			for( int inx = 1; inx < preOrderTraversalValues.size(); ++inx )
-			{				
-					if( preOrderTraversalValues.get(0) <= preOrderTraversalValues.get(inx))
-					{
-							rightChildContent.add( preOrderTraversalValues.get(inx) );
-					}
-					else
-					{
-							leftChildContent.add( preOrderTraversalValues.get(inx) );
-					}
+		if( preOrderTraversalValues.size() == 0 )
+			return null;
+
+		BST node = new BST( preOrderTraversalValues.get(0) );
+
+		ArrayList<Integer> leftChildContent = new ArrayList<Integer>();
+		ArrayList<Integer> rightChildContent = new ArrayList<Integer>();
+
+		for( int inx = 1; inx < preOrderTraversalValues.size(); ++inx )
+		{
+			if( preOrderTraversalValues.get(0) <= preOrderTraversalValues.get(inx))
+			{
+				rightChildContent.add( preOrderTraversalValues.get(inx) );
 			}
-		
-			node.left = reconstructBst( leftChildContent );
-			node.right = reconstructBst( rightChildContent );
-			return node;
-  }
+			else
+			{
+				leftChildContent.add( preOrderTraversalValues.get(inx) );
+			}
+		}
+
+		node.left = reconstructBst( leftChildContent );
+		node.right = reconstructBst( rightChildContent );
+		return node;
+	}
 }
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Product Sum - [5,2, [7, -1], 3, [6, [-13, 8], 4]]
+- This will evaluate to 5 + 2 + 2(7-1) + 3 + 2 ( 6 + 3 ( -13 + 8 ) + 4 ) = 12.
+- Ex: [1,2,[3],4,5] = 18
+- Ex: [[[[[5]]]]] = 600
+- Be careful to multiply the result of the recursion sum with productIncrement as well.
+```
+import java.util.*;
+
+class Program 
+{
+	// Tip: You can use `element instanceof ArrayList` to check whether an item
+	// is an array or an integer.
+	public static int productSum(List<Object> array) 
+	{
+			return productSum( array, 1 );
+	}
+
+	public static int productSum(List<Object> array, int productIncrement ) 
+	{
+		int numberSum = 0;
+		for( Object element : array )
+		{
+			if( element instanceof List )
+			{
+				numberSum += productSum( (List)element, productIncrement+1 ) * productIncrement;
+			}
+			else
+			{
+				numberSum += ((Integer)element).intValue() * productIncrement;
+			}				
+		}
+		return numberSum;
+	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N) where N is the number of elements in the array list.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
