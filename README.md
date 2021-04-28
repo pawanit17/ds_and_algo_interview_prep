@@ -2400,6 +2400,81 @@ class Program
 ```
 - Time Complexity: O(N) to O(N2)
 - Space Complexity: O(1)
+
+### Build BST from an Order
+```
+import java.util.*;
+
+class Program 
+{
+	// This is an input class. Do not edit.
+	static class BST 
+	{
+	    public int value;
+	    public BST left = null;
+	    public BST right = null;
+
+	    public BST(int value) 
+	    {
+		this.value = value;
+	    }
+	}
+
+  	public BST reconstructBst(ArrayList<Integer> preOrder) 
+	{
+		BST root = null;
+		for( int inx = 0; inx < preOrder.size(); ++inx )
+		{
+			BST node = buildTree( preOrder.get(inx), root );
+			if( root == null )
+				root = node;					
+		}				
+
+		return root;
+  	}
+	
+	public BST buildTree( int value, BST root )
+	{
+		BST node = new BST(value);
+
+		if( root == null )
+		{
+			root = node;
+			return root;
+		}
+	
+		BST parentNode = root;
+		BST prevNode = null;
+
+		while( parentNode != null )
+		{
+			if( node.value >= parentNode.value )
+			{
+				prevNode = parentNode;
+				parentNode = parentNode.right; 
+			}
+			else
+			{
+				prevNode = parentNode;
+				parentNode = parentNode.left;
+			}
+		}
+
+		if(prevNode.value > node.value) 
+		{
+			prevNode.left = node;
+		}
+		else
+		{
+			prevNode.right = node;
+		}
+
+		return node;
+	}	
+}
+```
+- Time Complexity: O(NlogN)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
