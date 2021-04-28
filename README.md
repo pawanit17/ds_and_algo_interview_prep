@@ -2322,6 +2322,67 @@ public static LinkedList findLoop(LinkedList head)
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(1)
+
+### Selection algorithm
+```
+import java.util.*;
+
+class Program 
+{
+	public static int quickselect(int[] array, int k) {
+		// Write your code here.
+		return partition( array, 0 , array.length-1, k-1 );
+	}
+
+	public static int partition( int a[], int low, int high, int pos )
+	{
+		while( true )
+		{
+			int pivot = a[low];
+			int i = low + 1;
+			int j = high;
+
+			while( i <= j )
+			{
+				while(pivot > a[i] & i < high)
+					i++;
+
+				while(pivot < a[j])
+					j--;
+
+				if( i < j )
+				{
+					int temp = a[i];
+					a[i] = a[j];
+					a[j] = temp;
+					i++;
+					j--;
+				}
+				else
+				{
+					i++;	
+				}
+			}
+
+			a[low] = a[j];
+			a[j] = pivot;
+
+			if( pos == j )
+				return a[j];
+			else if( pos < j)
+			{
+				high = j - 1;
+			}
+			else
+			{
+				low = j + 1;
+			}
+		}
+	}
+}
+```
+- Time Complexity: O(N) to O(N2)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
