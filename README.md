@@ -2333,6 +2333,14 @@ public static LinkedList findLoop(LinkedList head)
 - Space Complexity: O(1)
 
 ### Selection algorithm
+- Selection algorithm for finding the kth largest element involves comparision in descending order and searching.
+```
+while( pivot < a[i] && i < high ) // i < high because we want to ensure that i does not spill over
+    i++;
+while( pivot > a[j] )
+    j--;
+```
+- Selection algorithm for finding the kth smallest element involves comparision in ascending order and searching.
 ```
 import java.util.*;
 
