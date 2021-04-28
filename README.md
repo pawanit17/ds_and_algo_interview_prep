@@ -257,6 +257,15 @@ public static int[] insertionSort(int[] a)
 - Space Complexity O(1)
 
 ### Quick sort
+- To sort the elements in descending order, change the comparision order for the below two statements.
+
+```
+while( pivot < a[i] && i < high ) // i < high because we want to ensure that i does not spill over
+    i++;
+while( pivot > a[j] )
+    j--;
+```
+
 ```
 import java.util.*;
 
