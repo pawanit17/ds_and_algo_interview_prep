@@ -2275,6 +2275,53 @@ public static int kadanesAlgorithm(int[] array)
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(1)
+
+### Detecting infinite linked list
+- Start both the pointers from head node.
+![Cycle In LinkedList](https://user-images.githubusercontent.com/42272776/116383769-cada4500-a834-11eb-8f44-dde455b2f1bb.jpg)
+
+```
+import java.util.*;
+
+class Program {
+public static LinkedList findLoop(LinkedList head) 
+{
+	if( head == null || head.next == head )
+		return head;
+
+	LinkedList slowPtr = head;
+	LinkedList fastPtr = head;
+
+	do
+	{
+		slowPtr = slowPtr.next;
+		fastPtr = fastPtr.next;
+		fastPtr = fastPtr.next;
+	} while( slowPtr != fastPtr );
+
+	fastPtr = head;
+
+	while( fastPtr !=  slowPtr )
+	{
+		slowPtr = slowPtr.next;
+		fastPtr = fastPtr.next;
+	}
+
+	return slowPtr;
+  }
+
+  static class LinkedList {
+    int value;
+    LinkedList next = null;
+
+    public LinkedList(int value) {
+      this.value = value;
+    }
+  }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
