@@ -3639,7 +3639,11 @@ Ex: Merge Sort and Insertion Sort
 - Directed ( LinkedIn Follow functionality ) or Undirected Graph ( LinkedIn friend connections between two users ).
 
 ## How are Graphs stored
-- Adjacency Matrix:
+- Adjacency Matrix: If there are V profiles in LinkedIn, then V^2 is the size.
+- Time Complexity - O(V^2)
+- Space Complexity - O(V^2) 
+- Adjacency List: Adjacency Matrices usually has lots of 0s in it. Ex: even in LinkedIn. Number of users is around 10M but typicallly a user will have only 500-1000 max connections. This makes the Adjacency Matrix, a sparse matrix.
+- A -> 
 
 
 
