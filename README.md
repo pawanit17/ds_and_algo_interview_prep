@@ -3632,11 +3632,21 @@ Heap | Selecting Kth largest or smallest element in O(N) / Efficient priority qu
 Stable sort are algorithms where the order of two array elements at indexes is preserved in the final outcome if those two elements are same.
 Ex: Merge Sort and Insertion Sort
 
+# Graphs ( Scaler Academy )
+- Made up of vertices and edge.
+- Example is the network of users connected directly or indirectly in LinkedIn.
+- May or may not have cycles or some nodes may even not be connected.
+- Directed ( LinkedIn Follow functionality ) or Undirected Graph ( LinkedIn friend connections between two users ).
+
+## How are Graphs stored
+- Adjacency Matrix:
+
+
+
 # Still to go
 Searching
 Hashing
 String problems
-Graphs
 Queues
 
 
