@@ -2618,6 +2618,79 @@ public static String reverseWordsInString(String str)
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N) where N is the length of the string.
+
+### Given two arrays that represent BSTs obtained by inserting each integer in the array, from left to right, see if their resulting tree is same.
+- In this case, we pick the first element and try to identify what all elements go into the left and right subtrees.
+- If we recuse this to all the nodes, we will be able to determine if they all represent the same thing.
+- This code first catches the case where the two failure conditions do not match.
+```
+return tree1LST.size() == tree2LST.size() && tree1RST.size() == tree2RST.size()
+       && sameBsts( tree1LST, tree2LST) 
+       && sameBsts( tree1RST, tree2RST);
+```
+
+```
+import java.util.*;
+
+class Program {
+public static boolean sameBsts(List<Integer> arrayOne, List<Integer> arrayTwo) 
+{
+	// Check array lenghts
+	if( arrayOne.size() != arrayTwo.size() )
+			return false;
+
+	if( arrayOne.size() == 0 && arrayTwo.size() == 0 )
+			return true;
+
+	if( arrayOne.get(0) != arrayTwo.get(0) )
+			return false;
+
+	List<Integer> tree1LST = buildLST( arrayOne );
+	List<Integer> tree2LST = buildLST( arrayTwo );
+	List<Integer> tree1RST = buildRST( arrayOne );
+	List<Integer> tree2RST = buildRST( arrayTwo );
+
+	return tree1LST.size() == tree2LST.size() && tree1RST.size() == tree2RST.size()
+					&& sameBsts( tree1LST, tree2LST) 
+					&& sameBsts( tree1RST, tree2RST);
+  }
+	
+public static List<Integer> buildLST( List<Integer> content )
+{
+	List<Integer> treeLST = new ArrayList<Integer>();
+
+	Integer root = content.get(0);
+
+	for( int inx = 1; inx < content.size(); ++inx )
+	{
+		if( content.get(inx) < root)
+			treeLST.add( content.get(inx) );
+	}
+
+	return treeLST;
+}
+	
+public static List<Integer> buildRST( List<Integer> content )
+{
+	List<Integer> treeRST = new ArrayList<Integer>();
+
+	if( content == null || content.size() == 0 )
+		return treeRST;
+
+	Integer root = content.get(0);
+
+	for( int inx = 1; inx < content.size(); ++inx )
+	{
+		if( content.get(inx) >= root)
+			treeRST.add( content.get(inx) );
+	}
+
+	return treeRST;
+}
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(d) where N is the length of the string.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
