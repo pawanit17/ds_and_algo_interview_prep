@@ -2560,6 +2560,64 @@ class Program
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N) where N is the number of elements in the array list.
+
+### Reverse a sentence keeping the words in the same order
+- Ex: *Pavan is Kool* becomes *Kool is Pavan*
+- We reverse the entire string and then we reverse the words.
+```
+public static String reverseWordsInString(String str) 
+{
+	if( str.length() == 1 )
+		return str;
+
+	StringBuffer buff = new StringBuffer();
+
+	// Pavan    Kumar
+
+	for( int inx = str.length()-1; inx >= 0 ; inx-- )
+	{
+			buff.append(str.charAt(inx));
+	}
+
+	int startIndex = -1;
+	int endIndex = -1;
+	for( int inx = 0; inx < buff.length(); inx++ )
+	{
+		char ch = buff.charAt(inx);
+
+		if( ch == '\t' || ch == ' ' || inx == buff.length()-1 )
+		{
+			if( startIndex == -1 )
+				continue;
+
+			if( inx == buff.length()-1 )
+				endIndex = inx;
+
+			if( endIndex == -1 )
+				endIndex = inx-1;
+
+			for( int jnx = startIndex, knx = endIndex ; jnx < knx; ++jnx, --knx )
+			{
+				char ch1 = buff.charAt(jnx);
+				char ch2 = buff.charAt(knx);
+				buff.setCharAt( jnx, ch2 );
+				buff.setCharAt( knx, ch1 );
+			}
+			startIndex = -1;
+			endIndex = -1;
+		}
+		else
+		{
+			if( startIndex == -1 )
+				startIndex = inx;
+		}
+	}
+
+	return buff.toString();
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N) where N is the length of the string.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
