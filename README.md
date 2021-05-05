@@ -2777,14 +2777,14 @@ public static List<Integer> spiralTraverse(int[][] a)
 ### Do a zigzag traversal on a two dimensional array
 - Basically the path follows like this.
 ```
-Sum 0 - a[0][0]
-Sum 1 - a[1][0] a[0][1]
-Sum 2 - a[0][2] a[1][1] a[2][0]
-Sum 3 - a[3][0] a[2][1] a[1][2] a[0][3]
-Sum 4 - a[1][3] a[2][2] a[3][1] a[4][0]
-Sum 5 - a[4][1] a[3][2] a[2][3]
-Sum 6 - a[3][3] a[4][2]
-Sum 7 - a[4][3]
+Down Traversal	Sum 0 - a[0][0]
+Up   Traversal	Sum 1 - a[1][0] a[0][1]
+Down Traversal	Sum 2 - a[0][2] a[1][1] a[2][0]
+Up   Traversal  Sum 3 - a[3][0] a[2][1] a[1][2] a[0][3]
+Down Traversal	Sum 4 - a[1][3] a[2][2] a[3][1] a[4][0]
+Up   Traversal  Sum 5 - a[4][1] a[3][2] a[2][3]
+Down Traversal	Sum 6 - a[3][3] a[4][2]
+Up   Traversal  Sum 7 - a[4][3]
 ```
 - So you maintain a Map from an Integer (sum) to an ArrayList of numbers (array values).
 ```
