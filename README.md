@@ -2725,6 +2725,54 @@ class Program
 ```
 - Time Complexity: O(N+M)
 - Space Complexity: O(1).
+
+### Spiral traversal of a matrix
+- When there are odd rows or odd columns, there are chances that the same elements covered in for loop 1 / for loop 2 are repeated.
+- That is why we take care in for loop 3 / for loop 4.
+- Maintain 4 pointers, two for rows and columns each.
+```
+public static List<Integer> spiralTraverse(int[][] a) 
+{			
+	int rTop = 0;
+	int rBottom = a.length-1;
+	int cLeft = 0;
+	int cRight = a[0].length-1;
+
+	int m = a.length;
+	int n = a[0].length;
+
+	List<Integer> traversal = new ArrayList<Integer>();
+	while( rTop <= rBottom && cLeft <= cRight )
+	{
+		for(int inx = cLeft; inx <= cRight; ++inx )
+			traversal.add( a[rTop][inx]);
+
+		for(int inx = rTop+1; inx <= rBottom; ++inx )
+			traversal.add( a[inx][cRight]);
+
+		for(int inx = cRight-1; inx >= cLeft; --inx )
+		{
+			if( rTop == rBottom) break;
+			traversal.add( a[rBottom][inx]);	
+		}
+
+		for(int inx = rBottom-1; inx >= rTop+1; --inx )
+		{
+			if( cLeft == cRight ) break;
+			traversal.add( a[inx][cLeft]);
+		}
+
+		rTop++;
+		rBottom--;
+		cLeft++;
+		cRight--;
+	}
+
+	return traversal;
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
