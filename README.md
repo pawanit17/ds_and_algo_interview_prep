@@ -2771,8 +2771,71 @@ public static List<Integer> spiralTraverse(int[][] a)
 	return traversal;
 }
 ```
-- Time Complexity: O(N)
-- Space Complexity: O(N).
+- Time Complexity: O(M*N)
+- Space Complexity: O(M+N).
+
+### Do a zigzag traversal on a two dimensional array
+- Basically the path follows like this.
+```
+Sum 0 - a[0][0]
+Sum 1 - a[1][0] a[0][1]
+Sum 2 - a[0][2] a[1][1] a[2][0]
+Sum 3 - a[3][0] a[2][1] a[1][2] a[0][3]
+Sum 4 - a[1][3] a[2][2] a[3][1] a[4][0]
+Sum 5 - a[4][1] a[3][2] a[2][3]
+Sum 6 - a[3][3] a[4][2]
+Sum 7 - a[4][3]
+```
+- So you maintain a Map from an Integer (sum) to an ArrayList of numbers (array values).
+```
+public static List<Integer> zigzagTraverse(List<List<Integer>> array) 
+{
+	int rows = array.size();
+	int cols = array.get(0).size();
+
+	Map<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
+	for( int inx = 0; inx < rows; ++inx )
+	{
+		for( int jnx = 0; jnx < cols; ++jnx )
+		{
+			if( !map.containsKey(inx+jnx) )
+			{
+				ArrayList<Integer> list = new ArrayList<Integer>();
+				list.add( array.get(inx).get(jnx));
+				map.put( inx+jnx, list );
+			}
+			else
+			{
+				ArrayList<Integer> list = map.get(inx+jnx);
+				// This check ensures that the direction changes
+				if( (inx+jnx)% 2 != 0 )
+				{
+					list.add(0, array.get(inx).get(jnx));
+				}
+				else
+				{
+					list.add(array.get(inx).get(jnx));
+				}
+
+				map.put( inx+jnx, list);
+			}
+		}
+	}
+
+	List<Integer> list = new ArrayList<Integer>();
+
+	for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()) 
+	{
+	    List<Integer> numbers = entry.getValue();
+
+	    list.addAll(numbers);
+	}
+
+	return list;
+}
+```
+- Time Complexity: O(M*N)
+- Space Complexity: O(M+N).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
