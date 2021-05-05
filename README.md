@@ -2691,6 +2691,40 @@ public static List<Integer> buildRST( List<Integer> content )
 ```
 - Time Complexity: O(N^2)
 - Space Complexity: O(d) where N is the length of the string.
+
+### Searching in a sorted matrix
+- You can either start with left most column, bottom row and navigate to the top or vice versa.
+- The other two corners would not be optimal because you cant say if the target is in that row looking at them.
+|1	4	7	12	15	1000|
+|2	5	19	31	32	1001|
+|3	8	24	33	35	1002|
+|40	41	42	44	45	1003|
+|99	100	103	106	128	1004|
+```
+import java.util.*;
+class Program 
+{
+   public static int[] searchInSortedMatrix(int[][] matrix, int target) 
+   {
+	int x = matrix.length - 1;
+	int y = 0;
+
+	while( x >= 0 && y <= matrix[0].length - 1 )
+	{
+		int val = matrix[x][y];
+		if( val == target )
+			return new int[] { x, y };
+		else if( val > target )
+			x--;
+		else
+			y++;
+	}
+	return new int[] {-1, -1};
+    }
+}
+```
+- Time Complexity: O(N+M)
+- Space Complexity: O(1).
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
