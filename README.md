@@ -3921,6 +3921,7 @@ Ex: Merge Sort and Insertion Sort
 - Adjacency List: Adjacency Matrices usually has lots of 0s in it. Ex: even in LinkedIn. Number of users is around 10M but typicallly a user will have only 500-1000 max connections. This makes the Adjacency Matrix, a sparse matrix.
 - A -> 
 
+# Dynamic Programming
 
 
 # Still to go
