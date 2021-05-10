@@ -2836,6 +2836,61 @@ public static List<Integer> zigzagTraverse(List<List<Integer>> array)
 ```
 - Time Complexity: O(M*N)
 - Space Complexity: O(M+N).
+
+### Sunset Views.
+- You are given an array of buildings in the form of an array where a[i] determines its height. You are also given a direction - EAST or WEST.
+- EAST determines reading array from right and WEST determines reading array from left.
+- Edge cases here is if there are two buildings with the same height, we have to pick the one that faces the sun first and not pick the next one.
+- Another Edge case here is that it is not just enough to compare the adjacent elements. Reason is if there is a tall building at the beginning of the array, it would block the view for everybody else. So we need to maintain a variable that tracks the last building we considered.
+![image](https://user-images.githubusercontent.com/42272776/117722210-69d04b00-b1fe-11eb-8d0c-24c7c82af49e.png)
+
+```
+import java.util.*;
+class Program 
+{
+public ArrayList<Integer> sunsetViews(int[] a, String direction) 
+{
+	// Strictly increasing numbers are the ones that we need to pick.
+	ArrayList<Integer> indexes = new ArrayList<Integer>();
+	if( a.length == 0 )
+		return indexes;
+
+	// The first one is always going to face the sun.
+	if( direction.equals("EAST"))
+	{
+		indexes.add(a.length-1);
+		int lastIdentifiedEntry = a[a.length-1];
+		for( int inx = a.length-2; inx >= 0; inx-- )
+		{
+			if( a[inx] > a[inx+1] && a[inx] > lastIdentifiedEntry )
+			{
+				indexes.add(inx);
+				lastIdentifiedEntry = a[inx];
+			}
+		}
+	}
+	else
+	{
+		indexes.add(0);
+		int lastIdentifiedEntry = a[0];
+		for( int inx = 1; inx < a.length; inx++ )
+		{
+			if( a[inx] > a[inx-1] && a[inx] > lastIdentifiedEntry )
+			{
+				indexes.add(inx);
+				lastIdentifiedEntry = a[inx];
+			}
+		}
+	}
+	Collections.sort( indexes );
+
+	return indexes;
+}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 ### Diagnol sum of a matrix
 https://leetcode.com/problems/matrix-diagonal-sum/submissions/
