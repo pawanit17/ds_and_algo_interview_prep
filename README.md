@@ -2837,6 +2837,37 @@ public static List<Integer> zigzagTraverse(List<List<Integer>> array)
 - Time Complexity: O(M*N)
 - Space Complexity: O(M+N).
 ---------------------------------------------------------------------------------------------------------------------------------------
+### Diagnol sum of a matrix
+https://leetcode.com/problems/matrix-diagonal-sum/submissions/
+```
+class Solution {
+    public int diagonalSum(int[][] mat) 
+    {
+        int sum = 0;
+        int linx = 0, ljnx = 0;
+        int rinx = 0, rjnx = mat.length-1;
+
+        while( linx < mat.length )
+        {
+            sum += mat[linx][ljnx];
+
+            if( linx != rinx || ljnx != rjnx )
+            	sum += mat[rinx][rjnx];
+
+            linx++;
+            ljnx++;
+            rinx++;
+            rjnx--;
+        }
+
+        return sum;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+---------------------------------------------------------------------------------------------------------------------------------------
+
 
 ## :gear: Scalar Academy Session
 ## Second largest element in the array
