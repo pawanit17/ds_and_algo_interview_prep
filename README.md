@@ -2891,6 +2891,37 @@ public ArrayList<Integer> sunsetViews(int[] a, String direction)
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
+### Listing all permutations of a given string
+
+public class Questions 
+{
+	public static void main(String args[])
+	{
+		permutationRecurse("abc");
+	}
+	
+	public static void permutationRecurse( String str )
+	{
+		permutationRecurse("",str);
+	}
+	
+	public static void permutationRecurse( String prefix, String str )
+	{
+		int n = str.length();
+		
+		if( n == 0 )
+			System.out.println(prefix);
+		else
+		{
+			for(int inx = 0; inx < n; ++inx)
+			{
+				permutationRecurse( prefix + str.charAt(inx), str.substring(0, inx) + str.substring(inx+1, n));
+			}
+		}
+	}
+}
+- Time Complexity: O(N* N!)
+- Space Complexity: O(N* N!)
 ---------------------------------------------------------------------------------------------------------------------------------------
 ### Diagnol sum of a matrix
 https://leetcode.com/problems/matrix-diagonal-sum/submissions/
