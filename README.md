@@ -2923,6 +2923,7 @@ public class Questions
 - Time Complexity: O(N* N!)
 - Space Complexity: O(N* N!)
 ---------------------------------------------------------------------------------------------------------------------------------------
+# LeetCode
 ### Diagnol sum of a matrix
 https://leetcode.com/problems/matrix-diagonal-sum/submissions/
 ```
@@ -2952,6 +2953,41 @@ class Solution {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Middle element of a Linked List - If list is even, return the second middle element.
+- Key, initialize ptr1 to head.
+- Initialize ptr2 to null.
+- Increment ptr1, ptr2 and then ptr1.
+```
+class Solution {
+    public ListNode middleNode(ListNode head) 
+    {
+        // 1 2 3 4 5
+        // 1 2 3 4 5 6
+        ListNode ptr1 = head;
+        ListNode ptr2 = null;
+        
+        while( ptr1 != null )
+        {
+            ptr1 = ptr1.next;
+            
+            if( ptr2 == null )
+                ptr2 = head;
+            else
+                ptr2 = ptr2.next;
+            
+            if( ptr1 == null )
+                return ptr2;
+
+            ptr1 = ptr1.next;
+        }
+        
+        return ptr2.next;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -4039,6 +4075,11 @@ Ex: Merge Sort and Insertion Sort
 - A -> 
 
 # Dynamic Programming
+- Overlapping sub propblems.
+- 
+- Capture the results of duplicate subproblems and use it to reduce processing.
+![image](https://user-images.githubusercontent.com/42272776/118016952-a5d8ec80-b373-11eb-93d2-468565961b5e.png)
+
 ## Where does it help
 - The normal recursive function for fibonacci series taking long time to evaluate for larger values of n. E.g fib(50)
 - Recursive Representation
