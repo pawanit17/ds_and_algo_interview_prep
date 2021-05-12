@@ -4039,7 +4039,17 @@ Ex: Merge Sort and Insertion Sort
 - A -> 
 
 # Dynamic Programming
-
+## Where does it help
+- The normal recursive function for fibonacci series taking long time to evaluate for larger values of n. E.g fib(50)
+- Recursive Representation
+```
+void fib(int n)
+{
+    if( n <= 2 ) return 1;
+    return fib( n-1 ) + fib( n-2 );
+}
+```
+Time Complexity: O(2^n). Actually O(2^1.6) as the left tree is typically larger than the right tree.
 
 # Still to go
 Searching
