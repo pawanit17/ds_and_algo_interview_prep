@@ -4050,6 +4050,7 @@ void fib(int n)
 }
 ```
 Time Complexity: O(2^n). Actually O(2^1.6) as the left tree is typically larger than the right tree.
+Space Complexity: O(n)
 
 # Still to go
 Searching
