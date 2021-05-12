@@ -2988,6 +2988,29 @@ class Solution {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(1)
+
+### Univalued Binary Tree - if all the values of all the nodes in the tree are the same.
+```
+class Solution 
+{
+    public boolean isUnivalTree(TreeNode root) 
+    {
+        return isUnivalTree( root, root.val );
+    }
+    
+    public boolean isUnivalTree(TreeNode root, int rootVal )
+    {
+        if( root == null )
+            return true;
+        
+        return ( root.val == rootVal ) &&
+               isUnivalTree( root.left, rootVal ) &&
+               isUnivalTree( root.right, rootVal );
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
