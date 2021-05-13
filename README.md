@@ -3011,6 +3011,51 @@ class Solution
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Average of Levels in Binary Tree
+- https://leetcode.com/problems/average-of-levels-in-binary-tree/submissions/
+```
+public static List<Double> averageOfLevels(TreeNode root) 
+{
+List<TreeNode> queue = new ArrayList<TreeNode>();
+List<Integer> levelNodeValues = new ArrayList<Integer>();
+List<Double> levelAvgs = new ArrayList<Double>();
+queue.add(root);
+queue.add(null);
+
+while( queue.size() != 0 )
+{
+	TreeNode node = queue.get(0);
+	queue.remove(0);
+
+	if( node == null )
+	{
+		double sum = 0;
+		for(int inx = 0; inx < levelNodeValues.size(); ++inx)
+			sum = sum + levelNodeValues.get(inx);
+
+		levelAvgs.add( sum / levelNodeValues.size());
+		levelNodeValues.clear();
+
+		if( queue.size() == 0 )
+			break;
+
+		queue.add( null );
+	}
+	else
+	{
+		levelNodeValues.add(node.val);
+
+		if( node.left != null )
+			queue.add(node.left);
+
+		if( node.right != null )
+			queue.add(node.right);
+	}
+}
+return levelAvgs;
+}
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
