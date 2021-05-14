@@ -3056,6 +3056,37 @@ while( queue.size() != 0 )
 return levelAvgs;
 }
 ```
+
+### Delete values from an array
+- https://leetcode.com/problems/remove-element/submissions/
+```
+class Solution {
+    public int removeElement(int[] nums, int val) 
+    {
+        // 1 2 3 4 5 4 5 6 7     
+        
+        int currMaxIndex = nums.length;
+        for(int inx = 0; inx < currMaxIndex;)
+        {
+            if( nums[inx] == val)
+            {
+                for( int jnx = inx+1; jnx < currMaxIndex; jnx++ )
+                {
+                    nums[jnx-1] = nums[jnx];
+                }
+                
+                currMaxIndex--;
+            }
+            else
+            	inx++;
+        }
+        
+        return currMaxIndex;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
