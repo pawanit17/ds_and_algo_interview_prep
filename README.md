@@ -3087,6 +3087,57 @@ class Solution {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(1)
+
+### Merging array intervals
+- https://leetcode.com/problems/merge-intervals/
+```
+class Solution
+{
+    public int[][] merge(int[][] intervals) 
+    {
+        sortIntervals(intervals);
+		return mergeOverlappingIntervalsInternal(intervals);    
+    }
+	
+    public void sortIntervals(int[][] intervals) 
+    {
+            Arrays.sort( intervals, new Comparator<int[]>() {
+
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                // TODO Auto-generated method stub
+                return Integer.compare(o1[0], o2[0]);
+            }    		
+            });
+    }
+
+	public int[][] mergeOverlappingIntervalsInternal(int[][] intervals) 
+	{
+    	List<int[]> intervalList = new LinkedList<int[]>(Arrays.asList(intervals));
+    	for( int inx = 0; inx < intervalList.size() - 1; )
+    	{
+    		// 1 6			8 10		15 18
+    		// 1 3     2 6
+    		// 1 6
+    		if( intervalList.get(inx)[1] >= intervalList.get(inx+1)[0]) // This means that we can do a merge
+    		{    			
+    			int[] mergedEntry = new int[2];
+    			mergedEntry[0] = intervalList.get(inx)[0];
+    			mergedEntry[1] = Math.max(intervalList.get(inx)[1], intervalList.get(inx+1)[1]);
+    			intervalList.set(inx, mergedEntry);
+    			intervalList.remove(inx+1);
+    		}
+    		else
+    			inx++;
+    	}
+    	
+    	int[][] mergedIntervals = new int[intervalList.size()][];
+    	return intervalList.toArray(mergedIntervals);
+	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
