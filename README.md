@@ -861,8 +861,40 @@ class Program {
 ![image](https://user-images.githubusercontent.com/42272776/114563641-3648e200-9c8d-11eb-8583-d98c5edac0f9.png)
 - Basically, this approach does not really guarantee that the root BST is actually a BST.
 - Correct approach is actually ensuring that the maximum value at LST is < root and minimum value in RST is > root.
-- TBD 
+```
+import java.util.*;
 
+class Program {
+  public static boolean validateBst(BST tree) 
+  {	
+	return isBST( tree, Integer.MIN_VALUE, Integer.MAX_VALUE);		
+  }
+	
+  public static boolean isBST(BST root, int min, int max)
+  {
+	if( root == null )
+	return true;
+		
+	System.out.println( "Comparing at root.value " + root.value + " min " + min + " max " + max);
+	return root.value >= min && 
+               root.value < max && 
+	       isBST( root.left, min, root.value ) &&
+	       isBST( root.right, root.value, max  );
+  }
+
+  static class BST 
+  {
+      public int value;
+      public BST left;
+      public BST right;
+
+      public BST(int value) 
+      {
+          this.value = value;
+      }
+  }
+}
+```
 
 ### Three Number Sum
 - Use two pointer approach for solving this.
