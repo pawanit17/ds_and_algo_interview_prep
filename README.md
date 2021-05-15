@@ -3208,8 +3208,49 @@ class Program {
 	}
 }
 ```
----------------------------------------------------------------------------------------------------------------------------------------
 
+### Rotated Array Binary Search
+- The key thing is, we can only be sure of the part of the array that is sorted. We cant say for the other half.
+- At each iteration, we discard one half of the array.
+```
+public static int shiftedBinarySearch(int[] a, int target) 
+{
+	if( a.length == 0 )
+		return -1;
+
+	int low = 0;
+	int high = a.length - 1;
+
+	while( low <= high )
+	{
+		int mid = (high + low) /2;
+
+		if( a[mid] == target )
+			return mid;
+		else
+		{
+			if( a[low] <= a[mid]) // Left part is sorted.
+			{
+				if( a[low] <= target && target < a[mid] )
+					high = mid-1;
+				else
+					low = mid+1;
+			}
+			else	// Right part is sorted.
+			{
+				if( a[mid] < target && target <= a[high] )
+					low = mid+1;
+				else
+					high = mid-1;
+			}
+		}
+	}
+	return -1;
+}
+```
+- Time Complexity: O(logN)
+- Space Complexity: O(1)
+---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
 ## Second largest element in the array
