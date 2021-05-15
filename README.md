@@ -3138,6 +3138,44 @@ class Solution
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+### Generate powerset of a given number
+- Note the similarity in logic for this one and the code for generating Permutations of a number.
+```
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+class Program {
+  public static List<List<Integer>> powerset(List<Integer> array) 
+	{
+	    List<List<Integer>> sequences = new ArrayList<List<Integer>>();
+			generatePowerSet("",array.stream().map(String::valueOf)
+		    .collect(Collectors.joining("")), sequences);
+			return sequences;
+	}
+	
+	public static void generatePowerSet( String prefix, String str, List<List<Integer>> sequences )
+	{
+		add( prefix, sequences );
+		int n = str.length();
+		for( int inx = 0; inx < n; ++inx )
+		{
+			generatePowerSet( prefix + str.charAt(inx), str.substring(inx+1), sequences );
+		}
+	}
+	
+	private static void add(String prefix, List<List<Integer>> sequences) 
+	{
+		List<Integer> aSequence = new ArrayList<Integer>();
+		for( int inx = 0; inx < prefix.length(); ++inx )
+		{
+			aSequence.add( prefix.charAt(inx) - '0' );
+		}
+		sequences.add(aSequence);
+	}
+}
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 
