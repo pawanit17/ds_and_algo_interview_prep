@@ -3250,6 +3250,77 @@ public static int shiftedBinarySearch(int[] a, int target)
 ```
 - Time Complexity: O(logN)
 - Space Complexity: O(1)
+
+### Least index and greatest index of an element in a sorted array with repitions. 
+- Binary search in an array of repeating elements
+```
+class Solution 
+{
+    public int[] searchRange(int[] a, int target) 
+    {
+        return new int[] {binarySearchLeftIndex(a, target), binarySearchRightIndex(a, target)};
+    }
+    
+    public int binarySearchLeftIndex(int[] a, int target)
+	{
+        int low = 0;
+        int high = a.length - 1;
+        
+        while(low<=high)
+        {
+        	int mid = (low+high)/2;
+        	
+            if( a[mid] == target && ( mid == 0 || a[mid-1] != target ))
+                return mid;
+            else
+            {
+                if( a[mid] == target && a[mid-1] == target )
+                    high = mid - 1;
+                else
+                {
+                    if( a[mid] < target )
+                        low = mid+1;
+                    else
+                        high = mid - 1;
+                }
+            }
+        }
+        
+        return -1;
+    }
+    
+    public int binarySearchRightIndex(int[] a, int target)
+    {
+        int low = 0;
+        int high = a.length - 1;
+        
+        
+        while(low<=high)
+        {
+        	int mid = (low+high)/2;
+        	
+            if( a[mid] == target && ( low == high || a[mid+1] != target ))
+                return mid;
+            else
+            {
+                if( a[mid] == target && a[mid+1] == target )
+                    low = mid + 1;
+                else
+                {
+                    if( a[mid] < target )
+                        low = mid+1;
+                    else
+                        high = mid - 1;
+                }
+            }
+        }
+        
+        return -1;
+    }
+}
+```
+- Time Complexity: O(logN)
+- Space Complexity: O(1)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
