@@ -4413,7 +4413,7 @@ Ex: Merge Sort and Insertion Sort
 ![image](https://user-images.githubusercontent.com/42272776/118016952-a5d8ec80-b373-11eb-93d2-468565961b5e.png)
 - Dynamic programming is a way of solving problems that have these overalapping sub problems.
 - Instead of calculating them again and again, we keep a memory and store the results there. This brings the complexity of a lot of algorithms from 2^n to just n^2 etc.
-
+- There are two variants of Dynamic problem and in general the bottom up variant performs better as it does not re-calcuate the smaller sub problems again[?].
 ## Example
 - The normal recursive function for fibonacci series taking long time to evaluate for larger values of n. E.g fib(50)
 - Recursive Representation
