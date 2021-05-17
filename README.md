@@ -4441,14 +4441,41 @@ for( int i = 2; i <= n; i++ )
     F[i] = Math.max( Ci + F(i-2), F(i-1) );
 return F[n]
 ```
-- Note that the size of the array in the above implementation is O(N+1).
+- Note that the size of the array in the above implementation is N+1.
 ![image](https://user-images.githubusercontent.com/42272776/118527233-b5cf4280-b75e-11eb-9b0d-9d37c4932783.png)
+```
+import java.util.*;
+
+class Program {
+	public static int maxSubsetSumNoAdjacent(int[] array) 
+	{
+		 if( array.length == 0)
+			 return 0;
+
+		 // Let F(n) be the function that returns the maximum subset sum till index n-1.
+		 // Then F(0) = 0
+		 // F(1) = array[0]
+		 // F(n) = max( array[n-1] + F(n-2), F(n-1) )
+		 int memory[] = new int[array.length+1];
+		 memory[0] = 0;
+		 memory[1] = array[0];
+
+		 for( int inx = 2; inx <= array.length; ++inx )
+		 {
+		 	memory[inx] = Math.max( array[inx-1] + memory[inx-2], memory[inx-1] );
+		 }
+		 return memory[array.length];
+	}
+}
+```
+- Time Complexity: O(n)
+- Space Complexity: O(n)
 
 ## Change making problem
 - You have unlimited number of coins of certain denomination and you need to identify the minimum number of coins that make up
 a given sum.
 ![image](https://user-images.githubusercontent.com/42272776/118539012-87f0fa80-b76c-11eb-98ae-e16eb39434f5.png)
-- Note that the size of the array in the above implementation is O(N+1).
+- Note that the size of the array in the above implementation is N+1.
 ![image](https://user-images.githubusercontent.com/42272776/118539191-bf5fa700-b76c-11eb-85d7-94c2badb8a33.png)
 
 - Time Complexity: O(nm)
