@@ -4451,8 +4451,8 @@ a given sum.
 - Note that the size of the array in the above implementation is O(N+1).
 ![image](https://user-images.githubusercontent.com/42272776/118539191-bf5fa700-b76c-11eb-85d7-94c2badb8a33.png)
 
-Time Complexity: O(nm)
-Space Complexity: O(n)
+- Time Complexity: O(nm)
+- Space Complexity: O(n)
 
 # Still to go
 Searching
