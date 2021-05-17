@@ -4407,12 +4407,14 @@ Ex: Merge Sort and Insertion Sort
 - A -> 
 
 # Dynamic Programming
-- Overlapping sub propblems.
-- 
-- Capture the results of duplicate subproblems and use it to reduce processing.
+- When dealing with certain problems, there will be overlapping sub propblems that are to be solved to realize the larger problem.
+- Best example is fibonacci series calculation.
+- To realize f(n), we keep calculating f(n-1) and f(n-2) and this results in several f(3) or f(4) for larger values of 'n'.
 ![image](https://user-images.githubusercontent.com/42272776/118016952-a5d8ec80-b373-11eb-93d2-468565961b5e.png)
+- Dynamic programming is a way of solving problems that have these overalapping sub problems.
+- Instead of calculating them again and again, we keep a memory and store the results there. This brings the complexity of a lot of algorithms from 2^n to just n^2 etc.
 
-## Where does it help
+## Example
 - The normal recursive function for fibonacci series taking long time to evaluate for larger values of n. E.g fib(50)
 - Recursive Representation
 ```
@@ -4424,6 +4426,23 @@ void fib(int n)
 ```
 Time Complexity: O(2^n). Actually O(2^1.6) as the left tree is typically larger than the right tree.
 Space Complexity: O(n)
+
+## Coin-row problem
+![image](https://user-images.githubusercontent.com/42272776/118527296-c5e72200-b75e-11eb-8820-94d62db0287b.png)
+- There are several coins lined up and we need to pick the set that gives maximum sum with the condition that no two adjacent coins can be selected.
+- F(n) = Max( Cn + F(n-2), F(n-1) for n>1
+- F(0) = 0
+- F(1) = C1.
+- Code
+```
+F[0] = 0;
+F[1] = C1;
+for( int i = 2; i < n; i++ )
+    F[i] = Math.max( Ci + F(i-2), F(i-1) );
+return F[n]
+```
+![image](https://user-images.githubusercontent.com/42272776/118527233-b5cf4280-b75e-11eb-9b0d-9d37c4932783.png)
+
 
 # Still to go
 Searching
