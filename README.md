@@ -4444,6 +4444,15 @@ return F[n]
 - Note that the size of the array in the above implementation is O(N+1).
 ![image](https://user-images.githubusercontent.com/42272776/118527233-b5cf4280-b75e-11eb-9b0d-9d37c4932783.png)
 
+## Change making problem
+- You have unlimited number of coins of certain denomination and you need to identify the minimum number of coins that make up
+a given sum.
+![image](https://user-images.githubusercontent.com/42272776/118539012-87f0fa80-b76c-11eb-98ae-e16eb39434f5.png)
+- Note that the size of the array in the above implementation is O(N+1).
+![image](https://user-images.githubusercontent.com/42272776/118539191-bf5fa700-b76c-11eb-85d7-94c2badb8a33.png)
+
+Time Complexity: O(nm)
+Space Complexity: O(n)
 
 # Still to go
 Searching
