@@ -4437,10 +4437,11 @@ Space Complexity: O(n)
 ```
 F[0] = 0;
 F[1] = C1;
-for( int i = 2; i < n; i++ )
+for( int i = 2; i <= n; i++ )
     F[i] = Math.max( Ci + F(i-2), F(i-1) );
 return F[n]
 ```
+- Note that the size of the array in the above implementation is O(N+1).
 ![image](https://user-images.githubusercontent.com/42272776/118527233-b5cf4280-b75e-11eb-9b0d-9d37c4932783.png)
 
 
