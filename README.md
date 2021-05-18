@@ -3603,6 +3603,75 @@ struct node {
 - Each m/k section of the array should be a stack
 - Whenever a stack reaches size m/k, then it reached its alloted size
 ## :dart: How to sort the elements in the Stack using push, pop, peek?.(Open)
+```
+import java.util.ArrayList;
+
+public class Stack 
+{
+	public static void main(String args[])
+	{
+		ArrayList<Integer> stack = new ArrayList<Integer>();
+		stack.add(1);
+		stack.add(-1);
+		stack.add(12);
+		stack.add(81);
+		stack.add(19);
+		stack.add(23);
+		stack.add(58); // Top
+		
+		printStack(stack);
+		sortStack(stack);
+		printStack(stack);
+		
+	}
+
+	private static void printStack(ArrayList<Integer> stack) 
+	{
+		for(int inx = stack.size()-1; inx >= 0; --inx)
+		{
+			System.out.print(stack.get(inx) + " ");			 
+		}
+		System.out.println();
+	}
+
+	public static void sortStack(ArrayList<Integer> stack)
+	{
+		if( stack.size() == 0 )
+			return;
+		
+		// Pop the element
+		int element = stack.get( stack.size()-1 );
+		stack.remove(stack.size()-1);
+		sortStack( stack );
+		
+		// Push the element, but now in sorted order
+		sortPush( stack, element);		
+	}
+
+	private static void sortPush(ArrayList<Integer> stack, int element)
+	{
+		if( stack.size() == 0 )
+			stack.add(element);
+		else
+		{
+			int topOfStack = stack.get(stack.size()-1);
+			if( topOfStack <= element )
+			{
+				stack.add(element);
+			}
+			else
+			{
+				// Pop the top of the element
+				stack.remove(stack.size()-1);
+				sortPush( stack, element);
+				stack.add(topOfStack);
+			}
+		}		
+	}
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(N)
 
 ## :dart: How to reverse the elements in the stack using push and pop?.(Open)
 
