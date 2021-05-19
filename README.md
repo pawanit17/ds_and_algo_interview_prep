@@ -1676,6 +1676,7 @@ class Program
 - Space Complexity O(1)
 
 ### You are given two different arrays of same size that are not sorted. These represent the velocity of bikers on a tandem bike. Based on an input boolean variable determine the maximum and minimum velocity possible.
+```
 import java.util.*;
 
 class Program {
@@ -1697,6 +1698,7 @@ class Program {
 	return speed;
   }
 }
+```
 - Time Complexity O(NLogN)
 - Space Complexity O(1)
 
