@@ -69,11 +69,11 @@ while( j >= 0 ) {
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-## Two elements whose sum is closes to 0
+## Two elements whose sum is closest to 0
 - Sort the elements using heap sort - in-place sort.
-- If the first element and the last element are both positive or both negative, 
+- If the first element and the last element are both positive or both negative, sum can never be zero and the closest ones are the ones at indices 0 and 1. 
 - Maintain two indexes, one for negative numbers and one for positive numbers and gradually increment them.
-- Time Complexity: O(n)
+- Time Complexity: O(nlogn)
 - Space Complexity: O(1)
 
 ## Identify three numbers whose sum is equal to K
