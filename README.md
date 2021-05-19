@@ -84,9 +84,9 @@ Another approach:
 - For each index, do the two pointer approach on the rest of the array
 - This reduces the complexity O(N^2). 
 
-## Counting sort
-## Bucket sort
-## Radix sort
+## [TODO] Counting sort
+## [TODO] Bucket sort
+## [TODO] Radix sort
 
 ## Rotating the array to the right k times
 - Get hold of last number
