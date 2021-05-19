@@ -1650,6 +1650,7 @@ public int nonConstructibleChange(int[] coins)
 ### You are given an array of query execution times. Return the minimum waiting time for the execution of all the queries.
 Ex: 3, 2, 1, 2, 6.
 
+```
 import java.util.*;
 
 class Program 
@@ -1670,6 +1671,7 @@ class Program
 	return totalWaitingTime;
   }
 }
+```
 - Time Complexity O(NLogN)
 - Space Complexity O(1)
 
