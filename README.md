@@ -636,6 +636,10 @@ public static void getPathSumToLeaves( BinaryTree root, int sum, List<Integer> a
 
 ### You are given an array of integers and an integer. Write a function that moves all instances of that integer in the array to the end of the array and returns the array
 - Use two pointer approach
+- Apart from the approach below, we can use the variant of Dutch National Flag algorithm.
+  - If a[i] is 'k', swap a[i] and a[j] and decrement j.
+  - Else increment i.
+  - Completes in O(N).
 ```
 public static List<Integer> moveElementToEnd(List<Integer> array, int toMove) 
 {
