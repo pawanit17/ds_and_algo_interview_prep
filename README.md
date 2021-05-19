@@ -170,9 +170,9 @@ To shuffle an array a of n elements (indices 0..n-1):
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-## Sorting Algorithms
+# Sorting Algorithms
 
-### Selection sort
+## Selection sort
 - At each pass, the smallest element in the array will be moved to the first index.
 - At each pass, only the first element is considered for swap.
 ```
@@ -199,7 +199,7 @@ To shuffle an array a of n elements (indices 0..n-1):
 - Time Complexity O(N^2)
 - Space Complexity O(1)
 
-### Bubble Sort
+## Bubble Sort
 - While the selection sort and bubble sort may appear similar at first glance, they are not.
 - Bubble sort focusses on bringing the heaviest element or the lighter element to the end of the array.
 - Also, in selection sort, the values are indices inx and jnx are considered.
@@ -229,7 +229,11 @@ To shuffle an array a of n elements (indices 0..n-1):
 - Time Complexity O(N^2)
 - Space Complexity O(1)
 
-### Insertion sort
+## BubbleSort vs SelectionSort
+- In BubbleSort, the element at the last is what gets updated. The heaviest element gets bubbled to the top.
+- In InsertionSort, the element at 0th index is populated with the sorted element.
+
+## Insertion sort
 - Best understood using an example where you insert an element into a sorted array.
 - Ex: 1 3 7 9 and you need to add 6 and 4 ( original array is 1 3 7 9 6 4 ).
 ```
@@ -258,7 +262,7 @@ public static int[] insertionSort(int[] a)
 - Time Complexity O(N^2)
 - Space Complexity O(1)
 
-### Quick sort
+## Quick sort
 - To sort the elements in descending order, change the comparision order for the below two statements.
 
 ```
