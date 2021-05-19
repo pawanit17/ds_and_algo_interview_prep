@@ -31,6 +31,8 @@ Suppose there is an unsorted array of size 'n' from which you need to be able to
 - Two other ways of solving this problem is by using Hashes and by using an extra count field in a BST.
 
 ## There are two arrays, one of size m+n and the other of size n. In the first array, only m elements are used. Devise an algorithm to sort them
+- Maintaing two pointers from the read and traverse to the front.
+- If the shorter one is done, we are done. This is because it guarantees that the remaining elements in greater one are in place.
 ```
 m+n : 1 4 6 7 9 10 _ _ _ _
 n: 2 3 5 11
@@ -38,7 +40,7 @@ n: 2 3 5 11
 i = m-1;
 j = n-1;
 k = 0;
-while( k < m+n ) {
+while( j >= 0 ) {
   if( a[i] >= a[j] ) {
     a[m+n-1-k] = a[i];
     i--;
