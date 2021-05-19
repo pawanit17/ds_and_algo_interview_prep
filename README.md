@@ -123,7 +123,7 @@ class Solution {
   - Invert X - 654321 987
   - Invert the entire thing - 789123456
 
-## Find the number that is occurring odd number of times
+## All elements in an array repeat even number of times, except one that repeats odd number of times. Find the number that is occurring odd number of times.
 - XOR all the elements. The one that remains is the element that occurred odd number of times.
 - Time Complexity O(N)
 - Space Complexity O(1)
