@@ -14,7 +14,7 @@ Suppose there is an unsorted array of size 'n' from which you need to be able to
 ## In an Array of numbers, there is one repeating number. What is that repeating number?.
 - Sort using Quick, Merge or Heap sort
 - Then a linear pass
-- Time Complexity: O(N)
+- Time Complexity: O(NlogN)
 - Space Complexity: O(N)
 
 ## In an Array of numbers of size N, there is one repeating element. Find it
