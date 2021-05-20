@@ -335,7 +335,7 @@ class Program {
 - Time Complexity O(NLogN)
 - Space Complexity O(1)
 
-### Merge sort
+## Merge sort
 Base condition should be low>=high. This is simple because if low == high, the array is just one element size and every array of size 1 is sorted by itself.
 
 ![MergeSort](https://user-images.githubusercontent.com/42272776/113928531-931b4700-980c-11eb-9a29-bcf2fae30db3.jpg)
@@ -404,8 +404,8 @@ private static void copy(int[] numbers, int[] temp, int low, int high)
 
 ### Heap sort
 
-## :gear: AlgoExpert
-### Find first non-repeating character
+# :gear: AlgoExpert
+## Find first non-repeating character
 
 Conventional i=0 and j=i+1 wont work in this case because of strings like this:
 *faadabcbbebdf*
@@ -433,7 +433,7 @@ public int firstNonRepeatingCharacter(String str)
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Given two arrays, find if the second array is a subsequence of the first array. Ex: a = [1,2,3,4] s = [1,3,4].
+## Given two arrays, find if the second array is a subsequence of the first array. Ex: a = [1,2,3,4] s = [1,3,4].
 ```
 public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) 
 {
@@ -458,7 +458,7 @@ public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequ
 - Time Complexity O(MN)
 - Space Complexity O(1)
 
-### Check if a string is a palindrome
+## Check if a string is a palindrome
 
 `inx < jnx` is needed because in case of an odd length string, inx and jnx will technically reach same location at one time if the string is a palindrome.
 ```
@@ -487,7 +487,7 @@ public static boolean isPalindrome(String str) {
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Find the three largest elements in the array
+## Find the three largest elements in the array
 Main thing to note here is that the last ELSE clause should have a condition. Otherwise, a swap with thirdLargest element happens always.
 ```
 public static int[] findThreeLargestNumbers(int[] array) {
@@ -521,7 +521,7 @@ public static int[] findThreeLargestNumbers(int[] array) {
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Given a competitions array ( hostteam, awayteam ) and the results ( 0/1 ), write an algorithm to identify who the winner is of the whole tournament, given that there are no ties
+## Given a competitions array ( hostteam, awayteam ) and the results ( 0/1 ), write an algorithm to identify who the winner is of the whole tournament, given that there are no ties
 
 ```
 	public static String tournamentWinner( ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) 
@@ -569,7 +569,7 @@ public static int[] findThreeLargestNumbers(int[] array) {
 - Time Complexity O(N) the number of matches.
 - Space Complexity O(K) the number of teams.
 
-### A sorted integer array is given, we have to construct its squared array in sorted manner and return it.
+## A sorted integer array is given, we have to construct its squared array in sorted manner and return it.
 Catch here is if it has negative numbers, then the square of negative number will be positive. So we take a new array and use two pointer approach and fill it from the rear.
 ```
 public int[] sortedSquaredArray(int[] a) 
@@ -603,7 +603,7 @@ public int[] sortedSquaredArray(int[] a)
 - Time Complexity O(N).
 - Space Complexity O(N).
 
-### Branch Sums in a Binary tree
+## Branch Sums in a Binary tree
 ```
 public static List<Integer> branchSums(BinaryTree root) {
 
@@ -634,7 +634,7 @@ public static void getPathSumToLeaves( BinaryTree root, int sum, List<Integer> a
 - Time Complexity O(N).
 - Space Complexity O(N).
 
-### You are given an array of integers and an integer. Write a function that moves all instances of that integer in the array to the end of the array and returns the array
+## You are given an array of integers and an integer. Write a function that moves all instances of that integer in the array to the end of the array and returns the array
 - Use two pointer approach
 - Apart from the approach below, we can use the variant of Dutch National Flag algorithm.
   - If a[i] is 'k', swap a[i] and a[j] and decrement j.
@@ -674,7 +674,7 @@ public static List<Integer> moveElementToEnd(List<Integer> array, int toMove)
 - Time Complexity O(N).
 - Space Complexity O(1).
 
-### Two arrays are given - redshirt and blueshirts. They are to be arranged in front and back rows such that the items in the back row are strictly greater than that of the first row. Red and Blue arrays cannot be mixed
+## Two arrays are given - redshirt and blueshirts. They are to be arranged in front and back rows such that the items in the back row are strictly greater than that of the first row. Red and Blue arrays cannot be mixed
 - We sort both the arrays in descending order
 - We then identify which of the two arrays has the highest value. Because that array has to be the back bencher.
 - Then we see if the corresponding columns in the two rows are greater/less and return a true or false accordingly.
@@ -713,7 +713,7 @@ return true;
 - Time Complexity O(NlogN) + O(NlogN) + O(N) = O(NlogN).
 - Space Complexity O(1).
 
-### Return the first duplicate value in an array given that all the numbers are between 1-n.
+## Return the first duplicate value in an array given that all the numbers are between 1-n.
 - Approach here is to negate the value present at each a[i].
 - The index i that has the negative value is the value that we need to return.
 - Note that we need to return the absolute value.
@@ -735,7 +735,7 @@ public static int firstDuplicateValue(int[] array)
 - Time Complexity O(N)
 - Space Complexity O(1).
 
-### Identify the LCA for a BST
+## Identify the LCA for a BST
 - LCA calculation for a BST is easier than that of a normal BST.
 - We rely on the BST principle or node ordering to traverse either left or right.
 - Note that the LCA of two nodes is either one of them or the node that splits them into two different nodes.
@@ -756,7 +756,7 @@ public static TreeNode* getLCAInBST( struct TreeNode* root, struct TreeNode* p, 
 - Time Complexity O(N)
 - Space Complexity O(1).
 
-### Identify the LCA for a BT
+## Identify the LCA for a BT
 - At each node, we have to return an identifier ( NULL or Node itself ) if the subtree holds one or both of the input information.
 - This will be rolled back to the root where we see the LST and RST return data and act accrordinly.
 - If the return is a NULL from a sub tree, then that sub tree does not have either of the two variables.
@@ -785,7 +785,7 @@ TreeNode* leastCommonAncestor( struct TreeNode* root, int p, int q )
 - Time Complexity O(N)
 - Space Complexity O(1).
 
-### Three Number Sort - Similar to Dutch National Flag algorithm, except the sort order is dictated by a second array.
+## Three Number Sort - Similar to Dutch National Flag algorithm, except the sort order is dictated by a second array.
 ```
 import java.util.*;
 
@@ -819,7 +819,7 @@ class Program {
 - Time Complexity O(N)
 - Space Complexity O(1).
 
-### Find two elements from two different arrays of different sizes that have the least difference
+## Find two elements from two different arrays of different sizes that have the least difference
 - Brute force O(N^2) is possible, but we can do better.
 - We can use two pointer approach and solve it. But usually, two pointer approach needs arrays to be sorted.
 ```
@@ -865,7 +865,7 @@ class Program {
 - Time Complexity O(NlogN) + O(MlogM)
 - Space Complexity O(1).
 
-### Validate if a tree is a BST
+## Validate if a tree is a BST
 - Checking if each LST and RST are BSTs has a flaw.
 - It does not cover cases like these below.
 ![image](https://user-images.githubusercontent.com/42272776/114563641-3648e200-9c8d-11eb-8583-d98c5edac0f9.png)
@@ -906,7 +906,7 @@ class Program {
 }
 ```
 
-### Three Number Sum
+## Three Number Sum
 - Use two pointer approach for solving this.
 - In this case, the array contents are distinct. So incrementing low and high when there is a match does not make a difference. Otherwise, it is better to increment only one of them.
 ```
@@ -956,7 +956,7 @@ class Program
 - Time Complexity O(N^2)
 - Space Complexity O(1).
 
-### Sum of linked lists which have their head pointers pointing to least significant digit of an array - 3479 and 945 should return 29201.
+## Sum of linked lists which have their head pointers pointing to least significant digit of an array - 3479 and 945 should return 29201.
 ```
 import java.util.*;
 
@@ -1030,7 +1030,7 @@ class Program {
 - Time Complexity O(M+N)
 - Space Complexity O(1).
 
-### Nth Fibonacci Number
+## Nth Fibonacci Number
 
 public static int getNthFib(int n) {
 	if( n == 1 )
@@ -1046,7 +1046,7 @@ public static int getNthFib(int n) {
 - Time Complexity O(N)
 - Space Complexity O(1).
 
-### Merge two sorted Linked List
+## Merge two sorted Linked List
 Be careful with incrementing the pointer and setting the front and rear of the new list.
 ```
 public static LinkedList mergeLinkedLists(LinkedList headOne, LinkedList headTwo) {
@@ -1121,7 +1121,7 @@ public static LinkedList mergeLinkedLists(LinkedList headOne, LinkedList headTwo
 - Time Complexity O(M+N)
 - Space Complexity O(1)
 
-###  Find closest value in BST
+##  Find closest value in BST
 Use Binary Search algorithm to find the node that has the least difference.
 ```
 import java.util.*;
@@ -1176,7 +1176,7 @@ public static int closestValue( BST root, int target, int lastLeastDiff, int las
 - Time Complexity O(logN)
 - Space Complexity O(logN)
 
-### Remove duplicates in a Linked List
+## Remove duplicates in a Linked List
 Be careful with the pointer increments.
 ```
 public LinkedList removeDuplicatesFromLinkedList(LinkedList head)
@@ -1206,7 +1206,7 @@ public LinkedList removeDuplicatesFromLinkedList(LinkedList head)
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Invert a Binary Tree
+## Invert a Binary Tree
 - Capture the updated LST and RST into variables instead of directly assigning them.
 ```
 public static BinaryTree invertTree( BinaryTree tree)
@@ -1228,7 +1228,7 @@ public static BinaryTree invertTree( BinaryTree tree)
 - Time Complexity O(N)
 - Space Complexity O(N)
 
-### Diameter of a BT
+## Diameter of a BT
 ```
 import java.util.*;
 
@@ -1337,7 +1337,7 @@ int binaryTreeDiameter(BinaryTree *tree) {
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Kth largest element in a BST
+## Kth largest element in a BST
 - Note that we have to maintain a variable that is outside of the recursion stack.
 - We employ a reverse inorder traversal - Right, Root, Left.
 ```
@@ -1387,7 +1387,7 @@ public void kthHighestNode( Program.BST root, int k )
 - Time Complexity O(h+k) where h is height of the tree and k is the input parameter
 - Space Complexity O(h)
 
-### Write an API to return a boolean indicating whether the binary tree is height balanced
+## Write an API to return a boolean indicating whether the binary tree is height balanced
 ```
 import java.util.*;
 
@@ -1446,7 +1446,7 @@ public boolean heightBalancedBinaryTree(BinaryTree root)
 - Time Complexity O(N)
 - Space Complexity O(N)
 
-### Find the sum of the depths of all the nodes in a Binary Tree.
+## Find the sum of the depths of all the nodes in a Binary Tree.
 - Traverse all the nodes with a counter that maintains the levels as well.
 ```
 using namespace std;
@@ -1487,7 +1487,7 @@ int nodeDepths(BinaryTree *root)
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Get the inorder successor for a given node in a Binary Tree
+## Get the inorder successor for a given node in a Binary Tree
 - Things to consider
   - If the node has right sub tree, the left most node in that sub tree will be the inorder successor
   - If the node does not have right sub tree, then one of the ancestors of the node will be the inorder successor
@@ -1544,7 +1544,7 @@ BinaryTree* findSuccessor(BinaryTree *root, BinaryTree *node)
 - Time Complexity O(h) where h is the height of the tree
 - Space Complexity O(1)
 
-### You are given a sorted array. You have to build a BST that shall have the smallest height possible. This function should minimize the height.
+## You are given a sorted array. You have to build a BST that shall have the smallest height possible. This function should minimize the height.
 ```
 import java.util.*;
 
@@ -1601,7 +1601,7 @@ class Program {
 - Time Complexity O(N)
 - Space Complexity O(N)
 
-### You are given two arrays. Build a new array, which has the product of all the numbers excepting 'inx'.
+## You are given two arrays. Build a new array, which has the product of all the numbers excepting 'inx'.
 ```
 public int[] arrayOfProducts(int[] array) 
 {		
@@ -1624,7 +1624,7 @@ public int[] arrayOfProducts(int[] array)
 - Time Complexity O(N^2)
 - Space Complexity O(1)
 
-### Given an array of positive integers, find the least sum that you cannot make
+## Given an array of positive integers, find the least sum that you cannot make
 - This works because the sequence is positive.
 - And because if change+1 is less than coins[inx], then we cannot make change+1.
 
@@ -1675,7 +1675,7 @@ class Program
 - Time Complexity O(NLogN)
 - Space Complexity O(1)
 
-### You are given two different arrays of same size that are not sorted. These represent the velocity of bikers on a tandem bike. Based on an input boolean variable determine the maximum and minimum velocity possible.
+## You are given two different arrays of same size that are not sorted. These represent the velocity of bikers on a tandem bike. Based on an input boolean variable determine the maximum and minimum velocity possible.
 ```
 import java.util.*;
 
@@ -1702,7 +1702,7 @@ class Program {
 - Time Complexity O(NLogN)
 - Space Complexity O(1)
 
-### Delete Kth node of a Linked List from the back.
+## Delete Kth node of a Linked List from the back.
 - Always count the head as 1 during this problem.
 ```
 import java.util.*;
@@ -1773,7 +1773,7 @@ class Program
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-### Write a DFS Traversal for an acyclic graph
+## Write a DFS Traversal for an acyclic graph
 ```
 import java.util.*;
 
@@ -1822,7 +1822,7 @@ class Program {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Implement a MinMax Stac
+## Implement a MinMax Stac
 import java.util.*;
 ```
 class Program {
@@ -1891,7 +1891,7 @@ class Program {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Caesar Cipher Encryption - xyz with two rotations becomes zab
+## Caesar Cipher Encryption - xyz with two rotations becomes zab
 - Important thing to note here is to do a modulo operation to reduce traversals.
 - And logically making the additions to fall within a-z range.
 ```
@@ -1928,7 +1928,7 @@ class Program {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### You are given an array and a value. From the array, you need to build combination of two integers whose sum is smallest.
+## You are given an array and a value. From the array, you need to build combination of two integers whose sum is smallest.
 - Ex: k = 3 and tasks[] = { 1, 3, 5, 3, 1, 4 } 
 - The trick here is you cant sort.
 - You cant also remove elements from the array list as it would invalidate other entries down the line.
@@ -1996,7 +1996,7 @@ class Program
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Breadth First Search in a Graph with no cycles ( Generic tree )
+## Breadth First Search in a Graph with no cycles ( Generic tree )
 ```
 import java.util.*;
 
@@ -2051,7 +2051,7 @@ class Program {
 - Time Complexity: O(v+e)
 - Space Complexity: O(v) where v is the number of vertices and e is the number of edges in the graph.
 
-### Validating a string for brackets ({[]})
+## Validating a string for brackets ({[]})
 - There are three possible cases here
   - More left braces, in which case, the stack will not be empty at the end of the processing.
   - More right braces, in which case, we will hit stack underflow.
@@ -2130,7 +2130,7 @@ class Program
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Run length encoding
+## Run length encoding
 - Ex ************^^^^^^^$$$$$$%%%%%%%!!!!!!AAAAAAAAAAAAAAAAAAAA
 - Ex AAAAAAAAAAAAAAAAABBBBB should be 9A8A5B
 - Better alternative at the end of the for loop can be done, but this is the general code.
@@ -2207,7 +2207,7 @@ class Program {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Generate Document - Check if the String 'document' can be formed from the String 'characters'
+## Generate Document - Check if the String 'document' can be formed from the String 'characters'
 ```
 import java.util.*;
 
@@ -2266,7 +2266,7 @@ class Program {
 - Time Complexity: O(M+N)
 - Space Complexity: O(c) where M is Characters length, N is Document length, and c is the number of unique characters in Characters string.
 
-### Find the least index in an array, where a[index] = index. If no such index is available, return -1.
+## Find the least index in an array, where a[index] = index. If no such index is available, return -1.
 - Basically, even if we find an index where a[index] == index, there is every chance for a smaller index where the same can hold true.
 - So we need to check the previous index location in case of a match to not miss it.
 ```
@@ -2314,7 +2314,7 @@ high =  6   6
 - Time Complexity: O(logN)
 - Space Complexity: O(1)
 
-### Kadane's algorithm
+## Kadane's algorithm
 ```
 public static int kadanesAlgorithm(int[] array) 
 {
@@ -2331,7 +2331,7 @@ public static int kadanesAlgorithm(int[] array)
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-### Detecting infinite linked list
+## Detecting infinite linked list
 - Start both the pointers from head node.
 ![Cycle In LinkedList](https://user-images.githubusercontent.com/42272776/116383769-cada4500-a834-11eb-8f44-dde455b2f1bb.jpg)
 
@@ -2378,7 +2378,7 @@ public static LinkedList findLoop(LinkedList head)
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-### Selection algorithm
+## Selection algorithm
 - Selection algorithm for finding the kth largest element involves comparision in descending order and searching.
 ```
 while( pivot < a[i] && i < high ) // i < high because we want to ensure that i does not spill over
@@ -2447,7 +2447,7 @@ class Program
 - Time Complexity: O(N) to O(N2)
 - Space Complexity: O(1)
 
-### Build BST from a Pre-Order array using iteration
+## Build BST from a Pre-Order array using iteration
 ```
 import java.util.*;
 
@@ -2522,7 +2522,7 @@ class Program
 - Time Complexity: O(NlogN)
 - Space Complexity: O(1)
 
-### Build BST from a Pre-Order array using recursion
+## Build BST from a Pre-Order array using recursion
 ```
 import java.util.*;
 
@@ -2569,7 +2569,7 @@ class Program {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Product Sum - [5,2, [7, -1], 3, [6, [-13, 8], 4]]
+## Product Sum - [5,2, [7, -1], 3, [6, [-13, 8], 4]]
 - This will evaluate to 5 + 2 + 2(7-1) + 3 + 2 ( 6 + 3 ( -13 + 8 ) + 4 ) = 12.
 - Ex: [1,2,[3],4,5] = 18
 - Ex: [[[[[5]]]]] = 600
@@ -2607,7 +2607,7 @@ class Program
 - Time Complexity: O(N)
 - Space Complexity: O(N) where N is the number of elements in the array list.
 
-### Reverse a sentence keeping the words in the same order
+## Reverse a sentence keeping the words in the same order
 - Ex: *Pavan is Kool* becomes *Kool is Pavan*
 - We reverse the entire string and then we reverse the words.
 ```
@@ -2665,7 +2665,7 @@ public static String reverseWordsInString(String str)
 - Time Complexity: O(N)
 - Space Complexity: O(N) where N is the length of the string.
 
-### Given two arrays that represent BSTs obtained by inserting each integer in the array, from left to right, see if their resulting tree is same.
+## Given two arrays that represent BSTs obtained by inserting each integer in the array, from left to right, see if their resulting tree is same.
 - In this case, we pick the first element and try to identify what all elements go into the left and right subtrees.
 - If we recuse this to all the nodes, we will be able to determine if they all represent the same thing.
 - This code first catches the case where the two failure conditions do not match.
@@ -2738,14 +2738,16 @@ public static List<Integer> buildRST( List<Integer> content )
 - Time Complexity: O(N^2)
 - Space Complexity: O(d) where N is the length of the string.
 
-### Searching in a sorted matrix
+## Searching in a sorted matrix
 - You can either start with left most column, bottom row and navigate to the top or vice versa.
 - The other two corners would not be optimal because you cant say if the target is in that row looking at them.
+```
 |1	4	7	12	15	1000|
 |2	5	19	31	32	1001|
 |3	8	24	33	35	1002|
 |40	41	42	44	45	1003|
 |99	100	103	106	128	1004|
+```
 ```
 import java.util.*;
 class Program 
@@ -2772,7 +2774,7 @@ class Program
 - Time Complexity: O(N+M)
 - Space Complexity: O(1).
 
-### Spiral traversal of a matrix
+## Spiral traversal of a matrix
 - When there are odd rows or odd columns, there are chances that the same elements covered in for loop 1 / for loop 2 are repeated.
 - That is why we take care in for loop 3 / for loop 4.
 - Maintain 4 pointers, two for rows and columns each.
@@ -2820,7 +2822,7 @@ public static List<Integer> spiralTraverse(int[][] a)
 - Time Complexity: O(M*N)
 - Space Complexity: O(M+N).
 
-### Do a zigzag traversal on a two dimensional array
+## Do a zigzag traversal on a two dimensional array
 - Basically the path follows like this.
 ```
 Down Traversal	Sum 0 - a[0][0]
@@ -2883,7 +2885,7 @@ public static List<Integer> zigzagTraverse(List<List<Integer>> array)
 - Time Complexity: O(M*N)
 - Space Complexity: O(M+N).
 
-### Sunset Views.
+## Sunset Views.
 - You are given an array of buildings in the form of an array where a[i] determines its height. You are also given a direction - EAST or WEST.
 - EAST determines reading array from right and WEST determines reading array from left.
 - Edge cases here is if there are two buildings with the same height, we have to pick the one that faces the sun first and not pick the next one.
@@ -2937,7 +2939,7 @@ public ArrayList<Integer> sunsetViews(int[] a, String direction)
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Listing all permutations of a given string
+## Listing all permutations of a given string
 
 public class Questions 
 {
@@ -2970,7 +2972,7 @@ public class Questions
 - Space Complexity: O(N* N!)
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
-### Diagnol sum of a matrix
+## Diagnol sum of a matrix
 https://leetcode.com/problems/matrix-diagonal-sum/submissions/
 ```
 class Solution {
@@ -3000,7 +3002,7 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Middle element of a Linked List - If list is even, return the second middle element.
+## Middle element of a Linked List - If list is even, return the second middle element.
 - Key, initialize ptr1 to head.
 - Initialize ptr2 to null.
 - Increment ptr1, ptr2 and then ptr1.
@@ -3035,7 +3037,7 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-### Univalued Binary Tree - if all the values of all the nodes in the tree are the same.
+## Univalued Binary Tree - if all the values of all the nodes in the tree are the same.
 ```
 class Solution 
 {
@@ -3058,7 +3060,7 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Average of Levels in Binary Tree
+## Average of Levels in Binary Tree
 - https://leetcode.com/problems/average-of-levels-in-binary-tree/submissions/
 ```
 public static List<Double> averageOfLevels(TreeNode root) 
@@ -3103,7 +3105,7 @@ return levelAvgs;
 }
 ```
 
-### Delete values from an array
+## Delete values from an array
 - https://leetcode.com/problems/remove-element/submissions/
 ```
 class Solution {
@@ -3134,7 +3136,7 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-### Merging array intervals
+## Merging array intervals
 - https://leetcode.com/problems/merge-intervals/
 ```
 class Solution
@@ -3185,7 +3187,7 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-### Generate powerset of a given number
+## Generate powerset of a given number
 - Note the similarity in logic for this one and the code for generating Permutations of a number.
 ```
 import java.util.*;
@@ -3223,7 +3225,7 @@ class Program {
 }
 ```
 
-### Rotated Array Binary Search
+## Rotated Array Binary Search
 - The key thing is, we can only be sure of the part of the array that is sorted. We cant say for the other half.
 - At each iteration, we discard one half of the array.
 ```
@@ -3265,7 +3267,7 @@ public static int shiftedBinarySearch(int[] a, int target)
 - Time Complexity: O(logN)
 - Space Complexity: O(1)
 
-### Least index and greatest index of an element in a sorted array with repitions. 
+## Least index and greatest index of an element in a sorted array with repitions. 
 - Binary search in an array of repeating elements
 ```
 class Solution 
