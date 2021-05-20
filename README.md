@@ -3269,6 +3269,10 @@ public static int shiftedBinarySearch(int[] a, int target)
 
 ## Least index and greatest index of an element in a sorted array with repitions. 
 - Binary search in an array of repeating elements
+- For right most index, low == high represents a case where the trailing elements are the same and is the one that we are looking for.
+  - 1 2 3 4 4 4 4 4 4 4 4 4 4 4 4 4
+- For left most index, mid = 0, represents a case where the first few elements are the same and are the ones that we are searching for.
+  - 1 1 1 1 2 4 5 6 7 8 9 
 ```
 class Solution 
 {
