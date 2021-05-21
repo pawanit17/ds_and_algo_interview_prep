@@ -2970,6 +2970,97 @@ public class Questions
 }
 - Time Complexity: O(N* N!)
 - Space Complexity: O(N* N!)
+
+## Youngest Common Ancestor
+- Iterating the two nodes simultaneously is not a viable solution. This is because if the input nodes are at different levels in the tree, then they ascend differently
+and the common will always come up as root node.
+- The best option is calculate the difference between the node depths and move the deepest one to be on the same level as the other.
+- Then we just increment both of them until they are equal.
+- https://www.algoexpert.io/questions/Youngest%20Common%20Ancestor
+
+![image](https://user-images.githubusercontent.com/42272776/119121669-51a4cb00-ba4b-11eb-9207-3d93bff9ccb3.png)
+
+```
+import java.util.*;
+
+class Program {
+  public static AncestralTree getYoungestCommonAncestor(
+      AncestralTree rootAncestor, AncestralTree descendantOne, AncestralTree descendantTwo) 
+    {
+    	// Get depth
+	int depthOne = getDepth( descendantOne );
+	int depthTwo = getDepth( descendantTwo );
+
+	// Get delta
+	int delta = Math.abs( depthOne - depthTwo );
+
+	// Move the lower one up
+	if( depthOne < depthTwo )
+	{
+		int count = 0;
+		while( count < delta )
+		{
+			descendantTwo = descendantTwo.ancestor;
+			count++;
+		}
+	}
+	else
+	{
+		int count = 0;
+		while( count < delta )
+		{
+			descendantOne = descendantOne.ancestor;
+			count++;
+		}
+	}
+
+	// Increment together
+	while( descendantOne != descendantTwo )
+	{
+		descendantOne = descendantOne.ancestor;
+		descendantTwo = descendantTwo.ancestor;
+	}
+			
+    	        return descendantOne;
+        }
+
+	public static int getDepth( AncestralTree node )
+	{
+		if( node == null )
+			return 0;
+
+		AncestralTree tmp = node;
+		int count = 1;
+		while( tmp != null )
+		{
+			count++;
+			tmp = tmp.ancestor;
+		}
+		return count;
+	}
+	
+  static class AncestralTree {
+    public char name;
+    public AncestralTree ancestor;
+
+    AncestralTree(char name) {
+      this.name = name;
+      this.ancestor = null;
+    }
+
+    // This method is for testing only.
+    void addAsAncestor(AncestralTree[] descendants) {
+      for (AncestralTree descendant : descendants) {
+        descendant.ancestor = this;
+      }
+    }
+  }
+}
+
+```
+- Time Complexity: O(D!) where D is the Depth of the deepest node among the two.
+- Space Complexity: O(1)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
 ## Diagnol sum of a matrix
