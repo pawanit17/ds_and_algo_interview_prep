@@ -3058,9 +3058,55 @@ class Program {
 }
 
 ```
-- Time Complexity: O(D!) where D is the Depth of the deepest node among the two.
+- Time Complexity: O(D) where D is the Depth of the deepest node among the two.
 - Space Complexity: O(1)
 
+## Left view of a Binary Tree
+![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
+- Do a level order traversal but only print the left most node at each level.
+
+```
+queue.add( root );
+queue.add( null );
+
+leftVisible = true;
+leftView.add( root.value );
+while( !queue.isEmpty() )
+{
+    Node node = queue.deQueue();
+    
+    if( node == null ) // End of the current level
+    {
+    	queue.add( null ); // Beginning of the new level
+	leftVisible = true;
+    }
+    else
+    {
+    	if( node.lChild != null )
+	{
+    		queue.add( node.lChild );
+		
+		if( leftVisible )
+		{
+			leftView.add( node.value );
+			leftVisible = false;
+		}
+	}
+	if( node.rChild != null )
+	{
+		queue.add( node.rChild );
+		
+		if( leftVisible )
+		{
+			leftView.add( node.value );
+			leftVisible = false;
+		}
+	}
+    }
+}
+```
+- Time Complexity: O(n)
+- Space Complexity: O(n)
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
 ## Diagnol sum of a matrix
