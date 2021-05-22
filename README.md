@@ -3064,7 +3064,13 @@ class Program {
 ## Left view of a Binary Tree
 ![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
 - Do a level order traversal but only print the left most node at each level.
-
+- Because we need to delimit the levels in the tree with a ```null``` in the queue, we need to add a condition to ensure that we do not keep adding ```null``` back to the queue.
+- The following is the condition:
+```
+if( queue.size() == 0 )
+    break;
+```
+- To get the right view of the tree, we need to first process the right subtree over the left subtree.
 ```
 queue.add( root );
 queue.add( null );
@@ -3077,6 +3083,10 @@ while( !queue.isEmpty() )
     
     if( node == null ) // End of the current level
     {
+        // This signifies that we are done with the tree processing.
+    	if( queue.size() == 0 )
+	  break;
+
     	queue.add( null ); // Beginning of the new level
 	leftVisible = true;
     }
