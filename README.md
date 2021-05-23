@@ -3126,6 +3126,83 @@ while( !queue.isEmpty() )
 - Example: You came to say, town 8, and you realized that you should have gone to town 15. Then add to a collection, the town values 8, 4, 2, 1. Since you need to go to 15, add its predecessor towns to another array - 15,7,3,1. The first matching between these two arrays from the right, is the town to which you need to come back. In this case, it it town 1. So distance from 8 to town 1 + town 1 to town 15 is what you should be calculating.
 - Time Complexity: O(n)
 - Space Complexity: O(n)
+
+## Four sum problem
+- Solution 1
+```
+import java.util.*;
+// Brute force O(N^4) algorithm
+class Program {
+public static List<Integer[]> fourNumberSum(int[] a, int targetSum) 
+{
+	List<Integer[]> list = new ArrayList<Integer[]>();
+	for( int inx =0; inx < a.length-3; ++inx )
+	{
+		for( int jnx =inx+1; jnx < a.length-2; ++jnx )
+		{
+			for( int knx =jnx+1; knx < a.length-1; ++knx )
+			{
+				for( int lnx =knx+1; lnx < a.length; ++lnx )
+				{
+					if( a[inx] + a[jnx] + a[knx] + a[lnx] == targetSum )
+					{
+	      				        Integer[] array = new Integer[4];
+						array[0] = a[inx];
+						array[1] = a[jnx];
+						array[2] = a[knx];
+						array[3] = a[lnx];
+						list.add( array );
+					}
+				}
+			}
+		}
+	}
+
+    return list;
+  }
+}
+```
+- Time Complexity: O(n^4)
+- Space Complexity: O(1)
+
+- Solution 2
+```
+import java.util.*;
+
+// O(N^2 logN) solution
+class Program {
+public static List<Integer[]> fourNumberSum(int[] a, int targetSum) 
+{
+	Arrays.sort(a);
+	List<Integer[]> list = new ArrayList<Integer[]>();
+	for( int inx =0; inx < a.length-3; ++inx )
+	{
+		for( int jnx =inx+1; jnx < a.length-2; ++jnx )
+		{
+			for( int knx =jnx+1; knx < a.length-1; ++knx )
+			{
+				 int indexL = Arrays.binarySearch( a, knx+1, a.length, targetSum-a[inx]-a[jnx]-a[knx]);
+				 if( indexL >= 0 )
+				{
+					Integer[] array = new Integer[4];
+					array[0] = a[inx];
+					array[1] = a[jnx];
+					array[2] = a[knx];
+					array[3] = a[indexL];
+					list.add( array );
+				 }
+			}
+		}
+	}
+	return list;  
+  }
+}
+```
+- Time Complexity: O(n^2 logn)
+- Space Complexity: O(1)
+
+- Solution 3
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
 ## Diagnol sum of a matrix
