@@ -3166,6 +3166,7 @@ public static List<Integer[]> fourNumberSum(int[] a, int targetSum)
 - Space Complexity: O(1)
 
 - Solution 2
+- The binary search that we trigger should start after 
 ```
 import java.util.*;
 
@@ -3198,7 +3199,7 @@ public static List<Integer[]> fourNumberSum(int[] a, int targetSum)
   }
 }
 ```
-- Time Complexity: O(n^2 logn)
+- Time Complexity: O(n^2 logn + n logn) = O(n^2 logn) + O(nlogn) = O(n^2+n)logn = ~ O(n^2 logn)
 - Space Complexity: O(1)
 
 - Solution 3
