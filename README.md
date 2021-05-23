@@ -3117,6 +3117,15 @@ while( !queue.isEmpty() )
 ```
 - Time Complexity: O(n)
 - Space Complexity: O(n)
+
+## Boat example
+![image](https://user-images.githubusercontent.com/42272776/119250649-20e5a280-bbbf-11eb-8e72-3a0097b1d3d7.png)
+![image](https://user-images.githubusercontent.com/42272776/119250660-34910900-bbbf-11eb-9bbe-ba15a32d61b1.png)
+![image](https://user-images.githubusercontent.com/42272776/119250676-54c0c800-bbbf-11eb-918f-3cf155097071.png)
+![image](https://user-images.githubusercontent.com/42272776/119250667-45da1580-bbbf-11eb-96d5-bd41b1f5ffa9.png)
+- Example: You came to say, town 8, and you realized that you should have gone to town 15. Then add to a collection, the town values 8, 4, 2, 1. Since you need to go to 15, add its predecessor towns to another array - 15,7,3,1. The first matching between these two arrays from the right, is the town to which you need to come back. In this case, it it town 1. So distance from 8 to town 1 + town 1 to town 15 is what you should be calculating.
+- Time Complexity: O(n)
+- Space Complexity: O(n)
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
 ## Diagnol sum of a matrix
