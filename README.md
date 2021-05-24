@@ -3206,6 +3206,53 @@ public static List<Integer[]> fourNumberSum(int[] a, int targetSum)
 
 
 ## Find if a Graph has any cycles in it.
+
+```
+import java.util.*;
+
+public class CycleInGraph
+{
+	public static void main(String args[])
+	{
+		int edges[][] = { {1, 3}, {2, 3, 4}, {0}, {}, {2, 5}, {}};
+		System.out.println(cycleInGraph(edges));
+	}
+	
+	public static boolean cycleInGraph(int[][] edges) 
+	{
+  		for( int inx = 0; inx < edges.length; ++inx )
+		{
+			Set<Integer> visitedNodes = new HashSet<Integer>();
+			boolean isCyclic = isGraphCyclic( edges, inx, visitedNodes );
+			if( isCyclic )
+				return true;
+		}
+	
+		return false;
+	}
+	
+	public static boolean isGraphCyclic( int[][] edges, int startingVertex, Set<Integer> visitedNodes )
+	{
+		if( visitedNodes.contains(startingVertex) )
+			return true;
+
+		visitedNodes.add(startingVertex);
+
+		int neighbours[] = edges[startingVertex];
+		for( int inx = 0; inx < neighbours.length; ++inx )
+		{
+			boolean icCyclic = isGraphCyclic( edges, neighbours[inx], visitedNodes );
+			if( icCyclic )
+				return true;
+		}
+
+		visitedNodes.remove(startingVertex);
+		return false;
+	}	
+}
+```
+- Time Complexity: O(VE) because all the endpoints of the edges i.e., vertices are to be visited.
+- Space Complexity: O(V) because we need to store all the vertices. 
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
 ## Diagnol sum of a matrix
