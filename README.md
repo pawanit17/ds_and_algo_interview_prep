@@ -3252,7 +3252,57 @@ public class CycleInGraph
 }
 ```
 - Time Complexity: O(VE) because all the endpoints of the edges i.e., vertices are to be visited.
-- Space Complexity: O(V) because we need to store all the vertices. 
+- Space Complexity: O(V) because we need to store all the vertices.
+
+## Check if the array has a cycle
+- Note that this question only asks about cycles that start from index 0.
+- So we can do alternate implementations to avoid the extra memory used for SET.
+```
+import java.util.*;
+
+public class SingleCycleCheck 
+{
+	public static void main(String args[])
+	{
+		System.out.println(hasSingleCycle(new int[] { 10, 11, -6, -23, -2, 3, 88, 909, -26 } ));
+	}
+
+	public static boolean hasSingleCycle(int[] array) 
+	{
+		Set<Integer> set = new HashSet<Integer>();
+
+		int inx = 0;
+		int counter = 0;
+  		while( true )
+		{
+			if( array[inx] > 0 )
+			{
+				inx = (inx + array[inx]) % array.length;
+			}
+			else
+			{
+				
+				inx = ( array.length + inx +  ( array[inx] ) % array.length ) % array.length;
+			}
+
+			System.out.println("Processing index " + inx);
+			counter++;
+
+			if( set.contains( inx ) )
+				break;
+
+			set.add( inx );
+
+			if( set.size() == array.length && counter == array.length )
+				return true;
+		}
+	    return false;
+	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 # LeetCode
 ## Diagnol sum of a matrix
