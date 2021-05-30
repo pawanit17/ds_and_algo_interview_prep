@@ -3674,6 +3674,29 @@ class Solution
 ```
 - Time Complexity: O(logN)
 - Space Complexity: O(1)
+
+## Rotate an Array by 90 degrees
+- Approach one:
+```
+00 01 02
+10 11 12
+20 21 22 
+```
+when rotated becomes
+```
+20 10 00
+21 11 01
+22 12 02
+```
+```
+for(i=0;i<n;i++)
+  for(j=n-1;j>=0;j--)
+    std::cout << a[j][i];
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(N) - Because if you want to store the content, you cant do it in place using this version of the algorithm.
+
+- 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
