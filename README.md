@@ -3776,6 +3776,50 @@ public class RotateArray90
 ```
 - Time Complexity: O(N^2)
 - Space Complexity: O(1) this approach does not need any extra space.
+
+## Find if there are two elements in a Binary Search Tree that add up to a given sum
+- Use a SET to enter all the nodes and see if we already have visited k-nodevalue.
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution 
+{
+    public boolean findTarget(TreeNode root, int k)
+    {
+        Set<Integer> numbers = new HashSet<Integer>();
+        return findTarget(root, numbers, k);
+    }
+
+    public boolean findTarget(TreeNode root, Set<Integer> numbers, int k)
+    {
+        if( root == null )
+            return false;
+
+        if( numbers.contains(k-root.val) )
+            return true;
+
+        numbers.add(root.val);
+
+        return findTarget(root.left, numbers, k) || findTarget(root.right, numbers, k);
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N) this approach needs a SET data structure.
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
