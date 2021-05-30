@@ -3702,6 +3702,20 @@ for(i=0;i<n;i++)
 - Then rotate columns.
 - This approach helps in doing this activity in place.
 ```
+00 01 02
+10 11 12
+20 21 22
+--------
+00 10 20
+01 11 21
+02 12 22
+--------
+20 10 00
+21 11 01
+22 12 02
+```
+
+```
 public class RotateArray90
 {
 	public static void main(String args[])
