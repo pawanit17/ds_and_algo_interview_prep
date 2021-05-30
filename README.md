@@ -3677,7 +3677,8 @@ class Solution
 - Space Complexity: O(1)
 
 ## Rotate an Array by 90 degrees
-- Approach 1:
+- https://leetcode.com/problems/rotate-image/submissions/
+### Approach 1:
 ```
 00 01 02
 10 11 12
@@ -3695,9 +3696,9 @@ for(i=0;i<n;i++)
     std::cout << a[j][i];
 ```
 - Time Complexity: O(N^2)
-- Space Complexity: O(N) - Because if you want to store the content, you cant do it in place using this version of the algorithm.
+- Space Complexity: O(N) because if you want to store the content, you cant do it in place using this version of the algorithm.
 
-- Approach 2:
+### Approach 2:
 - Rotate diagonally the matrix
 - Then rotate columns.
 - This approach helps in doing this activity in place.
