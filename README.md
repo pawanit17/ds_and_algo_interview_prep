@@ -3677,7 +3677,7 @@ class Solution
 - Space Complexity: O(1)
 
 ## Rotate an Array by 90 degrees
-- Approach one:
+- Approach 1:
 ```
 00 01 02
 10 11 12
@@ -3697,7 +3697,70 @@ for(i=0;i<n;i++)
 - Time Complexity: O(N^2)
 - Space Complexity: O(N) - Because if you want to store the content, you cant do it in place using this version of the algorithm.
 
-- 
+- Approach 2:
+- Rotate diagonally the matrix
+- Then rotate columns.
+- This approach helps in doing this activity in place.
+```
+public class RotateArray90
+{
+	public static void main(String args[])
+	{
+		int a[][] = {{1,2,3}, {4,5,6}, {7,8,9}};
+		printArray(a);
+		rotate(a);
+	}
+
+	public static void printArray( int[][] a)
+	{
+		System.out.println("--------");
+		for( int inx = 0; inx < a.length; ++inx )
+        {
+            for( int jnx = 0; jnx < a.length; ++jnx )
+            {
+        		System.out.print(a[inx][jnx]);
+        		System.out.print(" ");
+            }
+            System.out.println();
+        }
+	}
+	
+    public static void rotate(int[][] arr) 
+    {
+    	 int n = arr.length;
+         
+	    // first rotation
+	    // with respect to main diagonal
+        for(int i=0;i<n;++i)
+        {
+            for(int j=0;j<i;++j)
+            {
+                int temp = arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
+            }
+        }
+        
+        printArray(arr);
+        
+        // Second rotation
+    	// with respect to middle column
+        for(int i=0;i<n;++i)
+        {
+            for(int j=0;j<n/2;++j)
+            {
+                int temp =arr[i][j];
+                arr[i][j] = arr[i][n-j-1];
+                arr[i][n-j-1]=temp;
+            }
+        }
+        
+        printArray(arr);
+    }
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(1) this approach does not need any extra space.
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
