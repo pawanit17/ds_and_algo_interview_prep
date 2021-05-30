@@ -3559,6 +3559,7 @@ class Program {
 ```
 
 ## Rotated Array Binary Search
+- https://leetcode.com/problems/rotate-image/
 - The key thing is, we can only be sure of the part of the array that is sorted. We cant say for the other half.
 - At each iteration, we discard one half of the array.
 ```
