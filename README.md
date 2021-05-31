@@ -1602,27 +1602,52 @@ class Program {
 - Space Complexity O(N)
 
 ## You are given two arrays. Build a new array, which has the product of all the numbers excepting 'inx'.
+- This is not a straightforward problem.
+- If the array has no zeroes, then the solution is trivial.
+- If the array has 1 zero, then product should not include that 0 value.
+- If the array has more than one zero, then every possible product will be zero.
 ```
-public int[] arrayOfProducts(int[] array) 
-{		
-	int[] returnArray = new int[array.length];
-	for( int inx = 0; inx < array.length; ++inx )
-	{
-		int product = 1;
-		for( int jnx = 0; jnx < array.length; ++jnx )
-		{
-			if( inx != jnx )
-			{
-				product = product * array[jnx];
-			}
-		}					
-		returnArray[inx] = product;
-	}
-	return returnArray;
+class Solution {
+    public int[] productExceptSelf(int[] nums) 
+    {
+        int product = 1;
+        boolean nonZeroesExist = false;
+        int zeroCount = 0;
+        int productArray[] = new int[nums.length];
+        for(int inx =0; inx < nums.length; inx++)
+        {
+            if( nums[inx] != 0 )
+            {
+                product = product * nums[inx];
+                nonZeroesExist = true;
+            }
+            else
+                zeroCount++;
+        }
+
+        for(int inx =0; inx < nums.length; inx++)
+        {
+            if( zeroCount > 1 )
+                productArray[inx] = 0;
+            else if( zeroCount > 0 )
+            {
+                if( nums[inx] != 0 )
+                    productArray[inx] = 0;
+                else
+                    productArray[inx] = product;
+            }
+            else
+            {
+                productArray[inx] = product/nums[inx];
+            }
+        }
+        
+        return productArray;
+    }
 }
 ```
-- Time Complexity O(N^2)
-- Space Complexity O(1)
+- Time Complexity O(N)
+- Space Complexity O(N)
 
 ## Given an array of positive integers, find the least sum that you cannot make
 - This works because the sequence is positive.
