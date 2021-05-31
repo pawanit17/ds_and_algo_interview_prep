@@ -3845,7 +3845,10 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(N) this approach needs a SET data structure.
 
+## TODO
 ## https://leetcode.com/problems/sort-the-matrix-diagonally/
+## https://leetcode.com/problems/maximum-product-subarray/
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
