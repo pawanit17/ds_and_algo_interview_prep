@@ -3975,6 +3975,59 @@ class Solution {
 - Time Complexity: O(N^2)
 - Space Complexity: O(1)
 
+## Next element greater than the current one.
+- https://leetcode.com/problems/next-greater-element-i/
+```
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) 
+    {
+        int elements[] = new int[nums1.length];
+        int counter = 0;
+        for(int inx=0; inx<nums1.length;++inx)
+        {
+            boolean foundElement = false;
+            for(int jnx=0; jnx<nums2.length;++jnx)
+            {
+                if( !foundElement )
+                {
+                    if( nums2[jnx] == nums1[inx] )
+                    {
+                        foundElement = true;
+                        
+                        // If the element is at the right most end, then we don't have any more elements to the right.
+                        if( jnx == nums2.length - 1 )
+                        {
+                        	elements[counter] = -1;
+                        	counter++;
+                        	break;
+                        }
+                    }
+                }
+                else
+                {
+                    if( nums2[jnx] > nums1[inx] )
+                    {
+                        elements[counter] = nums2[jnx];
+                        counter++;
+                        break;
+                    }
+
+                    // Once again, if the element is last index, it means no element greater than the current element was found.
+                    if( jnx == nums2.length - 1 )
+                    {
+                        elements[counter] = -1;
+                        counter++;
+                        break;
+                    }
+                }
+            }
+        }
+        return elements;
+    }
+}
+```
+- Time Complexity: O(1)
+- Space Complexity: O(1)
 
 ## Mitochondria
 
