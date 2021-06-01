@@ -3874,6 +3874,40 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Find pivot index in an array. Pivot index is the index in an array where the left and right sums are the same.
+- https://leetcode.com/problems/find-pivot-index/
+```
+class Solution {
+    public int pivotIndex(int[] nums) 
+    {
+        for( int inx = 0; inx < nums.length; ++inx )
+        {
+            // Get left sum, Get right sum
+            int leftSum = 0;
+            for( int jnx = inx-1; jnx >=0 ; --jnx )
+            {
+                leftSum = leftSum + nums[jnx];
+            }
+
+            int rightSum = 0;
+            for( int knx = inx+1; knx<nums.length; ++knx )
+            {
+                rightSum = rightSum + nums[knx];
+            }
+            
+            if(leftSum == rightSum)
+                return inx;
+        }
+        
+        return -1;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
+## Mitochondria
+
 ## TODO
 ## https://leetcode.com/problems/sort-the-matrix-diagonally/
 ## https://leetcode.com/problems/maximum-product-subarray/
