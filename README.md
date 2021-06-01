@@ -3906,6 +3906,28 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Missing number in an array
+- https://leetcode.com/problems/missing-number/
+```
+class Solution {
+    public int missingNumber(int[] nums) 
+    {
+        int n = nums.length;
+        
+        int expectedSum = n * ( n+1) / 2;
+        
+        int observedSum = 0;
+        for(int inx=0; inx<nums.length;inx++)
+            observedSum += nums[inx];
+        
+        return expectedSum - observedSum;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
+
 ## Mitochondria
 
 ## TODO
