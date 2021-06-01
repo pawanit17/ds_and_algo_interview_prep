@@ -3948,6 +3948,34 @@ class Solution {
 - Time Complexity: O(NM)
 - Space Complexity: O(NM)
 
+## Flipping an image horizontally and then inverting it. 
+- https://leetcode.com/problems/flipping-an-image
+```
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image) 
+    {
+        for( int inx = 0 ; inx < image.length; ++inx )
+            for( int jnx = 0 ; jnx < image.length/2; ++jnx )
+        {
+            int temp = image[inx][jnx];
+            image[inx][jnx] = image[inx][image.length-1-jnx];
+            image[inx][image.length-1-jnx] = temp;
+        }
+        
+        for( int inx = 0 ; inx < image.length; ++inx )
+            for( int jnx = 0 ; jnx < image.length; ++jnx )
+        {
+            image[inx][jnx] = (image[inx][jnx] == 0 ? 1 : 0);            
+        }
+        
+        return image;
+    }
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(1)
+
+
 ## Mitochondria
 
 ## TODO
