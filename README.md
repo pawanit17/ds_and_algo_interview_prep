@@ -3845,6 +3845,35 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(N) this approach needs a SET data structure.
 
+## Find the maximum consecutive ones in an array
+- https://leetcode.com/problems/max-consecutive-ones/
+```
+class Solution 
+{
+    public int findMaxConsecutiveOnes(int[] a) 
+    {
+        // 1 1 1 1 1 1 0 1 1 0 1 1 1 1 0 0 0
+        int maxTillNow = 0;
+        int counter = 0;
+        for(int inx = 0; inx < a.length; inx++)
+        {
+            if( a[inx] == 1)
+            {
+                counter++;
+                maxTillNow = Math.max(maxTillNow,counter);
+            }
+            else
+            {                
+                counter = 0;
+            }
+        }
+        return maxTillNow;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## TODO
 ## https://leetcode.com/problems/sort-the-matrix-diagonally/
 ## https://leetcode.com/problems/maximum-product-subarray/
