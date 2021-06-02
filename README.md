@@ -4117,6 +4117,38 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
+## Array of elements of size 'n' whose sum is 0.
+```
+class Solution 
+{
+    public int[] sumZero(int n) 
+    {
+        int numbers[] = new int[n];
+        if( n == 1 )
+            return new int[] { 0 };
+        else
+        {
+            boolean odd = ( n%2 != 0 );
+            
+            // n = 7
+            // n = 8
+            for(int inx = 0; inx < n/2; ++inx)
+            {
+                numbers[inx] = inx+1;
+                numbers[n-1-inx] = -1 * (inx+1);
+            }
+            
+            if(odd)
+                numbers[n/2] = 0;
+        }
+
+        return numbers;        
+    }
+}
+```
+- Time Complexity: O(1)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
