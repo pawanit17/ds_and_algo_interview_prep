@@ -4029,6 +4029,51 @@ class Solution {
 - Time Complexity: O(1)
 - Space Complexity: O(1)
 
+## https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix
+- Start at the last row last column element and move up carefully.
+```
+class Solution 
+{
+    public int countNegatives(int[][] grid) 
+    {
+        int m = grid.length;
+        int n = grid[0].length;
+        
+        int specimen = -0;
+        
+        int row = m-1;
+        int col = n-1;
+        int count = 0;
+        
+        while( row >= 0 )
+        {
+            specimen = grid[row][col];
+
+            if( specimen >= 0 )
+                row--;
+            else
+            {
+                for( int jnx=col; jnx >=0; jnx--)
+                {
+                    if(grid[row][jnx] < 0)
+                        count++;
+                    else
+                    {
+                        break;
+                    }
+                }
+                
+                row--;
+            }            
+        }
+
+        return count;
+    }
+}
+```
+- Time Complexity: O(M+N)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
