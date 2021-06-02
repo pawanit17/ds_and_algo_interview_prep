@@ -4074,6 +4074,49 @@ class Solution
 - Time Complexity: O(M+N)
 - Space Complexity: O(1)
 
+## Convert sorted array to Binary Search Tree
+- https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution 
+{
+    public TreeNode sortedArrayToBST(int[] nums) 
+    {
+        return recurseTreeBuild( nums, 0, nums.length-1 );
+    }
+    
+    TreeNode recurseTreeBuild( int[] nums, int low, int high )
+    {
+        if( low > high )
+            return null;
+
+        int mid = (low + high)/2;
+        TreeNode root = new TreeNode( nums[mid] );
+    
+        root.left = recurseTreeBuild( nums, low, mid-1 );
+        root.right = recurseTreeBuild( nums, mid+1, high );
+    
+        return root;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ## Mitochondria
 
 ## TODO
