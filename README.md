@@ -3089,8 +3089,10 @@ class Program {
 ## Left view of a Binary Tree
 ![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
 - Do a level order traversal but only print the left most node at each level.
-- Because we need to delimit the levels in the tree with a ```null``` in the queue, we need to add a condition to ensure that we do not keep adding ```null``` back to the queue.
-- The following is the condition:
+- Important things
+  - We dont push ```null``` onto the queue if the left or right sub tree of any node is ```null```. This avoids an infinite loop.
+  - Because we need to delimit the levels in the tree with a ```null``` in the queue, we need to add a condition to ensure that we do not keep adding ```null``` back to the queue.
+  - The following is the condition:
 ```
 if( queue.size() == 0 )
     break;
