@@ -4155,12 +4155,18 @@ class Solution
 - Median of a sorted array is the mid element in the array
   - If the size is odd, it is the mid element
   - If the size is even, it is the average of the two mid elements.
-  - Time Complexity: O(N)
-  - Space Complexity: O(1)
+    - Time Complexity: O(N)
+    - Space Complexity: O(1)
 - Median of two sorted arrays
-  - Merge both of them into a single array and then find the median.
-  - Time Complexity: O(M+N)
-  - Space Complexity: O(M+N)
+  - Approach 1: Merge both of them into a single array and then find the median.
+    - Time Complexity: O(M+N)
+    - Space Complexity: O(M+N)
+  - Approach 2:
+- Median of an unsorted array
+  - Sort the array and look up median
+    - Time Complexity: O(NlogN)
+    - Space Complexity: O(1)
+  
 
 ## Mitochondria
 
