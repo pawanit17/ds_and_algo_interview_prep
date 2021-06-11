@@ -4177,6 +4177,7 @@ left join Address address on address.personid = pers.personid;
 ```
 
 ## Designing a hashmap ( simple )
+- https://leetcode.com/problems/design-hashmap/
 ```
 class MyHashMap {
 
@@ -4204,6 +4205,40 @@ class MyHashMap {
     /** Removes the mapping of the specified value key if this map contains a mapping for the key */
     public void remove(int key) {
         bucket[key%size] = -1;
+    }
+}
+```
+- Time Complexity: O(1)
+- Space Complexity: O(1)
+
+## Designing a Hashset ( simple )
+- https://leetcode.com/problems/design-hashset
+```
+class MyHashSet {
+
+    int bucket[];
+    int size;
+
+    /** Initialize your data structure here. */
+    public MyHashSet() {
+        size = 1000000;
+        bucket = new int[size];
+        
+        for( int inx = 0 ; inx < size; ++inx )
+            bucket[inx] = -1;
+    }
+    
+    public void add(int key) {
+        bucket[key%size] = key;
+    }
+    
+    public void remove(int key) {
+        bucket[key%size] = -1;
+    }
+    
+    /** Returns true if this set contains the specified element */
+    public boolean contains(int key) {
+        return bucket[key%size] != -1;
     }
 }
 ```
