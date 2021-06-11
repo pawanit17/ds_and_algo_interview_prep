@@ -4174,6 +4174,13 @@ class Solution
 ## https://leetcode.com/problems/sort-the-matrix-diagonally/
 ## https://leetcode.com/problems/maximum-product-subarray/
 
+## Combining two tables using SQL
+- https://leetcode.com/problems/combine-two-tables/
+```
+select distinct pers.firstname, pers.lastname, address.city, address.state  
+from Person pers
+left join Address address on address.personid = pers.personid;
+```
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
