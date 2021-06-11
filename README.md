@@ -4166,13 +4166,7 @@ class Solution
   - Sort the array and look up median
     - Time Complexity: O(NlogN)
     - Space Complexity: O(1)
-  
 
-## Mitochondria
-
-## TODO
-## https://leetcode.com/problems/sort-the-matrix-diagonally/
-## https://leetcode.com/problems/maximum-product-subarray/
 
 ## Combining two tables using SQL
 - https://leetcode.com/problems/combine-two-tables/
@@ -4181,6 +4175,47 @@ select distinct pers.firstname, pers.lastname, address.city, address.state
 from Person pers
 left join Address address on address.personid = pers.personid;
 ```
+
+## Designing a hashmap ( simple )
+```
+class MyHashMap {
+
+    int bucket[];
+    int size;
+    /** Initialize your data structure here. */
+    public MyHashMap() {
+        size = 1000000;
+        bucket = new int[size];
+        
+        for( int inx = 0 ; inx < size; ++inx )
+            bucket[inx] = -1;
+    }
+    
+    /** value will always be non-negative. */
+    public void put(int key, int value) {
+        bucket[key%size] = value;
+    }
+    
+    /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+    public int get(int key) {
+        return bucket[key%size];
+    }
+    
+    /** Removes the mapping of the specified value key if this map contains a mapping for the key */
+    public void remove(int key) {
+        bucket[key%size] = -1;
+    }
+}
+```
+- Time Complexity: O(1)
+- Space Complexity: O(1)
+
+## Mitochondria
+
+## TODO
+## https://leetcode.com/problems/sort-the-matrix-diagonally/
+## https://leetcode.com/problems/maximum-product-subarray/
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 ## :gear: Scalar Academy Session
