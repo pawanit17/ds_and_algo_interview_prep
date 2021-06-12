@@ -2,6 +2,7 @@
 - O(N) means that the rate of growth of complexity of the algorithm as a function of the input size.
 - O(N) determines that it is atleast N in growth.
 
+
 ## Amortized Analysis
 Suppose there is an unsorted array of size 'n' from which you need to be able to get the kth smallest element. And you will be making say, 'n' retrievals.
 - If you sort the array - O(nlogn)
