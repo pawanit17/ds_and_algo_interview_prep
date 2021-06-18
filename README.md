@@ -4246,6 +4246,14 @@ class MyHashSet {
 - Time Complexity: O(1)
 - Space Complexity: O(1)
 
+- https://leetcode.com/problems/duplicate-emails
+```
+select p.Email
+from Person p
+group by p.Email
+having count(p.Email) > 1;
+```
+
 ## Mitochondria
 
 ## TODO
