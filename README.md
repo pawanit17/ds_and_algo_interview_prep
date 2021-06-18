@@ -4254,6 +4254,33 @@ group by p.Email
 having count(p.Email) > 1;
 ```
 
+## https://leetcode.com/problems/sum-of-unique-elements
+```
+class Solution {
+    public int sumOfUnique(int[] nums) 
+    {
+        Map<Integer, Integer> numbers = new HashMap<Integer, Integer>();
+        for(int inx = 0 ;inx < nums.length; ++inx)
+        {
+            if( numbers.containsKey( nums[inx]) )
+                numbers.put(nums[inx], 0);
+            else
+                numbers.put(nums[inx], nums[inx]);
+        }
+        
+        int sum = 0;
+        for(Map.Entry<Integer, Integer> entry : numbers.entrySet())
+        {
+            sum = sum + entry.getValue();
+        }        
+        
+        return sum;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ## Mitochondria
 
 ## TODO
