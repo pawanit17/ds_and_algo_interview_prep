@@ -4246,15 +4246,8 @@ class MyHashSet {
 - Time Complexity: O(1)
 - Space Complexity: O(1)
 
-- https://leetcode.com/problems/duplicate-emails
-```
-select p.Email
-from Person p
-group by p.Email
-having count(p.Email) > 1;
-```
-
-## https://leetcode.com/problems/sum-of-unique-elements
+## Sum of unique elements in the array 
+- https://leetcode.com/problems/sum-of-unique-elements
 ```
 class Solution {
     public int sumOfUnique(int[] nums) 
@@ -4280,6 +4273,24 @@ class Solution {
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+
+## SQL - Group Count
+- https://leetcode.com/problems/duplicate-emails
+```
+select p.Email
+from Person p
+group by p.Email
+having count(p.Email) > 1;
+```
+
+## SQL - Inner Query
+https://leetcode.com/problems/customers-who-never-order
+```
+select customers.name as Customers
+from Customers customers
+where customers.id not in ( select distinct orders.customerid
+from Orders orders );
+```
 
 ## Mitochondria
 
