@@ -4274,6 +4274,37 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
+## Calculate Tilt of a Binary Tree
+- https://leetcode.com/problems/binary-tree-tilt/
+- The important thing in this problem is that the summation should include all the children too.
+```
+class Solution {
+    int sum = 0;
+    public int findTilt(TreeNode root) 
+    {
+        findTiltInternal( root );
+        
+        return sum;
+    }
+    
+    public int findTiltInternal(TreeNode root) 
+    {
+        if( root == null )
+        {
+            return 0;
+        }
+
+        int leftTilt = findTiltInternal( root.left );
+        int rightTilt = findTiltInternal( root.right );
+        sum = sum + Math.abs( leftTilt - rightTilt );
+        
+        return root.val + leftTilt + rightTilt;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ## SQL - Group Count
 - https://leetcode.com/problems/duplicate-emails
 ```
