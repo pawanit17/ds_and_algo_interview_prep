@@ -4305,6 +4305,44 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
+## Tribonacci Number
+```
+class Solution
+{
+    public int tribonacci(int n) 
+    {
+        int f0 = 0;
+        int f1 = 1;
+        int f2 = 1;
+
+        switch(n)
+        {
+            case 0: return f0;
+            case 1: return f1;
+            case 2: return f2;
+            default:
+
+            int currentNumber = 2;
+
+            int fn = 0;
+            while( currentNumber < n )
+            {
+                fn = f0 + f1 + f2;
+                currentNumber++;
+
+                f0 = f1;
+                f1 = f2;
+                f2 = fn;
+            }
+
+            return fn;
+        }
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## SQL - Group Count
 - https://leetcode.com/problems/duplicate-emails
 ```
