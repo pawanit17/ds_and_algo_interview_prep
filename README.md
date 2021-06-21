@@ -4343,6 +4343,9 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Generate Parenthesis
+- https://leetcode.com/problems/generate-parentheses/
+
 ## SQL - Group Count
 - https://leetcode.com/problems/duplicate-emails
 ```
