@@ -2022,61 +2022,6 @@ class Program
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-## Breadth First Search in a Graph with no cycles ( Generic tree )
-```
-import java.util.*;
-
-class Program {
-  // Do not edit the class below except
-  // for the breadthFirstSearch method.
-  // Feel free to add new properties
-  // and methods to the class.
-  static class Node {
-    String name;
-    List<Node> children = new ArrayList<Node>();
-
-    public Node(String name) {
-      this.name = name;
-    }
-
-    	public List<String> breadthFirstSearch(List<String> array) 
-	{
-		// Add the current node to the queue
-		List<Node> queue = new ArrayList<Node>();
-		queue.add(this);
-		bfs( array, queue );
-  	    	return array;
-    	}
-		
-	public void bfs( List<String> bfs, List<Node> queue )
-	{
-		// Remove content from queue until its empty and visit them
-		while( !queue.isEmpty() )
-		{
-			Node currNode = queue.get(0);
-			bfs.add(currNode.name);
-			queue.remove(0);
-
-			// Once you visit a node, add its children to the queue.
-			// queue.add( null );
-			for( int inx = 0; currNode.children != null && inx < currNode.children.size(); ++inx )
-			{
-				queue.add( currNode.children.get(inx) );
-			}
-		}
-	}
-
-    public Node addChild(String name) {
-      Node child = new Node(name);
-      children.add(child);
-      return this;
-    }
-  }
-}
-```
-- Time Complexity: O(v+e)
-- Space Complexity: O(v) where v is the number of vertices and e is the number of edges in the graph.
-
 ## Validating a string for brackets ({[]})
 - There are three possible cases here
   - More left braces, in which case, the stack will not be empty at the end of the processing.
@@ -3231,56 +3176,6 @@ public static List<Integer[]> fourNumberSum(int[] a, int targetSum)
 - Space Complexity: O(1)
 
 - Solution 3
-
-
-## Find if a Graph has any cycles in it.
-
-```
-import java.util.*;
-
-public class CycleInGraph
-{
-	public static void main(String args[])
-	{
-		int edges[][] = { {1, 3}, {2, 3, 4}, {0}, {}, {2, 5}, {}};
-		System.out.println(cycleInGraph(edges));
-	}
-	
-	public static boolean cycleInGraph(int[][] edges) 
-	{
-  		for( int inx = 0; inx < edges.length; ++inx )
-		{
-			Set<Integer> visitedNodes = new HashSet<Integer>();
-			boolean isCyclic = isGraphCyclic( edges, inx, visitedNodes );
-			if( isCyclic )
-				return true;
-		}
-	
-		return false;
-	}
-	
-	public static boolean isGraphCyclic( int[][] edges, int startingVertex, Set<Integer> visitedNodes )
-	{
-		if( visitedNodes.contains(startingVertex) )
-			return true;
-
-		visitedNodes.add(startingVertex);
-
-		int neighbours[] = edges[startingVertex];
-		for( int inx = 0; inx < neighbours.length; ++inx )
-		{
-			boolean icCyclic = isGraphCyclic( edges, neighbours[inx], visitedNodes );
-			if( icCyclic )
-				return true;
-		}
-
-		visitedNodes.remove(startingVertex);
-		return false;
-	}	
-}
-```
-- Time Complexity: O(VE) because all the endpoints of the edges i.e., vertices are to be visited.
-- Space Complexity: O(V) because we need to store all the vertices.
 
 ## Check if the array has a cycle
 - Note that this question only asks about cycles that start from index 0.
@@ -5524,6 +5419,113 @@ Ex: Merge Sort and Insertion Sort
 - Adjacency List: Adjacency Matrices usually has lots of 0s in it. Ex: even in LinkedIn. Number of users is around 10M but typicallly a user will have only 500-1000 max connections. This makes the Adjacency Matrix, a sparse matrix.
 - A -> 
 
+
+## Breadth First Search in a Graph with no cycles ( Generic tree )
+```
+import java.util.*;
+
+class Program {
+  // Do not edit the class below except
+  // for the breadthFirstSearch method.
+  // Feel free to add new properties
+  // and methods to the class.
+  static class Node {
+    String name;
+    List<Node> children = new ArrayList<Node>();
+
+    public Node(String name) {
+      this.name = name;
+    }
+
+    	public List<String> breadthFirstSearch(List<String> array) 
+	{
+		// Add the current node to the queue
+		List<Node> queue = new ArrayList<Node>();
+		queue.add(this);
+		bfs( array, queue );
+  	    	return array;
+    	}
+		
+	public void bfs( List<String> bfs, List<Node> queue )
+	{
+		// Remove content from queue until its empty and visit them
+		while( !queue.isEmpty() )
+		{
+			Node currNode = queue.get(0);
+			bfs.add(currNode.name);
+			queue.remove(0);
+
+			// Once you visit a node, add its children to the queue.
+			// queue.add( null );
+			for( int inx = 0; currNode.children != null && inx < currNode.children.size(); ++inx )
+			{
+				queue.add( currNode.children.get(inx) );
+			}
+		}
+	}
+
+    public Node addChild(String name) {
+      Node child = new Node(name);
+      children.add(child);
+      return this;
+    }
+  }
+}
+```
+- Time Complexity: O(v+e)
+- Space Complexity: O(v) where v is the number of vertices and e is the number of edges in the graph.
+
+
+## Find if a Graph has any cycles in it.
+
+```
+import java.util.*;
+
+public class CycleInGraph
+{
+	public static void main(String args[])
+	{
+		int edges[][] = { {1, 3}, {2, 3, 4}, {0}, {}, {2, 5}, {}};
+		System.out.println(cycleInGraph(edges));
+	}
+	
+	public static boolean cycleInGraph(int[][] edges) 
+	{
+  		for( int inx = 0; inx < edges.length; ++inx )
+		{
+			Set<Integer> visitedNodes = new HashSet<Integer>();
+			boolean isCyclic = isGraphCyclic( edges, inx, visitedNodes );
+			if( isCyclic )
+				return true;
+		}
+	
+		return false;
+	}
+	
+	public static boolean isGraphCyclic( int[][] edges, int startingVertex, Set<Integer> visitedNodes )
+	{
+		if( visitedNodes.contains(startingVertex) )
+			return true;
+
+		visitedNodes.add(startingVertex);
+
+		int neighbours[] = edges[startingVertex];
+		for( int inx = 0; inx < neighbours.length; ++inx )
+		{
+			boolean icCyclic = isGraphCyclic( edges, neighbours[inx], visitedNodes );
+			if( icCyclic )
+				return true;
+		}
+
+		visitedNodes.remove(startingVertex);
+		return false;
+	}	
+}
+```
+- Time Complexity: O(VE) because all the endpoints of the edges i.e., vertices are to be visited.
+- Space Complexity: O(V) because we need to store all the vertices.
+
+	
 # Dynamic Programming
 - When dealing with certain problems, there will be overlapping sub propblems that are to be solved to realize the larger problem.
 - Best example is fibonacci series calculation.
