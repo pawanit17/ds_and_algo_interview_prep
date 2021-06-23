@@ -4242,7 +4242,7 @@ int indegree( int graph[][], int vertex )
 }
 ```
 - Time Complexity: O(V+E)
-- Space Complexity: O(1)
+- Space Complexity: O(V)
 
 ## Mitochondria
 
