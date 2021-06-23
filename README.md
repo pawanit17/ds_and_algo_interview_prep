@@ -1799,55 +1799,6 @@ class Program
 - Time Complexity O(N)
 - Space Complexity O(1)
 
-## Write a DFS Traversal for an acyclic graph
-```
-import java.util.*;
-
-class Program {
-  // Do not edit the class below except
-  // for the depthFirstSearch method.
-  // Feel free to add new properties
-  // and methods to the class.
-  static class Node {
-    String name;
-    List<Node> children = new ArrayList<Node>();
-
-    public Node(String name) {
-      this.name = name;
-    }
-
-    public List<String> depthFirstSearch(List<String> array) 
-		{
-				dfs( this, array);
-				return array;
-    }
-		
-		public void dfs( Node root, List<String> dfsTraversal )
-		{
-				if( root == null )
-					return;
-
-				dfsTraversal.add( root.name );
-
-				for( int inx = 0; root.children != null && inx < root.children.size(); ++inx )
-				{
-						dfs( root.children.get(inx), dfsTraversal );
-				}
-
-				return;
-		}
-
-    public Node addChild(String name) {
-      Node child = new Node(name);
-      children.add(child);
-      return this;
-    }
-  }
-}
-```
-- Time Complexity: O(N)
-- Space Complexity: O(N)
-
 ## Implement a MinMax Stac
 import java.util.*;
 ```
@@ -5420,6 +5371,55 @@ Ex: Merge Sort and Insertion Sort
 - A -> 
 
 
+## Write a DFS Traversal for an acyclic graph
+```
+import java.util.*;
+
+class Program {
+  // Do not edit the class below except
+  // for the depthFirstSearch method.
+  // Feel free to add new properties
+  // and methods to the class.
+  static class Node {
+    String name;
+    List<Node> children = new ArrayList<Node>();
+
+    public Node(String name) {
+      this.name = name;
+    }
+
+    public List<String> depthFirstSearch(List<String> array) 
+		{
+				dfs( this, array);
+				return array;
+    }
+		
+		public void dfs( Node root, List<String> dfsTraversal )
+		{
+				if( root == null )
+					return;
+
+				dfsTraversal.add( root.name );
+
+				for( int inx = 0; root.children != null && inx < root.children.size(); ++inx )
+				{
+						dfs( root.children.get(inx), dfsTraversal );
+				}
+
+				return;
+		}
+
+    public Node addChild(String name) {
+      Node child = new Node(name);
+      children.add(child);
+      return this;
+    }
+  }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+	
 ## Breadth First Search in a Graph with no cycles ( Generic tree )
 ```
 import java.util.*;
