@@ -4210,6 +4210,18 @@ where customers.id not in ( select distinct orders.customerid
 from Orders orders );
 ```
 
+## Topological Sorting
+- Useful in situations like
+  - Identifying build dependencies
+  - Order of scheduling of jobs
+  - Sutdents enrolling for a course along with its dependencies.
+- This is only applicable for DAG - Directed Acyclic Graphs						  
+- Topological sort for trees is to cherry pick nodes from the bottom.
+- You can detect if a Graph contains a cycle by using Topological sorting as well.
+				  
+	
+
+
 ## Mitochondria
 
 ## TODO
