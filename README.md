@@ -4244,6 +4244,10 @@ int indegree( int graph[][], int vertex )
 - Time Complexity: O(V+E)
 - Space Complexity: O(V)
 
+## Cycle in a Directed Graph - 3 color approach
+![image](https://user-images.githubusercontent.com/42272776/123143001-ab981680-d477-11eb-931e-c01e686875e9.png)
+
+
 ## Mitochondria
 
 ## TODO
