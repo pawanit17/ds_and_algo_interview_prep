@@ -4218,9 +4218,31 @@ from Orders orders );
 - This is only applicable for DAG - Directed Acyclic Graphs						  
 - Topological sort for trees is to cherry pick nodes from the bottom.
 - You can detect if a Graph contains a cycle by using Topological sorting as well.
-				  
-	
+- This is a simple algorithm which works like this:
+  - Pick the Vertices from the Graph whose indegree is 0 and remove them.
+  - This also means removing the corresponding outgoing edges from these Vertices.
+  - Once that is done, there are chances that the other Vertices may have indegree 0.
+  - In that case, we repeat, if there is no such Vertex found, then we exit the process.8 
+- Implementation
+- Maintain an Array to hold the topological sorted vertices.
+- Maintain an Array to hold the indegree information of the vertices.
+- We use Adjacency Graphs to hold the information of the Graph.
+```
+![image](https://user-images.githubusercontent.com/42272776/123094136-2cd8b480-d44a-11eb-98bd-c6b2f72b6a8e.png)
 
+int indegree( int graph[][], int vertex )
+{
+    int indegree = 0;
+    for( int inx = 0; inx < graph.length; ++inx )
+    {
+        if( graph[inx][vertex] == 1 )
+	    indegree++;
+    }
+    return indegree;
+}
+```
+- Time Complexity: O(V+E)
+- Space Complexity: O(1)
 
 ## Mitochondria
 
@@ -5401,25 +5423,25 @@ class Program {
     }
 
     public List<String> depthFirstSearch(List<String> array) 
-		{
+    {
 				dfs( this, array);
 				return array;
     }
 		
-		public void dfs( Node root, List<String> dfsTraversal )
-		{
-				if( root == null )
-					return;
+    public void dfs( Node root, List<String> dfsTraversal )
+    {
+	if( root == null )
+		return;
 
-				dfsTraversal.add( root.name );
+	dfsTraversal.add( root.name );
 
-				for( int inx = 0; root.children != null && inx < root.children.size(); ++inx )
-				{
-						dfs( root.children.get(inx), dfsTraversal );
-				}
+	for( int inx = 0; root.children != null && inx < root.children.size(); ++inx )
+	{
+        	dfs( root.children.get(inx), dfsTraversal );
+	}
 
-				return;
-		}
+	return;
+    }
 
     public Node addChild(String name) {
       Node child = new Node(name);
