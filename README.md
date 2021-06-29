@@ -3021,6 +3021,7 @@ class Program {
 ```
 - Time Complexity: O(N^2)
 - Space Complexity: O(N)
+- TODO: Note that this can be done in O(N) with a stack.
 
 ## Left view of a Binary Tree
 ![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
