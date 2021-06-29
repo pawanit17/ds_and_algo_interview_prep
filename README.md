@@ -3023,6 +3023,55 @@ class Program {
 - Space Complexity: O(N)
 - TODO: Note that this can be done in O(N) with a stack.
 
+## Valid Starting City
+- https://www.algoexpert.io/questions/Valid%20Starting%20City
+```
+import java.util.*;
+
+class Program 
+{
+        public int validStartingCity(int[] distances, int[] fuel, int mpg)
+        {
+	        for( int inx = 0; inx < distances.length; ++inx )
+		{
+		    boolean isValid = isValidStartingCity( distances, fuel, mpg, inx );
+    		    if( isValid )
+	                return inx;
+		}
+
+         	return -1;
+        }
+  
+        public boolean isValidStartingCity(int[] distances, int[] fuel, int mpg, int index )
+	{
+	        int citiesVisited = 0;
+		int mileageLeft = fuel[index] * mpg;
+		int inx = index;
+
+	        while( citiesVisited < distances.length )
+		{
+			mileageLeft = mileageLeft - distances[inx];
+
+			if( mileageLeft < 0 )
+				return false;
+
+			  inx++;
+			  if(inx == distances.length)
+					inx = 0;
+
+			  mileageLeft = mileageLeft + fuel[inx] * mpg;
+
+			  citiesVisited++;
+		}
+
+		return true;
+	}
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(1)
+- There is a smarter way of doing this in O(N) time and O(1) space.
+
 ## Left view of a Binary Tree
 ![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
 - Do a level order traversal but only print the left most node at each level.
