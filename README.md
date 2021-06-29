@@ -2984,6 +2984,44 @@ class Program {
 - Time Complexity: O(D) where D is the Depth of the deepest node among the two.
 - Space Complexity: O(1)
 
+## Next Greatest Element in a Circular Array
+- https://www.algoexpert.io/questions/Next%20Greater%20Element
+```
+import java.util.*;
+
+class Program {
+
+  public int[] nextGreaterElement(int[] array) 
+	{
+		int[] arrayResult = new int[array.length];
+    
+		for( int inx = 0; inx < array.length; inx++ )
+		{
+		    arrayResult[inx] = nextGreaterElement( array, inx );
+		}
+		
+    return arrayResult;
+  }
+
+  public int nextGreaterElement( int[] array, int index )
+  {
+	for( int inx = index; inx < array.length; inx++ )
+	{
+			if( array[inx] > array[index] )
+				return array[inx];
+	}
+	for( int inx = 0; inx < index; inx++ )
+	{
+			if( array[inx] > array[index] )
+				return array[inx];
+	}
+	return -1;
+  }
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(N)
+
 ## Left view of a Binary Tree
 ![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
 - Do a level order traversal but only print the left most node at each level.
