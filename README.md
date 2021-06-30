@@ -3023,6 +3023,64 @@ class Program {
 - Space Complexity: O(N)
 - TODO: Note that this can be done in O(N) with a stack.
 
+## Minimum Characters for Words
+- https://www.algoexpert.io/questions/Minimum%20Characters%20For%20Words
+```
+import java.util.*;
+
+class Program {
+
+  public char[] minimumCharactersForWords(String[] words) 
+  {
+	Map<Character, Integer> map = new HashMap<Character, Integer>();
+	for( int inx = 0; inx < words.length; ++inx )
+	{
+		String word = words[inx];
+		for( int jnx = 0; jnx < word.length(); ++jnx )
+		{
+			map.put( word.charAt(jnx), 1 );
+		}
+	}
+
+	for( int inx = 0; inx < words.length; ++inx )
+	{
+		String word = words[inx];
+		Map<Character, Integer> tempMap = new HashMap<Character, Integer>();
+		for( int jnx = 0; jnx < word.length(); ++jnx )
+		{
+			if( !tempMap.containsKey( word.charAt(jnx) ) )
+			{
+			    tempMap.put( word.charAt(jnx), 1 );
+			}
+			else
+			{
+				  int currentCount = tempMap.get( word.charAt(jnx) );
+				  tempMap.put( word.charAt(jnx), currentCount + 1 );
+
+					if( map.get( word.charAt(jnx) ) < currentCount+1 )
+						map.put( word.charAt(jnx), currentCount + 1 );
+			}
+		}
+	}
+
+	List<Character> chars = new ArrayList<Character>();
+	for( Map.Entry<Character, Integer> entry : map.entrySet()) 
+	{
+		  for( int inx = 0; inx < entry.getValue(); ++inx )
+		chars.add( entry.getKey() );
+	}
+
+	char[] _charArray = new char[chars.size()];
+	for( int inx = 0; inx < chars.size(); ++inx )
+		_charArray[inx] = chars.get(inx);
+
+    	return _charArray;
+  }
+}
+```
+- Time Complexity: O(L * N), where L is the length of the longest String and N is the number of Strings
+- Space Complexity: O(N)
+
 ## Valid Starting City
 - https://www.algoexpert.io/questions/Valid%20Starting%20City
 ```
