@@ -3130,6 +3130,70 @@ class Program
 - Space Complexity: O(1)
 - There is a smarter way of doing this in O(N) time and O(1) space.
 
+## LCA for a General Tree
+- https://www.algoexpert.io/questions/Lowest%20Common%20Manager
+```
+import java.util.*;
+
+class Program {
+  public static OrgChart getLowestCommonManager(
+      OrgChart topManager, OrgChart reportOne, OrgChart reportTwo) 
+  {
+	if( topManager == null )
+		return topManager;
+		
+        // If one of the inputs is root, then return the root itself.
+	if( reportOne == topManager || reportTwo == topManager )
+	    return topManager;
+		
+	List<OrgChart> directReports = topManager.directReports;
+	OrgChart tempManager = null;
+	OrgChart path1Manager = null;
+	OrgChart path2Manager = null;
+	for( int inx = 0; inx < directReports.size(); ++inx )
+	{
+	    tempManager = getLowestCommonManager( directReports.get(inx), reportOne, reportTwo );
+
+	    if( tempManager != null )
+	    {
+                if( path1Manager == null )
+		    path1Manager = tempManager;
+		else
+		    path2Manager = tempManager;
+	    }
+	}
+
+	if( path1Manager != null && path2Manager != null )
+		return topManager;
+	else if( path1Manager == null && path2Manager == null )
+		return null;
+	else if( path2Manager != null )
+		return path2Manager;
+	else
+		return path1Manager;
+  }
+
+  static class OrgChart {
+    public char name;
+    public List<OrgChart> directReports;
+
+    OrgChart(char name) {
+      this.name = name;
+      this.directReports = new ArrayList<OrgChart>();
+    }
+
+    // This method is for testing only.
+    public void addDirectReports(OrgChart[] directReports) {
+      for (OrgChart directReport : directReports) {
+        this.directReports.add(directReport);
+      }
+    }
+  }
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(1)
+
 ## Left view of a Binary Tree
 ![image](https://user-images.githubusercontent.com/42272776/119236545-a03e8c00-bb55-11eb-9040-d4a01606ceed.png)
 - Do a level order traversal but only print the left most node at each level.
