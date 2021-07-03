@@ -2,7 +2,6 @@
 - O(N) means that the rate of growth of complexity of the algorithm as a function of the input size.
 - O(N) determines that it is atleast N in growth.
 
-
 ## Amortized Analysis
 Suppose there is an unsorted array of size 'n' from which you need to be able to get the kth smallest element. And you will be making say, 'n' retrievals.
 - If you sort the array - O(nlogn)
@@ -4458,6 +4457,40 @@ int indegree( int graph[][], int vertex )
 ## Cycle in a Directed Graph - 3 color approach
 ![image](https://user-images.githubusercontent.com/42272776/123143001-ab981680-d477-11eb-931e-c01e686875e9.png)
 
+## Check if two Binary Trees are the same
+-https://leetcode.com/problems/same-tree
+```
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) 
+    {
+        if( p == null && q == null )
+            return true;
+        else if( p == null || q == null )
+            return false;
+        else
+        {
+            return p.val == q.val && isSameTree( p.left, q.left ) && isSameTree( p.right, q.right );
+        }        
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
 
 ## Mitochondria
 
