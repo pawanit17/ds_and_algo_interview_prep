@@ -4492,6 +4492,79 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
+## Swap every two nodes of a Linked List 
+- https://leetcode.com/problems/swap-nodes-in-pairs
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution 
+{
+    public ListNode swapPairs(ListNode head) 
+    {
+        if( head == null || head.next == null )
+            return head;
+        else
+        {
+            ListNode ptr = head;
+            
+            boolean processingHead = true;
+
+            
+            ListNode node1 = null;
+            ListNode node2 = null;
+            ListNode prev = null;
+
+            while( true )
+            {
+                if( processingHead )
+                {
+                    node1 = head;
+                    node2 = head.next;
+
+                    // Swap node1 and node2
+                    node1.next = node2.next;
+                    node2.next = node1;
+                    head = node2;
+                    prev = node1;
+                    processingHead = false;
+                }
+                else
+                {
+                    if( prev != null )
+                       node1 = prev.next;
+                    
+                    if( node1 == null )
+                        break;
+                    
+                    if( node1 != null )
+                       node2 = prev.next.next;
+
+                    if( node2 == null )
+                        break;
+                    
+                    // Swap node1 and node2
+                    node1.next = node2.next;
+                    node2.next = node1;
+                    prev.next = node2;
+                    prev = node1;
+                }       
+            }
+            return head;
+        }
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
