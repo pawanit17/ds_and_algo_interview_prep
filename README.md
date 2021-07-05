@@ -4565,6 +4565,13 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Generate Parenthesis
+- https://leetcode.com/problems/generate-parentheses/
+```
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
