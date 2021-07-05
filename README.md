@@ -4565,7 +4565,7 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-## Generate Parenthesis
+## BackTracking: Generate Parenthesis
 - https://leetcode.com/problems/generate-parentheses/
 ```
 class Solution 
