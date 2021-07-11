@@ -4599,6 +4599,50 @@ class Solution
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Remove duplicates from a linked list
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) 
+    {
+        if( head == null )
+            return null;
+        if( head.next == null )
+            return head;
+
+        ListNode tmp = head.next;
+        ListNode prev = head;
+        while( tmp != null )
+        {
+            if( tmp.val == prev.val )
+            {
+                prev.next = tmp.next;
+                
+                if( tmp.next != null )
+                    tmp = tmp.next;
+            }
+            else
+            {
+                prev = tmp;
+                tmp = tmp.next;
+            }
+        }
+        return head;
+    }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
