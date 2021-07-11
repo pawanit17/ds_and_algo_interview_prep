@@ -4643,6 +4643,13 @@ class Solution {
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Shift a linked list in either directions
+```
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
+
 ## Mitochondria
 
 ## TODO
