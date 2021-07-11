@@ -4644,7 +4644,57 @@ class Solution {
 - Space Complexity: O(1)
 
 ## Shift a linked list in either directions
+- https://www.algoexpert.io/questions/Shift%20Linked%20List
 ```
+import java.util.*;
+
+class Program 
+{
+	public static LinkedList shiftLinkedList(LinkedList head, int k) 
+	{
+		LinkedList oldTail = head;
+		int listLength = 1;
+		while( oldTail.next != null )
+		{
+		    listLength++;
+		    oldTail = oldTail.next;
+		}
+		k = k % listLength;
+		int newTailPosition = 0;
+		if( k == 0 )
+		    return head;
+		else if( k > 0 )
+		    newTailPosition = listLength - k;
+		else
+		    newTailPosition = k;
+
+		LinkedList newTail = head;
+		int index = 1;
+		while( index != Math.abs(newTailPosition) )
+		{
+		    newTail = newTail.next;
+		    index++;
+		}
+
+		LinkedList newHead = newTail.next;
+		newTail.next = null;
+		oldTail.next = head;
+		return newHead;
+	}
+
+	static class LinkedList
+	{
+		public int value;
+		public LinkedList next;
+
+		public LinkedList(int value) 
+		{
+			this.value = value;
+			next = null;
+		}
+	}
+}
+
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(1)
