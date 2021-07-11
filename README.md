@@ -4699,7 +4699,8 @@ class Program
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
-## Finding a Word in a 2D Matrix of Characters 
+## Finding a Word in a 2D Matrix of Characters
+- https://leetcode.com/problems/word-search/
 - https://www.youtube.com/watch?v=vYYNp0Jrdv0
 
 ## Mitochondria
