@@ -4703,6 +4703,50 @@ class Program
 - https://leetcode.com/problems/word-search/
 - https://www.youtube.com/watch?v=vYYNp0Jrdv0
 
+## Find Three Nodes
+- https://www.algoexpert.io/questions/Validate%20Three%20Nodes
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  static class BST {
+    public int value;
+    public BST left = null;
+    public BST right = null;
+
+    public BST(int value) {
+      this.value = value;
+    }
+  }
+
+  public boolean validateThreeNodes(BST nodeOne, BST nodeTwo, BST nodeThree) 
+  {
+    if( isDescendent( nodeOne, nodeTwo ) )
+      return isDescendent( nodeTwo, nodeThree );		
+    else if( isDescendent( nodeThree, nodeTwo ) )
+      return isDescendent( nodeTwo, nodeOne );	
+    else
+      return false;
+  }
+	
+  private boolean isDescendent( BST nodeOne, BST nodeTwo )
+  {
+	if( nodeOne == null || nodeTwo == null )
+		return false;
+
+	if( nodeOne.value == nodeTwo.value )
+		return true;
+	else if( nodeOne.value > nodeTwo.value )
+		return isDescendent( nodeOne.left, nodeTwo );
+	else
+		return isDescendent( nodeOne.right, nodeTwo );
+  }
+}
+```
+- Time Complexity: O(H) where H is the height of the BST.
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
