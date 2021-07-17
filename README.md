@@ -4453,6 +4453,80 @@ int indegree( int graph[][], int vertex )
 ```
 - Time Complexity: O(V+E)
 - Space Complexity: O(V)
+- https://www.algoexpert.io/questions/Topological%20Sort
+```
+import java.util.*;
+
+class Program 
+{
+	public static List<Integer> topologicalSort(List<Integer> jobs, List<Integer[]> deps) 
+	{
+		// Get the numer of vertices in the graph
+		// and build an indegree array for each node.
+		int noOfVertices = jobs.size();
+		Map<Integer, Integer> index2IndegreeMap = new HashMap<Integer, Integer>();
+		for(int inx = 0; inx < noOfVertices; ++inx)
+		{
+			index2IndegreeMap.put(jobs.get(inx), 0);
+		}
+
+		for(int inx = 0; inx < deps.size(); ++inx)
+		{
+			  // Ex: [1,2]
+			  Integer[] edge = deps.get(inx);
+			  
+			  if( index2IndegreeMap.containsKey(edge[1]))
+				  index2IndegreeMap.put( edge[1], index2IndegreeMap.get(edge[1])+1 );
+			  else
+				  index2IndegreeMap.put( edge[1], 1 );
+		}
+		System.out.println("Pavan");
+		List<Integer> queue = new ArrayList<Integer>();
+		
+		
+		for( Map.Entry<Integer, Integer> entry : index2IndegreeMap.entrySet() )
+		{
+			if(entry.getValue() == 0)
+				queue.add(entry.getKey());
+		}
+
+		System.out.println("Pavan2");
+		List<Integer> topologicalOrder = new ArrayList<Integer>();
+		
+		while( queue.size() != 0 )
+		{
+			Integer node = queue.get(0);
+			queue.remove(0);
+			topologicalOrder.add(node);
+			
+			// Delete the edges orignating from this node.
+			for(int inx = 0; inx < deps.size(); ++inx)
+			{
+					// Ex: [1,2]
+					Integer[] edge = deps.get(inx);
+				
+					if( edge[0] == node )
+					{
+							index2IndegreeMap.put( edge[1], index2IndegreeMap.get(edge[1])-1 );
+						
+							if( index2IndegreeMap.get(edge[1]) == 0)
+								queue.add(edge[1]);
+					}					
+			}
+		}
+
+		System.out.println(topologicalOrder.size() + " " + noOfVertices );
+		for( Integer i : topologicalOrder )
+			System.out.println( i );
+		
+		if( topologicalOrder.size() != noOfVertices ) // A cycle
+			return new ArrayList<Integer>();
+		else
+			return topologicalOrder;
+  }
+}
+
+```
 
 ## Cycle in a Directed Graph - 3 color approach
 ![image](https://user-images.githubusercontent.com/42272776/123143001-ab981680-d477-11eb-931e-c01e686875e9.png)
