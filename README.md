@@ -1545,6 +1545,54 @@ BinaryTree* findSuccessor(BinaryTree *root, BinaryTree *node)
 - Time Complexity O(h) where h is the height of the tree
 - Space Complexity O(1)
 
+- Normal implementation without parent reference.
+```
+static node inOrderSuccessor(
+    node root,
+    node n)
+{
+     
+    // step 1 of the above algorithm
+    if (n.right != null)
+        return minValue(n.right);
+ 
+    node succ = null;
+ 
+    // Start from root and search for
+    // successor down the tree
+    while (root != null)
+    {
+        if (n.data < root.data)
+        {
+            succ = root;
+            root = root.left;
+        }
+        else if (n.data > root.data)
+            root = root.right;
+        else
+            break;
+    }
+    return succ;
+}
+ 
+/* Given a non-empty binary search tree,
+    return the minimum data 
+    value found in that tree. Note that
+    the entire tree does not need
+    to be searched. */
+static node minValue(node node)
+{
+    node current = node;
+ 
+    /* loop down to find the leftmost leaf */
+    while (current.left != null)
+    {
+        current = current.left;
+    }
+    return current;
+}
+```
+
 ## You are given a sorted array. You have to build a BST that shall have the smallest height possible. This function should minimize the height.
 ```
 import java.util.*;
