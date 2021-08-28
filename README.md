@@ -4837,7 +4837,8 @@ class Program {
     public BST left = null;
     public BST right = null;
 
-    public BST(int value) {
+    publi
+    BST(int value) {
       this.value = value;
     }
   }
@@ -4867,6 +4868,42 @@ class Program {
 }
 ```
 - Time Complexity: O(H) where H is the height of the BST.
+- Space Complexity: O(1)
+
+## Longest Palindrome
+- https://www.algoexpert.io/questions/Longest%20Palindromic%20Substring
+- Brute force solution
+import java.util.*;
+
+class Program {
+  public static String longestPalindromicSubstring(String str) 
+  {
+	String currentLongest = "";
+	// abcdedcba
+	for( int inx = 0; inx < str.length(); inx++ )
+	{
+		for( int jnx = inx; jnx < str.length(); jnx++ )
+		{
+		    String currentSubString = str.substring(inx, jnx+1);
+		    if( isPalindrome(currentSubString) && currentLongest.length() < currentSubString.length() )
+			currentLongest = currentSubString;
+		}
+	}
+
+	return currentLongest;	
+  }
+	
+  public static boolean isPalindrome(String str)
+  {
+	for(int inx = 0, jnx = str.length()-1; inx <=jnx ; inx++, jnx--)
+	{
+    	    if( str.charAt(inx) != str.charAt(jnx) )
+		return false;
+	}
+        return true;
+   }
+}
+- Time Complexity: O(N^3)
 - Space Complexity: O(1)
 
 ## Mitochondria
