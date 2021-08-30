@@ -6361,8 +6361,43 @@ class Program {
 ```
 - Time Complexity: O(nd)
 - Space Complexity: O(n)
-				     
-	
+
+## Minimum number of coins needed to make a change
+- https://www.algoexpert.io/questions/Min%20Number%20Of%20Coins%20For%20Change
+```
+import java.util.*;
+
+class Program {
+  public static int minNumberOfCoinsForChange(int n, int[] denoms) 
+	{
+		int ways[] = new int[n+1];
+		Arrays.fill( ways, Integer.MAX_VALUE);
+    ways[0] = 0;
+		int toCompare = 0;
+
+		for( int inx = 0; inx < denoms.length; ++inx )
+		{
+			for( int jnx = 0; jnx < n+1; ++jnx )
+			{
+				if( denoms[inx] <= jnx )
+				{
+					if( ways[jnx-denoms[inx]] == Integer.MAX_VALUE )
+                                          toCompare = ways[jnx-denoms[inx]];
+					else
+					  toCompare = ways[jnx-denoms[inx]] + 1;
+					
+					ways[jnx] = Math.min( ways[jnx], toCompare );
+				}
+			}
+		}	
+		
+		return ways[n] != Integer.MAX_VALUE ? ways[n] : -1;
+  }
+}
+```
+- Time Complexity: O(nd)
+- Space Complexity: O(n)
+
 # Still to go
 Searching
 Hashing
