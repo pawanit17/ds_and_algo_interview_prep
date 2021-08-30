@@ -4940,6 +4940,10 @@ public boolean linkedListPalindrome(LinkedList head)
 ```
 - Time Complexity: O(N)
 - Space Complexity: O(N)
+# TODO: Approach 2
+- Reverse the first part of the Linked List and do straight comparisions for adjacent elements.
+# TODO: Approach 3
+- It should be possible to iterate one half forward and the other half backward.
 
 ## Mitochondria
 
