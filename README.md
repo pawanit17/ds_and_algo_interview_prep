@@ -4909,6 +4909,38 @@ class Program {
 - This problem can be optimized by reading the mid of the strings for checking palindromes
 - This problem can be solved via DP.
 
+## Check if a Linked List is a Palindrom
+- https://www.algoexpert.io/questions/Linked%20List%20Palindrome
+- There are many ways to solve this.
+- Approach 1: You could copy the content of the List onto an array and check for Palindromes.
+- When comparing the values though, use _equals_ method rather than _== operator_ as the JVM can cache in unexpected ways. If we compare two integers using == that would work for certain range of integer values (Integer from -128 to 127) due to JVM's internal optimisation.
+```
+public boolean linkedListPalindrome(LinkedList head) 
+{
+        // Write your code here.
+	LinkedList tmp = head;
+	List<Integer> arrayList = new ArrayList<Integer>();
+	while( tmp != null )
+	{
+		arrayList.add( tmp.value );
+		tmp = tmp.next;			
+	}
+
+	for(int inx = 0; inx < arrayList.size(); inx++)
+	{
+		// Use 'equals' method 'over' == operator.
+		if( !arrayList.get(inx).equals( arrayList.get( arrayList.size() - 1 - inx)))
+		{
+			System.out.println("False");
+			return false;
+		}
+	}		
+        return true;
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ## Mitochondria
 
 ## TODO
