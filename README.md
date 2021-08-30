@@ -6336,6 +6336,33 @@ a given sum.
 - Time Complexity: O(nm)
 - Space Complexity: O(n)
 
+## Number of ways to make a change
+- https://www.algoexpert.io/questions/Number%20Of%20Ways%20To%20Make%20Change
+```
+import java.util.*;
+
+class Program {
+  public static int numberOfWaysToMakeChange(int n, int[] denoms) 
+	{
+    int ways[] = new int[n + 1];
+		ways[0] = 1;
+		
+		for( int inx = 0; inx < denoms.length; inx++ )
+		{
+				for( int jnx = 1; jnx <= n; jnx++ )
+				{
+					if( denoms[inx] <= jnx )
+					  ways[jnx] = ways[jnx] + ways[jnx-denoms[inx]];
+				}
+		}
+    return ways[n];
+  }
+}
+```
+- Time Complexity: O(nd)
+- Space Complexity: O(n)
+				     
+	
 # Still to go
 Searching
 Hashing
