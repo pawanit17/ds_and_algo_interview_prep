@@ -6398,6 +6398,34 @@ class Program {
 - Time Complexity: O(nd)
 - Space Complexity: O(n)
 
+## Number of ways to traverse a graph
+- https://www.algoexpert.io/questions/Number%20Of%20Ways%20To%20Traverse%20Graph
+```
+	import java.util.*;
+
+class Program {
+
+  public int numberOfWaysToTraverseGraph(int width, int height) {
+    // Write your code here.
+		int temp[][] = new int[height+1][width+1];
+
+		for(int inx = 1; inx < height+1; inx++)
+		{
+  		for(int jnx = 1; jnx < width+1; jnx++)
+			{
+				if( inx == 1 || jnx == 1 )
+					temp[inx][jnx] = 1;
+				else
+			   temp[inx][jnx] = temp[inx-1][jnx] + temp[inx][jnx-1];
+			}
+		}
+    return temp[height][width];
+  }
+}
+```
+- Time Complexity: O(mn)
+- Space Complexity: O(m+n)
+
 # Still to go
 Searching
 Hashing
