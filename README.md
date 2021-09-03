@@ -5039,6 +5039,58 @@ public class EditDistance
 - Time Complexity: O(MN)
 - Space Complexity: O(MN)
 
+## InOrder Traversal without recursion
+- https://www.algoexpert.io/questions/Iterative%20In-order%20Traversal
+- This approach does not make use of parent pointer. TODO: Update implementation to consider the same.
+```
+import java.util.function.Function;
+import java.util.List;
+import java.util.ArrayList;
+
+class Program {
+  public static void iterativeInOrderTraversal(
+      BinaryTree tree, Function<BinaryTree, Void> callback) 
+	{
+    List<BinaryTree> visitStack = new ArrayList<BinaryTree>();
+		
+		BinaryTree curr = tree;
+		
+		while( curr != null || !visitStack.isEmpty() )
+		{
+			while( curr != null )
+			{
+				visitStack.add(curr);
+				curr = curr.left;
+			}
+			
+			curr = visitStack.get(visitStack.size()-1);
+			visitStack.remove(visitStack.size()-1);
+			
+			callback.apply(curr);
+			
+			curr = curr.right;
+		}
+  }
+
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left;
+    public BinaryTree right;
+    public BinaryTree parent;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+
+    public BinaryTree(int value, BinaryTree parent) {
+      this.value = value;
+      this.parent = parent;
+    }
+  }
+}
+```
+- Time Complexity: O(MN)
+- Space Complexity: O(MN)
 
 ## Mitochondria
 
