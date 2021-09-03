@@ -4688,14 +4688,63 @@ class Solution
 - Space Complexity: O(1)
 
 # BackTracking
+- Playlist: https://www.youtube.com/playlist?list=PLQwtlCoREyoHGa3yNDcDO1xC7fOeRCN6o
 ## Build all valid IP Addresses from a given string
 - https://www.youtube.com/watch?v=KU7Ae2513h0
 - https://www.algoexpert.io/questions/Valid%20IP%20Addresses
+- Keywords - Generate all combinations, all possibilities, exhausting all possibilities etc are usually solved by Backtracking.
+- Choice - Snippets 1-3 digits long. Choose, Explore and UnChoose.
+- Constrains - Snippet should not have leading 0's & 0-255 possiblities.
+- Goal - 4 valid subsets, build pointer is at the end. // Base case, either catches the answer or prunes a branch.
+```
+import java.util.*;
 
+class Program 
+{
+	public ArrayList<String> validIPAddresses(String string) 
+	{
+		ArrayList<String> allIpAddresses = new ArrayList<String>();
+		int[] path = new int[4];
+		snapshotIp( allIpAddresses, string, 0, path, 0 );
 
+		return allIpAddresses;
+	}
+	
+	public void snapshotIp(ArrayList<String> allIpAddresses, String str, int builderIndex, int[] path, int segment)
+	{
+		// Base case
+		if( segment == 4 && builderIndex == str.length() )
+		{
+		    allIpAddresses.add(path[0] + "." + path[1] + "." + path[2] + "." + path[3]);
+			  return;
+		}
+		else if(segment == 4 || builderIndex == str.length())
+		{
+			return;
+		}
+
+		for(int len=1; len <=3 && builderIndex + len <= str.length(); len++)
+		{
+			String snapshot = str.substring(builderIndex, builderIndex+len);
+			int value = Integer.parseInt(snapshot);
+			if( value > 255 || len >= 2 && str.charAt(builderIndex) =='0')
+				break;
+
+			path[segment]=value;
+			snapshotIp(allIpAddresses, str, builderIndex+len, path, segment+1);
+			path[segment]=-1;
+		}
+	}
+}
+
+```
+- Time Complexity: O(1)
+- Space Complexity: O(1)
+- Because there is a constant limit to the number of IP Addresses that you can generate for a string of any length.
 
 ## Generate Parenthesis
 - https://leetcode.com/problems/generate-parentheses/
+- https://www.youtube.com/watch?v=sz1qaKt0KGQ
 ```
 class Solution 
 {
