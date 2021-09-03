@@ -5001,6 +5001,45 @@ public boolean linkedListPalindrome(LinkedList head)
 # TODO: Approach 3
 - It should be possible to iterate one half forward and the other half backward.
 
+## Edit Distance / Lavenshtein Distance
+- https://www.algoexpert.io/questions/Levenshtein%20Distance
+- https://www.youtube.com/watch?v=MiqoA-yF-0M
+```
+public class EditDistance 
+{
+	public static void main(String args[])
+	{
+		System.out.println(levenshteinDistance("abc","yabd"));
+	}
+
+	public static int levenshteinDistance(String str1, String str2) 
+	{
+	        int[][] edits = new int[str1.length()+1][str2.length()+1];
+	        for(int inx =0; inx < str1.length()+1; inx++)
+		  	edits[inx][0] = inx;
+			
+		for(int jnx =0; jnx < str2.length()+1; jnx++)
+	        edits[0][jnx] = jnx;
+			
+		for(int inx =1; inx <= str1.length(); inx++)
+		{
+			for(int jnx =1; jnx <= str2.length(); jnx++)
+			{
+				if(str1.charAt(inx-1) == str2.charAt(jnx-1))
+				  edits[inx][jnx] = edits[inx-1][jnx-1];
+				else
+				  edits[inx][jnx] = (int) Math.min( edits[inx-1][jnx-1], Math.min( edits[inx-1][jnx], edits[inx][jnx-1])) + 1;
+			}
+		}
+
+	    return edits[str1.length()][str2.length()];
+	  }
+}
+```
+- Time Complexity: O(MN)
+- Space Complexity: O(MN)
+
+
 ## Mitochondria
 
 ## TODO
