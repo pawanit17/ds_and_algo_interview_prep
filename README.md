@@ -5092,6 +5092,36 @@ class Program {
 - Time Complexity: O(MN)
 - Space Complexity: O(MN)
 
+## Staircase Traversal
+- https://www.algoexpert.io/questions/Staircase%20Traversal
+- https://www.youtube.com/watch?v=NFJ3m9a1oJQ
+```
+import java.util.*;
+
+class Program {
+
+  public int staircaseTraversal(int height, int maxSteps) 
+	{
+      if(height == 0)
+        return 1;
+		  else if(height < 0)
+        return 0;
+		  else
+			{
+				int possibilities = 0;
+				for(int inx=1;inx<=maxSteps;++inx)
+				{
+					possibilities = possibilities + staircaseTraversal(height-inx, maxSteps);
+				}				
+				return possibilities;	
+			}				
+  }
+}
+
+```
+- Time Complexity: O(K^N)
+- Space Complexity: O()
+
 ## Mitochondria
 
 ## TODO
