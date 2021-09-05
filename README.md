@@ -5120,7 +5120,35 @@ class Program {
 
 ```
 - Time Complexity: O(K^N)
-- Space Complexity: O()
+- Space Complexity: O(N)
+
+- Solution two - Dynamic Programming
+```
+import java.util.*;
+
+class Program 
+{
+  public int staircaseTraversal(int height, int maxSteps) 
+  {
+	int possibilities[] = new int[height+1];
+	possibilities[0] = 1;
+	possibilities[1] = 1;
+			
+	for(int inx=2;inx<=height;++inx)
+	{
+		for(int jnx = 1; jnx <= maxSteps && jnx <= inx; jnx++)
+		{
+		      int currPossibility = possibilities[inx-jnx];
+		      possibilities[inx] += currPossibility;
+		}
+	}
+
+	return possibilities[height];
+  }
+}
+```
+- Time Complexity: O(K^N)
+- Space Complexity: O(N)
 
 ## Mitochondria
 
