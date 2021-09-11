@@ -5299,7 +5299,7 @@ public class Matrix
 - Time Complexity: O(MN)
 - Space Complexity: O(MN)
 
-# Remove 1s from Matrix in DFS way
+## Remove 1s from Matrix in DFS way
 - https://www.algoexpert.io/questions/Remove%20Islands
 - 
 ```
@@ -5388,6 +5388,91 @@ class Program
 	}
 }
 
+```
+- Time Complexity: O(MN)
+- Space Complexity: O(MN)
+
+## River sizes
+- https://www.algoexpert.io/questions/River%20Sizes
+- Be very careful about marking a node as 2. It determines that the node is considered.
+```
+import java.util.*;
+
+class Program {
+
+	public static List<Integer> riverSizes(int[][] matrix) 
+	{
+		List<Integer> sizes = new ArrayList<Integer>();
+	  	for(int inx = 0; inx < matrix.length; ++inx )
+		{
+			for(int jnx = 0; jnx < matrix[0].length; ++jnx )
+			{
+			    if( matrix[inx][jnx] == 1 ) // river
+				{
+				    updateNeighbouringOnesToTwos( matrix, inx, jnx, sizes );
+				}
+			}
+		}
+
+		return sizes;
+	}
+	
+	public static void updateNeighbouringOnesToTwos( int[][] matrix, int row, int col, List<Integer> sizes )
+	{
+		int sizeOfRiver = 0;
+	    Stack<int[]> stack = new Stack<int[]>();
+	    stack.push( new int[] {row, col});
+	    matrix[row][col] = 2;
+	    System.out.println("\nPushing " + row + " " + col );
+	    sizeOfRiver++;
+		
+		while (stack.size() > 0) 
+		{
+			int[] location = stack.pop();
+			int xRow = location[0];
+			int xCol = location[1];
+
+			//matrix[xRow][xCol] = 2;
+
+			// Get the neighbouts of xRow, xCol.
+			List<int[]> neighbors = getNeighbors(matrix, xRow, xCol);
+
+			for (int[] neighbor : neighbors) {
+				if (matrix[neighbor[0]][neighbor[1]] == 0)
+					continue;
+
+				if (matrix[neighbor[0]][neighbor[1]] == 1) 
+				{
+					stack.push(new int[] { neighbor[0], neighbor[1] });
+					System.out.println("\nPushing " + neighbor[0] + " " + neighbor[1] );
+					matrix[neighbor[0]][neighbor[1]] = 2;
+					sizeOfRiver++;
+				}
+			}
+		}
+
+		sizes.add(sizeOfRiver);
+	}
+
+	public static List<int[]> getNeighbors(int[][] matrix, int row, int col) 
+	{
+		List<int[]> neighbors = new ArrayList<int[]>();
+
+		if (row - 1 >= 0)
+			neighbors.add(new int[] { row - 1, col });
+
+		if (row + 1 < matrix.length)
+			neighbors.add(new int[] { row + 1, col });
+
+		if (col - 1 >= 0)
+			neighbors.add(new int[] { row, col - 1 });
+
+		if (col + 1 < matrix[0].length)
+			neighbors.add(new int[] { row, col + 1 });
+
+		return neighbors;
+	}
+}
 ```
 - Time Complexity: O(MN)
 - Space Complexity: O(MN)
