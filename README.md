@@ -5299,6 +5299,98 @@ public class Matrix
 - Time Complexity: O(MN)
 - Space Complexity: O(MN)
 
+# Remove 1s from Matrix in DFS way
+- https://www.algoexpert.io/questions/Remove%20Islands
+- 
+```
+import java.util.*;
+
+class Program 
+{
+  public int[][] removeIslands(int[][] matrix) 
+	{
+	    for(int inx = 0; inx < matrix.length; ++inx )
+			{
+			    for(int jnx = 0; jnx < matrix[0].length; ++jnx )
+					{
+						  if( matrix[inx][jnx] != 1 )
+								continue;
+						
+					    if( inx == 0 || 
+								  jnx == 0 || 
+								  inx == matrix.length-1 || 
+								  jnx == matrix[0].length-1 )
+							{								  
+							    updateNeighbouringOnesToTwos( matrix, inx, jnx );
+							}
+					}
+			}
+		
+		  for(int inx = 0; inx < matrix.length; ++inx )
+			{
+			    for(int jnx = 0; jnx < matrix[0].length; ++jnx )
+					{
+	   					if( matrix[inx][jnx] == 1 )
+								matrix[inx][jnx] = 0;
+					    if( matrix[inx][jnx] == 2 )
+								matrix[inx][jnx] = 1;
+					}
+			}
+		
+		  return matrix;
+	}
+	
+	public void updateNeighbouringOnesToTwos( int[][] matrix, int row, int col )
+	{
+	    Stack<int[]> stack = new Stack<int[]>();
+		  stack.push( new int[] {row, col});
+		
+		  while( stack.size() > 0 )
+			{
+			    int[] location = stack.pop();
+				  int xRow = location[0];
+				  int xCol = location[1];
+				
+				  matrix[xRow][xCol] = 2;
+
+				  // Get the neighbouts of xRow, xCol.
+				  List<int[]> neighbors = getNeighbors(matrix, xRow, xCol);
+				
+				  for( int[] neighbor : neighbors)
+					{
+						 if(matrix[neighbor[0]][neighbor[1]] == 0)
+							 continue;
+						
+						 if(matrix[neighbor[0]][neighbor[1]] == 1)
+							 stack.push( new int[] {neighbor[0],neighbor[1]});
+					}
+			}
+	}
+	
+	public List<int[]> getNeighbors( int[][] matrix, int row, int col )
+	{
+	    List<int[]> neighbors = new ArrayList<int[]>();
+		  
+			if( row-1 >= 0 )
+				neighbors.add( new int[] { row-1, col });
+
+			if( row+1 < matrix.length )
+				neighbors.add( new int[] { row+1, col });
+		
+		  if( col-1 >= 0 )
+				neighbors.add( new int[] { row, col-1 });
+		
+		  if( col+1 < matrix[0].length )
+				neighbors.add( new int[] { row, col+1 });
+			
+			return neighbors;
+	}
+}
+
+```
+- Time Complexity: O(MN)
+- Space Complexity: O(MN)
+
 ## Mitochondria
 
 ## TODO
