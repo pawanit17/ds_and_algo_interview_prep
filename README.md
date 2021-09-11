@@ -5198,6 +5198,107 @@ class Program {
 - Time Complexity: O(N)
 - Space Complexity: O(logN)
 
+## Minimum passes needed to convert negative numbers to positive in a Matrix
+- https://www.algoexpert.io/questions/Minimum%20Passes%20Of%20Matrix
+```
+package test;
+
+import java.util.*;
+
+public class Matrix
+{
+	public static void main(String args[])
+	{
+		int matrix[][] = { {0, -1, -3, 2, 0}, {1, -2, -5, -1, -3}, {3, 0, 0, -4, -1} };
+		
+		minimumPassesOfMatrix( matrix );
+	}
+	
+	/* 
+	 * 0, -1, -3,  2,  0
+     * 1, -2, -5, -1, -3
+     * 3,  0,  0, -4, -1
+     * 
+     * 0, -1, (3),  2,  0
+     * 1, (2), -5, (1), -3
+     * 3,  0,  0, -4, -1
+	 * 
+	 * 0, (-1), 3,  2,  0
+     * 1, 2, (-5), 1, (-3)
+     * 3,  0,  0, (-4), -1
+     * 
+     * 0, 1, 3,  2,  0
+     * 1, 2, 5, 1, 3
+     * 3,  0,  0, 4, (-1)
+	 */
+	
+	public static int minimumPassesOfMatrix(int[][] matrix) {
+		// Get the list of all the positive numbers in the array.
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+		List<Integer[]> queue = new ArrayList<Integer[]>();
+		List<Integer[]> queue2 = new ArrayList<Integer[]>();
+		for (int inx = 0; inx < rows; inx++) {
+			for (int jnx = 0; jnx < cols; jnx++) {
+				if (matrix[inx][jnx] > 0)
+					queue.add(new Integer[] { inx, jnx });
+			}
+		}
+
+		// Iterate through the array & identify each adjacent negative number.
+		List<Integer[]> workingQueue = queue;
+		List<Integer[]> targetQueue = queue2;
+		int numberOfPasses = 0;
+		while (!queue.isEmpty()) {
+			Integer[] location = workingQueue.get(0);
+			workingQueue.remove(0);
+			int row = location[0];
+			int col = location[1];
+
+			if (col > 0 && matrix[row][col - 1] < 0)
+			{
+				targetQueue.add(new Integer[] { row, col - 1 });
+				matrix[row][col - 1] = matrix[row][col - 1] * -1;
+			}
+			if (col < cols - 1 && matrix[row][col + 1] < 0)
+			{
+				targetQueue.add(new Integer[] { row, col + 1 });
+				matrix[row][col + 1] = matrix[row][col + 1] * -1;
+			}
+			if (row > 0 && matrix[row - 1][col] < 0)
+			{
+				targetQueue.add(new Integer[] { row - 1, col });
+				matrix[row - 1][col] = matrix[row - 1][col] * -1;
+			}
+			if (row < rows - 1 && matrix[row + 1][col] < 0)
+			{
+				targetQueue.add(new Integer[] { row + 1, col });
+				matrix[row + 1][col] = matrix[row + 1][col] * -1;
+			}
+
+			if (queue.isEmpty()) {
+				queue.addAll(queue2);
+				queue2.clear();
+				numberOfPasses++;
+			}
+		}
+
+		for (int inx = 0; inx < rows; inx++) {
+			for (int jnx = 0; jnx < cols; jnx++) {
+				if (matrix[inx][jnx] < 0)
+					return -1;
+			}
+		}
+
+                // We return one less because in that last pass, all numbers are converted to positive but still we go through that pass.
+		return numberOfPasses - 1;
+	}
+}
+
+```
+- Time Complexity: O(MN)
+- Space Complexity: O(MN)
+
 ## Mitochondria
 
 ## TODO
