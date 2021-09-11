@@ -5330,9 +5330,10 @@ class Program
 			{
 			    for(int jnx = 0; jnx < matrix[0].length; ++jnx )
 					{
+					        // The ordering of these two clauses is important otherwise we keep updating unintentionally.
 	   					if( matrix[inx][jnx] == 1 )
 								matrix[inx][jnx] = 0;
-					    if( matrix[inx][jnx] == 2 )
+					        if( matrix[inx][jnx] == 2 )
 								matrix[inx][jnx] = 1;
 					}
 			}
