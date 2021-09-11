@@ -5150,6 +5150,54 @@ class Program
 - Time Complexity: O(K^N)
 - Space Complexity: O(N)
 
+## Maximum path sum in Binary Tree
+- https://www.algoexpert.io/questions/Max%20Path%20Sum%20In%20Binary%20Tree
+- The maximum path sum may or may not be through the root ( say, if the value is heavily negative ).
+```
+import java.util.*;
+
+class Program {
+  public static int maxPathSum(BinaryTree root) 
+  {
+    List<Integer> maxSumArray = findMaxSum(root);
+		return maxSumArray.get(1);
+  }
+	
+  public static List<Integer> findMaxSum(BinaryTree root)
+  {
+	if(root == null)
+		return new ArrayList<Integer>(Arrays.asList(0,Integer.MIN_VALUE));
+
+	List<Integer> leftMaxSumList = findMaxSum(root.left);
+	List<Integer> rightMaxSumList = findMaxSum(root.right);
+
+	// Branch - non triangle
+	Integer leftMaxSumAsBranch = leftMaxSumList.get(0);
+	Integer rightMaxSumAsBranch = rightMaxSumList.get(0);
+	Integer leftMaxSumAsPath = leftMaxSumList.get(1);
+	Integer rightMaxSumAsPath = rightMaxSumList.get(1);
+
+	Integer maxChildSumAsBranch = Math.max(leftMaxSumAsBranch, rightMaxSumAsBranch);
+	Integer maxSumAsBranch = Math.max(maxChildSumAsBranch + root.value, root.value);
+	Integer maxSumAsRootNode = Math.max(leftMaxSumAsBranch + root.value + rightMaxSumAsBranch, maxSumAsBranch);
+	int maxPathSum = Math.max(leftMaxSumAsPath, Math.max(rightMaxSumAsPath, maxSumAsRootNode));
+	return new ArrayList<Integer>(Arrays.asList(maxSumAsBranch,maxPathSum));
+  }
+
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left;
+    public BinaryTree right;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+  }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(logN)
+
 ## Mitochondria
 
 ## TODO
