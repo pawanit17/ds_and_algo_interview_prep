@@ -5479,6 +5479,85 @@ class Program {
 
 ## Build a suffix tree
 - https://www.algoexpert.io/questions/Suffix%20Trie%20Construction
+- This is a good implementation of using HashMap based solution for realizing a suffix tree.
+```
+import java.util.*;
+
+class Program {
+  // Do not edit the class below except for the
+  // populateSuffixTrieFrom and contains methods.
+  // Feel free to add new properties and methods
+  // to the class.
+  static class TrieNode {
+    Map<Character, TrieNode> children = new HashMap<Character, TrieNode>();
+  }
+
+  static class SuffixTrie {
+    TrieNode root = new TrieNode();
+    char endSymbol = '*';
+
+    public SuffixTrie(String str) {
+      populateSuffixTrieFrom(str);
+    }
+
+    	public void populateSuffixTrieFrom(String str)
+	{
+		for(int inx = 0; inx < str.length()-1; inx++)
+		{
+			for(int jnx = inx; jnx < str.length(); jnx++)
+			{
+				TrieNode nodeReference = root;
+          			String suffix = str.substring(jnx, str.length());
+	
+				for(int knx = 0; knx < suffix.length(); ++knx)
+				{
+				  	if( nodeReference.children.containsKey(suffix.charAt(knx)) )
+					{
+					   nodeReference = nodeReference.children.get(suffix.charAt(knx));
+					}
+					else
+					{
+						 // We need to insert the element here.
+						 TrieNode tmp = new TrieNode();
+						 nodeReference.children.put( suffix.charAt(knx), tmp);
+						 nodeReference = tmp;
+					}
+				}
+					
+				// Add a * to indicate that we are done.
+				nodeReference.children.put( endSymbol, null);					
+			}
+		}
+    	}
+
+    	public boolean contains(String str)
+	{
+		TrieNode ptr = root;
+		int index = 0;
+		while( index < str.length() )
+		{
+		  char ch = str.charAt(index);
+			if( !ptr.children.containsKey(ch)) // Not found, return.
+				return false;
+
+			index++;
+			ptr = ptr.children.get(ch);
+
+			if(index == str.length())
+			{
+				if( !ptr.children.containsKey(endSymbol)) // Not found, return.
+				return false;
+
+				return true;
+			}
+		}
+	      	return false;
+    	}
+  }
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(N^2)
 
 ## Mitochondria
 
