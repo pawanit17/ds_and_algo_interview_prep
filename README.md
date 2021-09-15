@@ -5477,6 +5477,9 @@ class Program {
 - Time Complexity: O(MN)
 - Space Complexity: O(MN)
 
+## Build a suffix tree
+- https://www.algoexpert.io/questions/Suffix%20Trie%20Construction
+
 ## Mitochondria
 
 ## TODO
