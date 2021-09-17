@@ -5559,9 +5559,8 @@ class Program {
 - Time Complexity: O(N^2)
 - Space Complexity: O(N^2)
 
-## Minimum number of jumps to reach the last index 
-- https://www.algoexpert.io/questions/Min%20Number%20Of%20Jumps
-- 
+
+
 ## Mitochondria
 
 ## TODO
@@ -7042,6 +7041,36 @@ class Program {
 ```
 - Time Complexity: O(mn)
 - Space Complexity: O(m+n)
+
+	
+## Minimum number of jumps to reach the last index 
+- https://www.algoexpert.io/questions/Min%20Number%20Of%20Jumps
+- Slight simple variation of the problem https://www.youtube.com/watch?v=Zb4eRjuPHbM ( Greedy: traverse from the back to yield a linear time solution ).
+```
+import java.util.*;
+
+class Program {
+  public static int minNumberOfJumps(int[] array) 
+{
+	int[] jumpsArray = new int[array.length];
+	Arrays.fill(jumpsArray, Integer.MAX_VALUE); // Because we want the minimum number.
+	jumpsArray[0] = 0; // No jumps needed to move from 0th index to 0th index.
+	for(int inx = 1; inx < array.length; inx++)
+	{
+		for(int jnx = 0; jnx < inx; jnx++)
+		{
+		        if(array[jnx] >= inx - jnx)
+			{
+				jumpsArray[inx] = Math.min(jumpsArray[jnx] + 1, jumpsArray[inx]);
+			}
+		}
+	}
+    	return jumpsArray[jumpsArray.length - 1];
+  }
+}
+```
+- Time Complexity: O(N^2)
+- Space Complexity: O(N)
 
 # Still to go
 Searching
