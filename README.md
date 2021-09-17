@@ -4774,8 +4774,44 @@ class Solution
     }
 }
 ```
-- Time Complexity: O(N)
-- Space Complexity: O(1)
+- Time Complexity: O(2N! / N!(N+1)!)	
+- Space Complexity: O(2N! / N!(N+1)!)
+
+## Generate DIV tags
+- https://www.algoexpert.io/questions/Generate%20Div%20Tags
+'''
+import java.util.*;
+
+class Program
+{
+	public List<String> generateDivTags(int numberOfTags)
+	{
+		List<String> output_arr = new ArrayList<String>();
+		backtrack(output_arr, "", 0, 0, numberOfTags, 0);
+    	        return output_arr;
+	}
+	
+	private void backtrack(List<String> output_arr, String current_string, int open, int close, int max, int index) 
+	{
+		if(index == max * 2)
+		{
+			output_arr.add(current_string);
+			return;
+		}
+
+		if( open < max )
+		{
+			backtrack( output_arr, current_string + "<div>", open+1, close, max, index+1 );			
+		}
+		if( close < open )
+		{
+			backtrack( output_arr, current_string + "</div>", open, close+1, max, index+1 );			
+		}
+	}
+}
+'''
+- Time Complexity: O(2N! / N!(N+1)!)	
+- Space Complexity: O(2N! / N!(N+1)!)
 
 ## Remove duplicates from a linked list
 ```
