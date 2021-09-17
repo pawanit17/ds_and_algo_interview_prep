@@ -5559,6 +5559,9 @@ class Program {
 - Time Complexity: O(N^2)
 - Space Complexity: O(N^2)
 
+## Minimum number of jumps to reach the last index 
+- https://www.algoexpert.io/questions/Min%20Number%20Of%20Jumps
+- 
 ## Mitochondria
 
 ## TODO
