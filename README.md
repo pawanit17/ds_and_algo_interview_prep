@@ -5595,7 +5595,39 @@ class Program {
 - Time Complexity: O(N^2)
 - Space Complexity: O(N^2)
 
+## Group Anagrams
+- https://www.algoexpert.io/questions/Group%20Anagrams
+```
+import java.util.*;
 
+class Program {
+  public static List<List<String>> groupAnagrams(List<String> words)
+{
+	Map<String, List<String>> map = new HashMap<String, List<String>>();
+	for( String originalWord : words )
+	{
+		char[] charArray = originalWord.toCharArray();
+		Arrays.sort(charArray);
+		String sortedWord = new String(charArray);
+
+		if( map.containsKey(sortedWord) )
+		{
+			List<String> list = map.get(sortedWord);
+			list.add(originalWord);
+		}
+		else
+		{
+			List<String> list = new ArrayList<String>();
+			list.add(originalWord);
+			map.put(sortedWord, list);
+		}
+	}
+    	return new ArrayList<>(map.values());
+  }
+}
+```
+- Time Complexity: O(M * NlogN)
+- Space Complexity: O(M)
 
 ## Mitochondria
 
