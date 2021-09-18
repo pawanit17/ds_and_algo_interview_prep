@@ -5691,6 +5691,66 @@ public LinkedList nodeSwap(LinkedList head)
 - Time Complexity: O(N)
 - Space Complexity: O(1)
 
+## Compare leaf traversal of two Binary Trees
+- https://www.algoexpert.io/questions/Compare%20Leaf%20Traversal
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  static class BinaryTree {
+    public int value;
+    public BinaryTree left = null;
+    public BinaryTree right = null;
+
+    public BinaryTree(int value) {
+      this.value = value;
+    }
+  }
+
+	public boolean compareLeafTraversal(BinaryTree tree1, BinaryTree tree2)
+	{
+		// Get Leaf Traversal tree1.
+		List<Integer> leafTraversalTree1 = new ArrayList<Integer>();
+		leafTraversal( tree1, leafTraversalTree1 );
+
+		// Get Leaf Traversal tree2.
+		List<Integer> leafTraversalTree2 = new ArrayList<Integer>();
+		leafTraversal( tree2, leafTraversalTree2 );
+
+		return compareLeafTraversals( leafTraversalTree1, leafTraversalTree2 );
+	}
+	
+	private void leafTraversal( BinaryTree root, List<Integer> traversal)
+	{
+		if( root == null )
+			return;
+
+		leafTraversal(root.left, traversal);
+		leafTraversal(root.right, traversal);
+
+		if( root.left == null && root.right == null )
+			traversal.add( root.value );
+	}
+	
+	private boolean compareLeafTraversals(List<Integer> traversal1, List<Integer> traversal2)
+	{
+		if( traversal1.size() != traversal2.size() )
+			return false;
+		
+		for(int inx = 0; inx < traversal1.size(); ++inx)
+		{
+			if( traversal1.get(inx) != traversal2.get(inx) )
+				return false;
+		}
+		
+		return true;
+	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(N)
+
 ## Mitochondria
 
 ## TODO
