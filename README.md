@@ -5748,8 +5748,8 @@ class Program {
 	}
 }
 ```
-- Time Complexity: O(N)
-- Space Complexity: O(N)
+- Time Complexity: O(M+N)
+- Space Complexity: O(M+N)
 
 ## Mitochondria
 
