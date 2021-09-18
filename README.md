@@ -5629,6 +5629,68 @@ class Program {
 - Time Complexity: O(M * NlogN)
 - Space Complexity: O(MN)
 
+## Node Swap
+- https://www.algoexpert.io/questions/Node%20Swap
+```
+import java.util.*;
+
+class Program {
+  // This is an input class. Do not edit.
+  public static class LinkedList {
+    public int value;
+    public LinkedList next;
+
+    public LinkedList(int value) {
+      this.value = value;
+      this.next = null;
+    }
+  }
+
+public LinkedList nodeSwap(LinkedList head)
+{
+	// Handle the edge case.
+	if(head == null || head.next == null)
+		return head;
+
+	LinkedList headCopy = null;
+
+	LinkedList node1 = head;
+	LinkedList node2 = head.next;
+	LinkedList lastNode = null;
+	// a -> b -> c -> d -> e
+	// a -> b -> c -> d
+	while( node1 != null && node2 != null )
+	{
+		// Swap the two nodes.
+		node1.next = node2.next;
+		node2.next = node1;
+
+		if( lastNode != null)
+		lastNode.next = node2;
+
+		if(headCopy == null)
+		 headCopy = node2;
+
+	        // Needed to associate the second node with the third node.
+		lastNode = node1;
+
+		node1 = node1.next;
+
+		if(node1 == null)
+			break;
+		node2 = node1.next;
+
+		if(node2 == null)
+			break;
+		}
+
+		return headCopy;
+  	}
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
