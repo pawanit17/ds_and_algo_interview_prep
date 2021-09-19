@@ -5752,6 +5752,56 @@ TODO: There are two other ways to solve this problem, explore them.
 - Time Complexity: O(M+N)
 - Space Complexity: O(M+N)
 
+## Subarray Sort
+- https://www.algoexpert.io/questions/Subarray%20Sort
+```
+import java.util.*;
+
+class Program {
+ public static int[] subarraySort(int[] array)
+  {
+	  int minOutOfOrderValue = Integer.MAX_VALUE;
+	  int maxOutOfOrderValue = Integer.MIN_VALUE;
+	  
+	  for(int inx = 0; inx < array.length; ++inx )
+	  {
+		  boolean isInOrder = isValueOutInOrder(inx, array);
+		  
+		  if( !isInOrder )
+		  {
+			  minOutOfOrderValue = Math.min(minOutOfOrderValue, array[inx]);
+			  maxOutOfOrderValue = Math.max(maxOutOfOrderValue, array[inx]);
+		  }
+	  }
+	  
+		if( minOutOfOrderValue == Integer.MAX_VALUE || maxOutOfOrderValue == Integer.MIN_VALUE )
+		return new int[] {-1, -1 };
+	 
+	  int leftIndex = 0;
+	  while( minOutOfOrderValue >= array[leftIndex])
+		  leftIndex++;
+	  
+	  int rightIndex = array.length - 1;
+	  while( maxOutOfOrderValue <= array[rightIndex])
+		  rightIndex--;
+
+	  return new int[] {leftIndex, rightIndex};
+  }
+
+  private static boolean isValueOutInOrder(int inx, int[] a)
+  {
+	  if( inx == 0)
+		  return a[inx] <= a[inx+1];
+	  else if( inx == a.length - 1 )
+		  return a[inx-1] <= a[inx];
+	  else
+		  return a[inx-1] <= a[inx] && a[inx] <= a[inx+1];
+  }
+}
+```
+- Time Complexity: O(N)
+- Space Complexity: O(1)
+
 ## Mitochondria
 
 ## TODO
