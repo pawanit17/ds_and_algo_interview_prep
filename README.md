@@ -4813,6 +4813,61 @@ class Program
 - Time Complexity: O(2N! / N!(N+1)!)	
 - Space Complexity: O(2N! / N!(N+1)!)
 
+## Phone Number Mnemonics
+- https://www.algoexpert.io/questions/Phone%20Number%20Mnemonics
+```
+import java.util.*;
+
+class Program 
+{
+public static Map<Character, String[]> DIGIT_LETTERS = new HashMap<Character, String[]>();
+	
+	static {
+		DIGIT_LETTERS.put('0', new String[] {"0"});
+		DIGIT_LETTERS.put('1', new String[] {"1"});
+		DIGIT_LETTERS.put('2', new String[] {"a", "b", "c"});
+		DIGIT_LETTERS.put('3', new String[] {"d", "e", "f"});
+		DIGIT_LETTERS.put('4', new String[] {"g", "h", "i"});
+		DIGIT_LETTERS.put('5', new String[] {"j", "k", "l"});
+		DIGIT_LETTERS.put('6', new String[] {"m", "n", "o"});
+		DIGIT_LETTERS.put('7', new String[] {"p", "q", "r", "s"});
+		DIGIT_LETTERS.put('8', new String[] {"t", "u", "v"});
+		DIGIT_LETTERS.put('9', new String[] {"w", "x", "y", "z"});
+	}
+
+	public static ArrayList<String> phoneNumberMnemonics(String phoneNumber)
+	{
+		String[] currentMnemonic = new String[phoneNumber.length()];
+		Arrays.fill(currentMnemonic,  "0");
+		
+		ArrayList<String> mnemonicsFound = new ArrayList<String>();
+		phoneNumberMnemonics(0, phoneNumber, currentMnemonic, mnemonicsFound);
+		return mnemonicsFound;
+	}
+	
+	public static void phoneNumberMnemonics( int index, String phoneNumber, String[] currentMnemonic, ArrayList<String> mnemonicsFound)
+	{
+		if( index == phoneNumber.length() )
+		{
+			String mnemonic = String.join("",  currentMnemonic);
+			mnemonicsFound.add(mnemonic);
+		}
+		else
+		{
+			char digit = phoneNumber.charAt(index);
+			String[] letters = DIGIT_LETTERS.get(digit);
+			for(String letter : letters)
+			{
+				currentMnemonic[index] = letter;
+				phoneNumberMnemonics( index+1, phoneNumber, currentMnemonic, mnemonicsFound);
+			}
+		}
+	}
+}
+```
+- Time Complexity: O(4N * N)	
+- Space Complexity: O(4N * N)
+
 ## Remove duplicates from a linked list
 ```
 /**
