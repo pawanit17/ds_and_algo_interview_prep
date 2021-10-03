@@ -2909,38 +2909,6 @@ public ArrayList<Integer> sunsetViews(int[] a, String direction)
 - Time Complexity: O(N)
 - Space Complexity: O(N)
 
-## Listing all permutations of a given string
-
-public class Questions 
-{
-	public static void main(String args[])
-	{
-		permutationRecurse("abc");
-	}
-	
-	public static void permutationRecurse( String str )
-	{
-		permutationRecurse("",str);
-	}
-	
-	public static void permutationRecurse( String prefix, String str )
-	{
-		int n = str.length();
-		
-		if( n == 0 )
-			System.out.println(prefix);
-		else
-		{
-			for(int inx = 0; inx < n; ++inx)
-			{
-				permutationRecurse( prefix + str.charAt(inx), str.substring(0, inx) + str.substring(inx+1, n));
-			}
-		}
-	}
-}
-- Time Complexity: O(N* N!)
-- Space Complexity: O(N* N!)
-
 ## Youngest Common Ancestor
 - Iterating the two nodes simultaneously is not a viable solution. This is because if the input nodes are at different levels in the tree, then they ascend differently
 and the common will always come up as root node.
@@ -4868,6 +4836,39 @@ public static Map<Character, String[]> DIGIT_LETTERS = new HashMap<Character, St
 - Time Complexity: O(4N * N)	
 - Space Complexity: O(4N * N)
 
+## Listing all permutations of a given string
+
+public class Questions 
+{
+	public static void main(String args[])
+	{
+		permutationRecurse("abc");
+	}
+	
+	public static void permutationRecurse( String str )
+	{
+		permutationRecurse("",str);
+	}
+	
+	public static void permutationRecurse( String prefix, String str )
+	{
+		int n = str.length();
+		
+		if( n == 0 )
+			System.out.println(prefix);
+		else
+		{
+			for(int inx = 0; inx < n; ++inx)
+			{
+				permutationRecurse( prefix + str.charAt(inx), str.substring(0, inx) + str.substring(inx+1, n));
+			}
+		}
+	}
+}
+- Time Complexity: O(N* N!)
+- Space Complexity: O(N* N!)
+
+	
 ## Remove duplicates from a linked list
 ```
 /**
