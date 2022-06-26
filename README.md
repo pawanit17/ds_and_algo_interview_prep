@@ -233,7 +233,7 @@ To shuffle an array a of n elements (indices 0..n-1):
 ## BubbleSort vs SelectionSort
 - In BubbleSort, the element at the last is what gets updated. The heaviest element gets bubbled to the top.
 - In InsertionSort, the element at 0th index is populated with the sorted element.
-
+- Bubblesort operates from right to left while Selection sort operates from left to right.
 ## Insertion sort
 - Best understood using an example where you insert an element into a sorted array.
 - Ex: 1 3 7 9 and you need to add 6 and 4 ( original array is 1 3 7 9 6 4 ).
