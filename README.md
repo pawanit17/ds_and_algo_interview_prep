@@ -171,6 +171,17 @@ To shuffle an array a of n elements (indices 0..n-1):
 - Time Complexity O(N)
 - Space Complexity O(1)
 
+Another implementation
+```
+last = n-1;
+while( last >0 ) // Because no point in shuffling an array of one element
+{
+	int randomIndex = Random.rand(0, last);
+	swap(a[randomIndex], a[last]);
+	last--;
+}
+```
+
 # Sorting Algorithms
 
 ## Selection sort
