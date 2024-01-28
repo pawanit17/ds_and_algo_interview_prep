@@ -1,3 +1,12 @@
+**Things to explore**
+- Is the given array sorted
+- Two pointer approach
+- Are the elements unique
+- Does doing sorting reduce time copmlexity
+- Start with Brute Force algorithm
+- Does the input array have negative numbers as well
+- Can the original array be modified?
+
 **Complexities**
 - O(N) means that the rate of growth of complexity of the algorithm as a function of the input size.
 - O(N) determines that it is atleast N in growth.
