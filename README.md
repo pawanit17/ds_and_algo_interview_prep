@@ -93,7 +93,15 @@ while( j >= 0 ) {
 Another approach:
 - Sort the elements using in-place heap sort
 - For each index, do the two pointer approach on the rest of the array
-- This reduces the complexity O(N^2). 
+- This reduces the complexity O(N^2).
+
+Another approach:
+- Use a Map datastructure that looks like this Map<Integer, List<Integer>>.
+- Calculate every a+b value and store this in the map along with their indices.
+- Ex: (a[i] + a[j]) -> {i,j}
+- This is needed to avoid scenario where i, j that are used in the summation dont get picked up for the third counter k.
+- Space Complexity O(N^2)
+- Time Complexity O(N).
 
 ## [TODO] Counting sort
 https://www.geeksforgeeks.org/counting-sort/
