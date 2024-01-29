@@ -6,6 +6,7 @@
 - Start with Brute Force algorithm
 - Does the input array have negative numbers as well
 - Can the original array be modified?
+- Is the range of numbers in the array special?
 
 **Complexities**
 - O(N) means that the rate of growth of complexity of the algorithm as a function of the input size.
