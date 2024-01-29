@@ -7,6 +7,7 @@
 - Does the input array have negative numbers as well
 - Can the original array be modified?
 - Is the range of numbers in the array special?
+- Base case of every recursive API.
 
 **Complexities**
 - O(N) means that the rate of growth of complexity of the algorithm as a function of the input size.
